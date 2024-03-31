@@ -142,7 +142,7 @@ span, p , li ,strong, option , label, input, a, b {
   margin-left: 0px;
 }
 .ui-check {
-  font-size: 18px;
+  font-size: 16px;
 }
 .ui-check input:checked + i {
   background-color: #2DA110;
