@@ -28,7 +28,7 @@
                 <div class="header_logo">
                     <div class="d-flex justify-content-between">
                         <div style="width: 51px;"></div>
-                        <a>
+                        <a href="{{ url('/case_list') }}">
                             <img class="img-fluid logo_website_main" src="{{ url('img/logo_head.jpg') }}" />
                         </a>
                         <a href="{{ url('/account_setting') }}" style="padding-top: 20px; color:#000">
@@ -80,12 +80,19 @@
                         </div>
                     </div>
                 </div>
-                <div class="p-20">
+                <div class="p-20" style="background: rgb(234,169,90);
+                background: linear-gradient(180deg, rgba(234,169,90,1) 0%, rgba(230,212,153,1) 46%, rgba(234,169,90,1) 100%);">
                     <div class="input-group">
-                        <input type="text" class="form-control form-control-theme form-control-sm search"
-                            placeholder="Search" required="">
                         <span class="input-group-append">
-                            <button class="btn btn-white no-border btn-sm" type="button">
+                            <button class="btn btn-white no-border btn-sm" type="button"
+                            style="    
+                            border-top: 1px solid #b4aeae !important;
+                            border-bottom: 1px solid #b4aeae !important;
+                            border-left: 1px solid #b4aeae !important;
+                            height: 34px;
+                            border-top-left-radius: 5px;
+                            border-bottom-left-radius: 5px;
+                            ">
                                 <span class="d-flex text-muted"><svg xmlns="http://www.w3.org/2000/svg" width="16"
                                         height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
                                         stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
@@ -95,10 +102,16 @@
                                     </svg></span>
                             </button>
                         </span>
+                        <input type="text" class="form-control shadow-none form-control-theme search"
+                        style="
+                        border-left-style: none;
+                        padding-left:0px;
+                        "
+                            placeholder="ค้นหาเคส" required="">
                     </div>
                 </div>
-                <div class="text-center border-bottom">
-                    <p>เรียงตามเวลาอัพเดท
+                <div class="text-center border-bottom p-20">
+                    <p class="mb-0">เรียงตามเวลาอัพเดท
                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24"
                             fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
                             stroke-linejoin="round" class="feather feather-chevron-down mx-2">
@@ -356,7 +369,7 @@
 
     <div id="light">
         <a class="boxclose" id="boxclose" onclick="lightbox_close();"></a>
-        <video id="VisaChipCardVideo" width="600" controls>
+        <video id="VisaChipCardVideo" style="min-width: 446px;"  controls>
             <source src="https://www.w3schools.com/html/mov_bbb.mp4" type="video/mp4">
             <!--Browser does not support <video> tag -->
           </video>

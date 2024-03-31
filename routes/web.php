@@ -20,6 +20,8 @@ Route::post('password/email', [ForgotPasswordController::class, 'sendResetLinkEm
 Route::get('password/reset/{token}', [ResetPasswordController::class, 'showResetForm'])->name('password.reset');
 Route::post('password/reset', [ResetPasswordController::class, 'reset'])->name('password.update');
 
+Auth::routes();
+
 Route::get('/', function () {
     return view('welcome');
 });
@@ -32,9 +34,9 @@ Route::get('/create_account', function () {
     return view('create_account');
 });
 
-Route::get('/create_account2', function () {
-    return view('create_account2');
-});
+Route::get('/create_account2', [App\Http\Controllers\HomeController::class, 'create_account2']);
+
+Route::get('/account_setting', [App\Http\Controllers\HomeController::class, 'account_setting']);
 
 Route::get('/create_complete', function () {
     return view('create_complete');
@@ -71,11 +73,10 @@ Route::get('/servey_success2', function () {
     return view('success_2');
 });
 
-Route::get('/account_setting', function () {
-    return view('account_setting');
+
+
+Route::group(['middleware' => ['UserRole:superadmin|admin']], function() {
+
+    Route::get('/admin/case', [App\Http\Controllers\DashboardController::class, 'index']);
+
 });
-
-
-Auth::routes();
-
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

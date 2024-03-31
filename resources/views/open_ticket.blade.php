@@ -15,6 +15,18 @@ Test
     width: 18px;
     height: 18px;
 }
+.select2-selection--multiple:after{
+ content:"";
+ position:absolute;
+ right:10px;
+ top:15px;
+ width:0;
+ height:0;
+ border-left: 5px solid transparent;
+ border-right: 5px solid transparent;
+ border-top: 5px solid #888;
+}
+
 </style>
 
 @stop('stylesheet')
@@ -27,7 +39,7 @@ Test
             <div class="header_logo">
                 <div class="d-flex justify-content-between">
                     <div style="width: 51px;"></div>
-                    <a>
+                    <a href="{{ url('/case_list') }}">
                         <img class="img-fluid logo_website_main" src="{{ url('img/logo_head.jpg') }}" />
                     </a>
                     <a href="{{ url('/account_setting') }}" style="padding-top: 20px; color:#000">
@@ -106,47 +118,75 @@ Test
                             <label class="text-muted">อายุ</label>
                             <select class="form-control shadow-none">
                                 <option>0-6 เดือน</option>
-                                <option>2</option>
-                                <option>3</option>
-                                <option>4</option>
+                                <option>6 เดือน – 1 ปี</option>
+                                <option>1-3 ปี</option>
+                                <option>3-7 ปี</option>
+                                <option>7-10 ปี</option>
+                                <option>10-15 ปี</option>
+                                <option>15-20 ปี</option>
+                                <option>มากกว่า 20 ปี</option>
                             </select>
                         </div>
                         <div class="form-group col-md-6">
                             <label class="text-muted">เพศ</label>
                             <select class="form-control shadow-none">
                                 <option>เพศผู้ ยังไม่ทำหมัน</option>
-                                <option>2</option>
-                                <option>3</option>
-                                <option>4</option>
+                                <option>เพศผู้ ทำหมันแล้ว</option>
+                                <option>เพศเมีย ยังไม่ทำหมัน</option>
+                                <option>เพศเมีย ทำหมันแล้ว</option>
                             </select>
                         </div>
                     </div>
                     <div class="form-group">
                         <label class="text-muted">พันธ์</label>
-                        <select class="form-control shadow-none">
-                            <option>Chinese Li Hua</option>
-                            <option>2</option>
-                            <option>3</option>
-                            <option>4</option>
+                        <select onchange="val2()" id="breed" class="form-control shadow-none js-example-basic-single2">
                         </select>
+                    </div>
+                    <div id="input_breed" class="form-group hidden">
+                        <label class="text-muted">ระบุพันธ์ กรณีเลือก อื่นๆ (โปรดระบุ)</label>
+                        <input type="text" class="form-control shadow-none" placeholder="โปรดระบุพันธ์">
                     </div>
                     <div class="form-group">
                         <label class="text-muted">โรคประจำตัว (เลือกได้หลายข้อ)</label>
-                        <select class="form-control shadow-none">
+                        <select onchange="diseasex()" id="disease" name="disease[]" multiple="multiple" class="form-control shadow-none js-disease" data-placeholder="ไม่มีโรคประจำตัว">
+                            <option>ไม่มีโรคประจำตัว</option>
+                            <option>โรคผิวหนัง</option>
+                            <option>โรคตับ</option>
+                            <option>โรคไต</option>
                             <option>โรคทางระบบประสาท</option>
-                            <option>2</option>
-                            <option>3</option>
-                            <option>4</option>
+                            <option>โรคหัวใจ</option>
+                            <option>โรคระบบต่อมไร้ท่อ</option>
+                            <option>โรคทางเดินหายใจ</option>
+                            <option>โรคทางเดินอาหาร</option>
+                            <option>โรคตา</option>
+                            <option>โรคระบบสืบพันธุ์</option>
+                            <option>อื่นๆ (โปรดระบุ)</option>
                         </select>
+                    </div>
+                    <div id="input_disease" class="form-group hidden">
+                        <label class="text-muted">โรคประจำตัว กรณีเลือก อื่นๆ (โปรดระบุ)</label>
+                        <input type="text" class="form-control shadow-none" placeholder="โปรดระบุผู้แทนที่ดูแลท่าน">
                     </div>
                     <div class="form-group">
                         <label class="text-muted">จุดประสงค์การใช้งาน (เลือกได้หลายข้อ)</label>
-                        <select class="form-control shadow-none">
-                            <option>ใช้สาหรับรักษาปรสิตภายนอกอื่นๆ</option>
-                            <option>2</option>
-                            <option>3</option>
-                            <option>4</option>
-                        </select>
+                        <div class="select-box choose-position">
+                            <select onchange="val()" id="objective" name="objective[]" multiple="multiple" class="form-control js-example-basic-single shadow-none" data-placeholder="ใช้สำหรับป้องกันปรสิตทั่วไป">
+                                <option>ใช้สำหรับป้องกันปรสิตทั่วไป</option>
+                                <option>ใช้รักษาเห็บ</option>
+                                <option>ใช้รักษาหมัด</option>
+                                <option>ใช้รักษาไรหู</option>
+                                <option>ใช้รักษาไรขี้เรื้อนหน้า</option>
+                                <option>ใช้รักษาเหา</option>
+                                <option>ใช้สำหรับรักษาปรสิตภายนอกอื่นๆ</option>
+                                <option>ใช้สำหรับถ่ายพยาธิ</option>
+                                <option>ใช้ป้องกันพยาธิหนอนหัวใจ</option>
+                                <option>อื่นๆ (โปรดระบุ)</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div id="input_othor" class="form-group hidden">
+                        <label class="text-muted">จุดประสงค์การใช้งาน กรณีเลือก อื่นๆ (โปรดระบุ)</label>
+                        <input type="text" class="form-control shadow-none" placeholder="โปรดระบุผู้แทนที่ดูแลท่าน">
                     </div>
                     <div class="mt-3">
                         <button class="btn btn-green btn-block" onclick="window.location.href='{{ url('servey_before') }}'">
@@ -170,6 +210,172 @@ Test
 @section('scripts')
 
 <script>
+    // Your data
+    var data = `Abyssinian
+    Aegean
+    American Bobtail
+    American Curl
+    American Ringtail
+    American Shorthair
+    American Wirehair
+    Aphrodite Giant
+    Arabian Mau
+    Asian
+    Asian Semi-longhair
+    Australian Mist
+    Balinese
+    Bambino
+    Bengal
+    Birman
+    Bombay
+    Brazilian Shorthair
+    British Longhair
+    British Shorthair
+    Burmese
+    Burmilla
+    California Spangled
+    Chantilly-Tiffany
+    Chartreux
+    Chausie
+    Colorpoint Shorthair
+    Cornish Rex
+    Cymric, Manx Longhair or Long-haired Manx
+    Cyprus
+    Devon Rex
+    Domestic short hair
+    Donskoy or Don Sphynx
+    Dragon Li or Chinese Li Hua
+    Dwelf
+    Egyptian Mau
+    European Shorthair
+    Exotic Shorthair
+    Foldex
+    German Rex
+    Havana Brown
+    Highlander
+    Himalayan or Colorpoint Persian
+    Japanese Bobtail
+    Javanese or Colorpoint Longhair
+    Kanaani
+    Khao Manee
+    Kinkalow
+    Korat
+    Korean Bobtail
+    Korn Ja or Konja
+    Kurilian Bobtail or Kuril Islands Bobtail
+    Lambkin
+    LaPerm
+    Lykoi
+    Maine Coon
+    Manx
+    Mekong Bobtail
+    Minskin
+    Minuet
+    Munchkin
+    Nebelung
+    Neva Masquerade (colorpoint Siberian)
+    Norwegian Forest Cat
+    Ocicat
+    Ojos Azules
+    Oriental Bicolor/Longhair/Shorthair
+    Persian
+    Peterbald
+    Pixie-bob
+    Ragamuffin or Liebling (obsolete)
+    Ragdoll
+    Raas
+    Russian Blue
+    Russian White, Russian Black and Russian Tabby
+    Sam Sawet
+    Savannah
+    Scottish Fold
+    Selkirk Rex
+    Serengeti
+    Siamese
+    Siberian or Siberian Forest Cat
+    Singapura
+    Snowshoe
+    Sokoke
+    Somali
+    Sphynx
+    Suphalak
+    Wichien Maat
+    Thai Lilac, Thai Blue Point and Thai Lilac Point
+    Tonkinese
+    Toybob
+    Toyger
+    Turkish Angora
+    Turkish Van or Turkish Vankedisi
+    Ukrainian Levkoy
+    York Chocolate
+    อื่นๆ (โปรดระบุ)`;
+
+    // Split data by newline character
+    var dataArray = data.split('\n');
+
+    // Get the select element
+    var selectElement = document.querySelector('.js-example-basic-single2');
+
+    // Loop through data and add options to select element
+    dataArray.forEach(function(item) {
+        var option = document.createElement('option');
+        option.value = item.trim(); // Trim any leading or trailing whitespace
+        option.text = item.trim();
+        selectElement.appendChild(option);
+    });
+</script>
+
+
+
+<script>
+
+function val2() {
+    d1 = document.getElementById("breed").value;
+    if(d1 == 'อื่นๆ (โปรดระบุ)'){
+        document.getElementById("input_breed").classList.remove("hidden");
+    }else{
+        document.getElementById("input_breed").classList.add("hidden");
+    }
+}
+
+    $(document).ready(function() {
+        $('.js-example-basic-single').select2({
+            dropdownParent: $(".choose-position")
+        });
+        $('.js-example-basic-single2').select2();
+
+        $('.js-disease').select2();
+
+
+    });
+
+    function diseasex() {
+console.log('Disease')
+// d = document.getElementById("objective").value;
+var array_disease = $(".js-disease").val();
+var value_disease = 'อื่นๆ (โปรดระบุ)';
+
+if (array_disease.includes(value_disease)) {
+    document.getElementById("input_disease").classList.remove("hidden");
+} else {
+    document.getElementById("input_disease").classList.add("hidden");
+}
+
+}
+
+function val() {
+
+    // d = document.getElementById("objective").value;
+    var array1 = $(".js-example-basic-single").val();
+    var value1 = 'อื่นๆ (โปรดระบุ)';
+
+    if (array1.includes(value1)) {
+        document.getElementById("input_othor").classList.remove("hidden");
+    } else {
+        document.getElementById("input_othor").classList.add("hidden");
+    }
+
+}
 
     del_img1 = () => {
         console.log('del_img1')

@@ -46,10 +46,10 @@ class LoginController extends Controller
      {
      // Logic that determines where to send the user
      if($request->user()->hasRole('superadmin')){
-     return redirect('/admin/dashboard');
+     return redirect('/admin/case');
      }
      if($request->user()->hasRole('admin')){
-     return redirect('/admin/dashboard');
+     return redirect('/admin/case');
      }
      if($request->user()->hasRole('user')){
        return redirect('/case_list');

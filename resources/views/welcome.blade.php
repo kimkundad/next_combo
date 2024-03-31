@@ -16,7 +16,7 @@ Test
         <div id="content" >
             <div class="header_logo">
                 <div class="d-flex justify-content-center">
-                    <a>
+                    <a href="{{ url('/case_list') }}">
                         <img class="img-fluid logo_website_main" src="{{ url('img/logo_head.jpg') }}" />
                     </a>
                 </div>
@@ -32,7 +32,7 @@ Test
                             <label class="ui-check ui-check-lg">
                                 <input type="radio" name="a">
                                 <i class="dark-white"></i>
-                                ยอมรับ <a href="">PDPA</a> เพื่อเข้าร่วมกิจกรรม
+                                ยอมรับ <a href="https://www.spectrafordog.com/TH/privacy-policy.html" target="_blank">PDPA</a> เพื่อเข้าร่วมกิจกรรม
                             </label>
                         </div>
                         <div class="box-height-10"></div>

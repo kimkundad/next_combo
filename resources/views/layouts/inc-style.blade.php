@@ -10,7 +10,8 @@
         <link rel="stylesheet" href="{{ url('/home/libs/font-awesome/css/font-awesome.css') }}" type="text/css" />
 <!-- endbuild -->
         <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
-
+  
+        <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
 
 <style>
 

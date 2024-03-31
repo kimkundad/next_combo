@@ -26,7 +26,7 @@ Test
         <div id="content" >
             <div class="header_logo">
                 <div class="d-flex justify-content-center">
-                    <a>
+                    <a href="{{ url('/case_list') }}">
                         <img class="img-fluid logo_website_main" src="{{ url('img/logo_head.jpg') }}" />
                     </a>
                 </div>
@@ -47,10 +47,10 @@ Test
                             <div class="box-height-10"></div>
                             <div class="btn-group btn-group-toggle mb-0" data-toggle="buttons">
                                 <label class="btn active">
-                                    <input type="radio" name="options" id="option1" checked> นายสัตวแพทย์
+                                    <input type="radio" name="options" value="นายสัตวแพทย์" id="option1" checked> นายสัตวแพทย์
                                 </label>
                                 <label class="btn">
-                                    <input type="radio" name="options" id="option2"> สัตวแพทย์หญิง
+                                    <input type="radio" name="options" value="สัตวแพทย์หญิง" id="option2"> สัตวแพทย์หญิง
                                 </label>
                             </div>
                         </div>
@@ -80,20 +80,19 @@ Test
                     <div class="form-row">
                         <div class="form-group col-md-6">
                             <label class="text-muted">ประเภท</label>
-                            <select class="form-control shadow-none">
-                                <option>1</option>
-                                <option>2</option>
-                                <option>3</option>
-                                <option>4</option>
+                            <select class="form-control shadow-none" name="clinic_type">
+                                <option value="คลินิก">คลินิก</option>
+                                <option value="โรงพยาบาลสัตว์">โรงพยาบาลสัตว์</option>
                             </select>
                         </div>
                         <div class="form-group col-md-6">
                             <label class="text-muted">จังหวัด</label>
-                            <select class="form-control shadow-none">
-                                <option>1</option>
-                                <option>2</option>
-                                <option>3</option>
-                                <option>4</option>
+                            <select class="form-control js-example-basic-single" name="province">
+                                @isset($provinces)
+                                    @foreach ($provinces as $item)
+                                        <option value="{{ $item->province }}">{{ $item->province }}</option>
+                                    @endforeach
+                                @endisset
                             </select>
                         </div>
                     </div>
@@ -103,13 +102,34 @@ Test
                     </div>
                     <div class="form-group">
                         <label class="text-muted">เลือกผู้แทนที่ดูแลท่าน</label>
-                        <select class="form-control shadow-none">
-                            <option>1</option>
-                            <option>2</option>
-                            <option>3</option>
-                            <option>4</option>
+                        <select onchange="val()" id="doctor" class="form-control js-example-basic-single2 shadow-none" name="representative">
+                            <option>หมออิ๋ม</option>
+                            <option>หมอรุ้ง</option>
+                            <option>หมออาย</option>
+                            <option>หมอบีม อรุณทิพย์</option>
+                            <option>หมอเบนซ์</option>
+                            <option>หมอนุ่น</option>
+                            <option>หมอดิว</option>
+                            <option>หมอป้อมแป้ม</option>
+                            <option>หมอแจม</option>
+                            <option>หมอหวาน</option>
+                            <option>หมอวิว</option>
+                            <option>หมอพิ้นช์</option>
+                            <option>หมอเบล</option>
+                            <option>หมอบีม กมลวรรณ</option>
+                            <option>หมอมิ้ว</option>
+                            <option>หมอแต้ม</option>
+                            <option>หมอโจ๊ก</option>
+                            <option>หมอเอิน</option>
+                            <option>หมอเปตอง</option>
+                            <option>อื่นๆ (โปรดระบุ)</option>
                         </select>
                     </div>
+                    <div id="input_othor" class="form-group hidden">
+                        <label class="text-muted">โปรดระบุผู้แทนที่ดูแลท่าน กรณีเลือก อื่นๆ (โปรดระบุ)</label>
+                        <input type="text" class="form-control shadow-none" placeholder="โปรดระบุผู้แทนที่ดูแลท่าน">
+                    </div>
+                    <div class="box-height-10"></div>
                     <div class="mt-3">
                         <button class="btn btn-green btn-block" onclick="window.location.href='{{ url('create_account3') }}'">
                             ลงทะเบียน
@@ -130,5 +150,24 @@ Test
 @endsection
 
 @section('scripts')
+
+
+<script>
+    $(document).ready(function() {
+    $('.js-example-basic-single').select2();
+    $('.js-example-basic-single2').select2();
+});
+
+function val() {
+    d = document.getElementById("doctor").value;
+    if(d == 'อื่นๆ (โปรดระบุ)'){
+        document.getElementById("input_othor").classList.remove("hidden");
+    }else{
+        document.getElementById("input_othor").classList.add("hidden");
+    }
+}
+
+
+</script>
 
 @stop('scripts')

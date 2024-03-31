@@ -26,7 +26,7 @@ Test
         <div id="content" >
             <div class="header_logo">
                 <div class="d-flex justify-content-center">
-                    <a>
+                    <a href="{{ url('/case_list') }}">
                         <img class="img-fluid logo_website_main" src="{{ url('img/logo_head.jpg') }}" />
                     </a>
                 </div>

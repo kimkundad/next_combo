@@ -28,7 +28,7 @@ Test
             <div class="header_logo">
                 <div class="d-flex justify-content-between">
                     <div style="width: 51px;"></div>
-                    <a>
+                    <a href="{{ url('/case_list') }}">
                         <img class="img-fluid logo_website_main" src="{{ url('img/logo_head.jpg') }}" />
                     </a>
                     <a href="{{ url('/account_setting') }}" style="padding-top: 20px; color:#000">
