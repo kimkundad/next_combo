@@ -61,7 +61,7 @@
                                     </svg>
                                 </div>
                                 <div>
-                                    <p class="text-muted mb-0 fs-19">รับชมวีดีโอ</p>
+                                    <p class="text-muted mb-0 fs-19" style="margin-top: 2px;">รับชมวีดีโอ</p>
                                 </div>
 
                             </div>
