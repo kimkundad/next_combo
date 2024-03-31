@@ -17,8 +17,17 @@
     .ml-15{
         margin-left: 15px
     }
+    .mr-15{
+        margin-right: 10px
+    }
+    .box-height-10{
+        height: 10px;
+    }
+    .hidden{
+        display: none
+    }
 </style>
-
+<link href="{{ url('home/star/dist/star-rating.css') }}" rel="stylesheet" />
 
 @stop('stylesheet')
 
@@ -152,7 +161,7 @@
                                             </td>
                                             
                                             <td class="text-end">
-                                                <a href="#" class="btn btn-secondary btn-sm me-2 mb-2">ก่อนการใช้</a>
+                                                <a href="#" data-bs-toggle="modal" data-bs-target="#kt_modal_1" class="btn btn-secondary btn-sm me-2 mb-2">ก่อนการใช้</a>
                                                 <a href="#" class="btn btn-secondary btn-sm me-2 mb-2">หลังการใช้</a>
                                                 <a href="#" class="btn btn-secondary btn-sm me-2 mb-2">เพิ่มเติม</a>
                                             </td>
@@ -197,7 +206,7 @@
                                             </td>
                                             
                                             <td class="text-end">
-                                                <a href="#" class="btn btn-secondary btn-sm me-2 mb-2">ก่อนการใช้</a>
+                                                <a href="#" data-bs-toggle="modal" data-bs-target="#kt_modal_1" class="btn btn-secondary btn-sm me-2 mb-2">ก่อนการใช้</a>
                                                 <a href="#" class="btn btn-secondary btn-sm me-2 mb-2">หลังการใช้</a>
                                                 <a href="#" class="btn btn-secondary btn-sm me-2 mb-2">เพิ่มเติม</a>
                                             </td>
@@ -242,7 +251,7 @@
                                             </td>
                                             
                                             <td class="text-end">
-                                                <a href="#" class="btn btn-secondary btn-sm me-2 mb-2">ก่อนการใช้</a>
+                                                <a href="#" data-bs-toggle="modal" data-bs-target="#kt_modal_1" class="btn btn-secondary btn-sm me-2 mb-2">ก่อนการใช้</a>
                                                 <a href="#" class="btn btn-secondary btn-sm me-2 mb-2">หลังการใช้</a>
                                                 <a href="#" class="btn btn-secondary btn-sm me-2 mb-2">เพิ่มเติม</a>
                                             </td>
@@ -287,7 +296,7 @@
                                             </td>
                                             
                                             <td class="text-end">
-                                                <a href="#" class="btn btn-secondary btn-sm me-2 mb-2">ก่อนการใช้</a>
+                                                <a href="#" data-bs-toggle="modal" data-bs-target="#kt_modal_1" class="btn btn-secondary btn-sm me-2 mb-2">ก่อนการใช้</a>
                                                 <a href="#" class="btn btn-secondary btn-sm me-2 mb-2">หลังการใช้</a>
                                                 <a href="#" class="btn btn-secondary btn-sm me-2 mb-2">เพิ่มเติม</a>
                                             </td>
@@ -332,7 +341,7 @@
                                             </td>
                                             
                                             <td class="text-end">
-                                                <a href="#" class="btn btn-secondary btn-sm me-2 mb-2">ก่อนการใช้</a>
+                                                <a href="#" data-bs-toggle="modal" data-bs-target="#kt_modal_1" class="btn btn-secondary btn-sm me-2 mb-2">ก่อนการใช้</a>
                                                 <a href="#" class="btn btn-secondary btn-sm me-2 mb-2">หลังการใช้</a>
                                                 <a href="#" class="btn btn-secondary btn-sm me-2 mb-2">เพิ่มเติม</a>
                                             </td>
@@ -377,7 +386,7 @@
                                             </td>
                                             
                                             <td class="text-end">
-                                                <a href="#" class="btn btn-secondary btn-sm me-2 mb-2">ก่อนการใช้</a>
+                                                <a href="#" data-bs-toggle="modal" data-bs-target="#kt_modal_1" class="btn btn-secondary btn-sm me-2 mb-2">ก่อนการใช้</a>
                                                 <a href="#" class="btn btn-secondary btn-sm me-2 mb-2">หลังการใช้</a>
                                                 <a href="#" class="btn btn-secondary btn-sm me-2 mb-2">เพิ่มเติม</a>
                                             </td>
@@ -422,7 +431,7 @@
                                             </td>
                                             
                                             <td class="text-end">
-                                                <a href="#" class="btn btn-secondary btn-sm me-2 mb-2">ก่อนการใช้</a>
+                                                <a href="#" data-bs-toggle="modal" data-bs-target="#kt_modal_1" class="btn btn-secondary btn-sm me-2 mb-2">ก่อนการใช้</a>
                                                 <a href="#" class="btn btn-secondary btn-sm me-2 mb-2">หลังการใช้</a>
                                                 <a href="#" class="btn btn-secondary btn-sm me-2 mb-2">เพิ่มเติม</a>
                                             </td>
@@ -520,6 +529,7 @@
 
                                     </tbody>
                                 </table>
+                                <div class="row"><div class="col-sm-12 col-md-5 d-flex align-items-center justify-content-center justify-content-md-start"><div class="dataTables_length" id="kt_profile_overview_table_length"><label><select name="kt_profile_overview_table_length" aria-controls="kt_profile_overview_table" class="form-select form-select-sm form-select-solid"><option value="10">10</option><option value="25">25</option><option value="50">50</option><option value="100">100</option></select></label></div></div><div class="col-sm-12 col-md-7 d-flex align-items-center justify-content-center justify-content-md-end"><div class="dataTables_paginate paging_simple_numbers" id="kt_profile_overview_table_paginate"><ul class="pagination"><li class="paginate_button page-item previous disabled" id="kt_profile_overview_table_previous"><a href="#" aria-controls="kt_profile_overview_table" data-dt-idx="0" tabindex="0" class="page-link"><i class="previous"></i></a></li><li class="paginate_button page-item active"><a href="#" aria-controls="kt_profile_overview_table" data-dt-idx="1" tabindex="0" class="page-link">1</a></li><li class="paginate_button page-item "><a href="#" aria-controls="kt_profile_overview_table" data-dt-idx="2" tabindex="0" class="page-link">2</a></li><li class="paginate_button page-item "><a href="#" aria-controls="kt_profile_overview_table" data-dt-idx="3" tabindex="0" class="page-link">3</a></li><li class="paginate_button page-item next" id="kt_profile_overview_table_next"><a href="#" aria-controls="kt_profile_overview_table" data-dt-idx="4" tabindex="0" class="page-link"><i class="next"></i></a></li></ul></div></div></div>
                             </div>
                         </div>
                     </div>
@@ -532,6 +542,193 @@
             <!--end::Content-->
         </div>
         <!--end::Content wrapper-->
+
+
+        <div class="modal fade" tabindex="-1" id="kt_modal_1">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h3 class="modal-title text-success">ก่อนการใช้งานผลิตภัณฑ์</h3>
+        
+                        <!--begin::Close-->
+                        <div class="btn btn-icon btn-sm btn-active-light-primary ms-2" data-bs-dismiss="modal" aria-label="Close">
+                            <i class="ki-duotone ki-cross fs-1"><span class="path1"></span><span class="path2"></span></i>
+                        </div>
+                        <!--end::Close-->
+                    </div>
+        
+                    <div class="modal-body">
+                        <ul class="nav nav-tabs nav-line-tabs mb-5 fs-6">
+                            <li class="nav-item">
+                                <a class="nav-link active" data-bs-toggle="tab" href="#kt_tab_pane_1">รายละเอียด</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" data-bs-toggle="tab" href="#kt_tab_pane_2">แบบประเมิน</a>
+                            </li>
+                        </ul>
+                        
+                        <div class="tab-content" id="myTabContent">
+                            <div class="tab-pane fade show active" id="kt_tab_pane_1" role="tabpanel">
+                                
+                                <div class="d-flex justify-content-around" style="width: 100%">
+                                    <div class="mr-15"><img src="{{ url('img/cat/img2.jpg') }}" class="img-fluid card-rounded" alt="cat"></div>
+                                    <div class="mr-15"><img src="{{ url('img/cat/img2.jpg') }}" class="img-fluid card-rounded" alt="cat"></div>
+                                    <div class="mr-15"><img src="{{ url('img/cat/img2.jpg') }}" class="img-fluid card-rounded" alt="cat"></div>
+                                </div>
+                                <Br>
+                                <h2 class="text-md text-highlight fs-18">ประวัติสัตว์เลี้ยง</h2>
+                                <div class="form-group">
+                                    <label class="text-muted">ชื่อสัตว์เลี้ยง</label>
+                                    <input type="text" class="form-control shadow-none" placeholder="รายละเอียด">
+                                </div>
+                                <div class="box-height-10"></div>
+                                <div class="row">
+                                    <div class="form-group col-md-6">
+                                        <label class="text-muted">อายุ</label>
+                                        <select class="form-control shadow-none">
+                                            <option>0-6 เดือน</option>
+                                            <option>6 เดือน – 1 ปี</option>
+                                            <option>1-3 ปี</option>
+                                            <option>3-7 ปี</option>
+                                            <option>7-10 ปี</option>
+                                            <option>10-15 ปี</option>
+                                            <option>15-20 ปี</option>
+                                            <option>มากกว่า 20 ปี</option>
+                                        </select>
+                                    </div>
+                                    <div class="form-group col-md-6">
+                                        <label class="text-muted">เพศ</label>
+                                        <select class="form-control shadow-none">
+                                            <option>เพศผู้ ยังไม่ทำหมัน</option>
+                                            <option>เพศผู้ ทำหมันแล้ว</option>
+                                            <option>เพศเมีย ยังไม่ทำหมัน</option>
+                                            <option>เพศเมีย ทำหมันแล้ว</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="box-height-10"></div>
+                                <div class="form-group">
+                                    <label class="text-muted">พันธ์</label>
+                                    <select id="breed" class="form-select js-example-basic-single2">
+                                    </select>
+                                </div>
+                                <div id="input_breed" class="form-group hidden">
+                                    <label class="text-muted">ระบุพันธ์ กรณีเลือก อื่นๆ (โปรดระบุ)</label>
+                                    <input type="text" class="form-control shadow-none" placeholder="โปรดระบุพันธ์">
+                                </div>
+                                <div class="box-height-10"></div>
+                                <div class="form-group">
+                                    <label class="text-muted">โรคประจำตัว (เลือกได้หลายข้อ)</label>
+                                    <select class="form-select" >
+                                        <option>ไม่มีโรคประจำตัว</option>
+                                        <option>โรคผิวหนัง</option>
+                                        <option>โรคตับ</option>
+                                        <option>โรคไต</option>
+                                        <option>โรคทางระบบประสาท</option>
+                                        <option>โรคหัวใจ</option>
+                                        <option>โรคระบบต่อมไร้ท่อ</option>
+                                        <option>โรคทางเดินหายใจ</option>
+                                        <option>โรคทางเดินอาหาร</option>
+                                        <option>โรคตา</option>
+                                        <option>โรคระบบสืบพันธุ์</option>
+                                        <option>อื่นๆ (โปรดระบุ)</option>
+                                    </select>
+                                </div>
+                                <div id="input_disease" class="form-group hidden">
+                                    <label class="text-muted">โรคประจำตัว กรณีเลือก อื่นๆ (โปรดระบุ)</label>
+                                    <input type="text" class="form-control shadow-none" placeholder="โปรดระบุผู้แทนที่ดูแลท่าน">
+                                </div>
+                                <div class="box-height-10"></div>
+                                <div class="form-group">
+                                    <label class="text-muted">จุดประสงค์การใช้งาน (เลือกได้หลายข้อ)</label>
+                                    <div class="select-box choose-position">
+                                        <select class="form-select">
+                                            <option>ใช้สำหรับป้องกันปรสิตทั่วไป</option>
+                                            <option>ใช้รักษาเห็บ</option>
+                                            <option>ใช้รักษาหมัด</option>
+                                            <option>ใช้รักษาไรหู</option>
+                                            <option>ใช้รักษาไรขี้เรื้อนหน้า</option>
+                                            <option>ใช้รักษาเหา</option>
+                                            <option>ใช้สำหรับรักษาปรสิตภายนอกอื่นๆ</option>
+                                            <option>ใช้สำหรับถ่ายพยาธิ</option>
+                                            <option>ใช้ป้องกันพยาธิหนอนหัวใจ</option>
+                                            <option>อื่นๆ (โปรดระบุ)</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div id="input_othor" class="form-group hidden">
+                                    <label class="text-muted">จุดประสงค์การใช้งาน กรณีเลือก อื่นๆ (โปรดระบุ)</label>
+                                    <input type="text" class="form-control shadow-none" placeholder="โปรดระบุผู้แทนที่ดูแลท่าน">
+                                </div>
+
+
+                            </div>
+                            <div class="tab-pane fade" id="kt_tab_pane_2" role="tabpanel">
+                                <div class="p-26">
+                        
+                                    <div class="box-height-10"></div>
+                                    <div class="form-group">
+                                        <label class="" style="font-size:15px">1. กลิ่นของยาไม่เหม็นฉุน</label>
+                                        <select class="star-rating" name="ark1">
+                                            <option value="">Select a rating</option>
+                                            <option value="5">Excellent</option>
+                                            <option value="4">Very Good</option>
+                                            <option value="3">Average</option>
+                                            <option value="2">Poor</option>
+                                            <option value="1">Terrible</option>
+                                        </select>
+                                    </div>
+                                    <div class="box-height-10"></div>
+                                    <div class="form-group">
+                                        <label class="" style="font-size:15px">2. สะดวกแค่หยดไม่ต้องป้อนยา ถ่ายพยาธิ</label>
+                                        <select class="star-rating" name="ark2">
+                                            <option value="">Select a rating</option>
+                                            <option value="5">Excellent</option>
+                                            <option value="4">Very Good</option>
+                                            <option value="3">Average</option>
+                                            <option value="2">Poor</option>
+                                            <option value="1">Terrible</option>
+                                        </select>
+                                    </div>
+                                    <div class="box-height-10"></div>
+                                    <div class="form-group">
+                                        <label class="" style="font-size:15px">3. มั่นใจในความปลอดภัย เช่น ใช้ได้ใน แมวแม่พันธุ์ ตั้งท้อง ให้นมลูก</label>
+                                        <select class="star-rating" name="ark3">
+                                            <option value="">Select a rating</option>
+                                            <option value="5">Excellent</option>
+                                            <option value="4">Very Good</option>
+                                            <option value="3">Average</option>
+                                            <option value="2">Poor</option>
+                                            <option value="1">Terrible</option>
+                                        </select>
+                                    </div>
+                                    <div class="box-height-10"></div>
+                                    <div class="form-group">
+                                        <label class="" style="font-size:15px">4. ภาพรวมของโปรแกรม NEXT COMBO</label>
+                                        <select class="star-rating" name="ark4">
+                                            <option value="">Select a rating</option>
+                                            <option value="5">Excellent</option>
+                                            <option value="4">Very Good</option>
+                                            <option value="3">Average</option>
+                                            <option value="2">Poor</option>
+                                            <option value="1">Terrible</option>
+                                        </select>
+                                    </div>
+                
+                
+                                    
+                                    
+                            </div>
+                            </div>
+                        </div>
+                    </div>
+        
+                    <div class="modal-footer justify-content-center">
+                        <button type="button" class="btn btn-light" data-bs-dismiss="modal">ปิดหน้าต่าง</button>
+                    </div>
+                </div>
+            </div>
+        </div>
         
         
     </div>
@@ -541,6 +738,130 @@
 @section('scripts')
 
 
+<script>
+    // Your data
+    var data = `Abyssinian
+    Aegean
+    American Bobtail
+    American Curl
+    American Ringtail
+    American Shorthair
+    American Wirehair
+    Aphrodite Giant
+    Arabian Mau
+    Asian
+    Asian Semi-longhair
+    Australian Mist
+    Balinese
+    Bambino
+    Bengal
+    Birman
+    Bombay
+    Brazilian Shorthair
+    British Longhair
+    British Shorthair
+    Burmese
+    Burmilla
+    California Spangled
+    Chantilly-Tiffany
+    Chartreux
+    Chausie
+    Colorpoint Shorthair
+    Cornish Rex
+    Cymric, Manx Longhair or Long-haired Manx
+    Cyprus
+    Devon Rex
+    Domestic short hair
+    Donskoy or Don Sphynx
+    Dragon Li or Chinese Li Hua
+    Dwelf
+    Egyptian Mau
+    European Shorthair
+    Exotic Shorthair
+    Foldex
+    German Rex
+    Havana Brown
+    Highlander
+    Himalayan or Colorpoint Persian
+    Japanese Bobtail
+    Javanese or Colorpoint Longhair
+    Kanaani
+    Khao Manee
+    Kinkalow
+    Korat
+    Korean Bobtail
+    Korn Ja or Konja
+    Kurilian Bobtail or Kuril Islands Bobtail
+    Lambkin
+    LaPerm
+    Lykoi
+    Maine Coon
+    Manx
+    Mekong Bobtail
+    Minskin
+    Minuet
+    Munchkin
+    Nebelung
+    Neva Masquerade (colorpoint Siberian)
+    Norwegian Forest Cat
+    Ocicat
+    Ojos Azules
+    Oriental Bicolor/Longhair/Shorthair
+    Persian
+    Peterbald
+    Pixie-bob
+    Ragamuffin or Liebling (obsolete)
+    Ragdoll
+    Raas
+    Russian Blue
+    Russian White, Russian Black and Russian Tabby
+    Sam Sawet
+    Savannah
+    Scottish Fold
+    Selkirk Rex
+    Serengeti
+    Siamese
+    Siberian or Siberian Forest Cat
+    Singapura
+    Snowshoe
+    Sokoke
+    Somali
+    Sphynx
+    Suphalak
+    Wichien Maat
+    Thai Lilac, Thai Blue Point and Thai Lilac Point
+    Tonkinese
+    Toybob
+    Toyger
+    Turkish Angora
+    Turkish Van or Turkish Vankedisi
+    Ukrainian Levkoy
+    York Chocolate
+    อื่นๆ (โปรดระบุ)`;
 
+    // Split data by newline character
+    var dataArray = data.split('\n');
+
+    // Get the select element
+    var selectElement = document.querySelector('.js-example-basic-single2');
+
+    // Loop through data and add options to select element
+    dataArray.forEach(function(item) {
+        var option = document.createElement('option');
+        option.value = item.trim(); // Trim any leading or trailing whitespace
+        option.text = item.trim();
+        selectElement.appendChild(option);
+    });
+</script>
+
+<script src="{{ url('home/star/dist/star-rating.min.js') }}"></script>
+
+<script>
+
+var starRatingControl = new StarRating('.star-rating',{
+    maxStars: 5
+});
+    
+</script>
 
 @stop('scripts')

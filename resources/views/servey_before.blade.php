@@ -19,6 +19,7 @@ Test
 
 @stop('stylesheet')
 
+
 <link href="{{ url('home/star/dist/star-rating.css') }}" rel="stylesheet" />
 
 @section('content')

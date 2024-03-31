@@ -202,6 +202,7 @@ span, p , li ,strong, option , label, input, a, b {
   box-shadow: none;
 }
 
+
 .bg-game-slot{
   background-image: url('../../../img/page3/base-ui-.png');
     /* background-position: center center; home/assets/img/page6/Rectangle.png */ 
