@@ -34,11 +34,12 @@ Test
             <div class="p-10 border-bottom">
                 <div class="text-center">
                     <h1 class="big_text_green">REGISTER</h1>
-                    <p class="sub_text_green">ลงทะเบียนผู้ใช้งาน</p>
+                    <p class="sub_text_green">ลงทะเบียนผู้ใช้งาน </p>
                 </div>
             </div>
             
-            <form class="" role="form" action="{{ url('create_complete') }}">
+            <form class="" role="form" method="POST" action="{{ url('create_user_profile') }}">
+                @csrf
                 <div class="p-26">
                         <h2 class="text-md text-highlight">ข้อมูลส่วนตัว</h2>
                         <div class="box-height-10"></div>
@@ -47,30 +48,30 @@ Test
                             <div class="box-height-10"></div>
                             <div class="btn-group btn-group-toggle mb-0" data-toggle="buttons">
                                 <label class="btn active">
-                                    <input type="radio" name="options" value="นายสัตวแพทย์" id="option1" checked> นายสัตวแพทย์
+                                    <input type="radio" name="ser" value="นายสัตวแพทย์" id="option1" checked> นายสัตวแพทย์
                                 </label>
                                 <label class="btn">
-                                    <input type="radio" name="options" value="สัตวแพทย์หญิง" id="option2"> สัตวแพทย์หญิง
+                                    <input type="radio" name="ser" value="สัตวแพทย์หญิง" id="option2"> สัตวแพทย์หญิง
                                 </label>
                             </div>
                         </div>
                         <div class="form-row">
                             <div class="form-group col-md-6">
                                 <label class="text-muted">ชื่อ</label>
-                                <input type="text" class="form-control shadow-none" placeholder="รายละเอียด">
+                                <input type="text" name="fname" class="form-control shadow-none" placeholder="รายละเอียด">
                             </div>
                             <div class="form-group col-md-6">
                                 <label class="text-muted">นามสกุล</label>
-                                <input type="text" class="form-control shadow-none" placeholder="รายละเอียด">
+                                <input type="text" name="lname" class="form-control shadow-none" placeholder="รายละเอียด">
                             </div>
                         </div>
                         <div class="form-group">
                             <label class="text-muted">เบอร์โทรศัพย์</label>
-                            <input type="text" class="form-control shadow-none" placeholder="รายละเอียด">
+                            <input type="text" name="phone" class="form-control shadow-none" placeholder="รายละเอียด">
                         </div>
                         <div class="form-group">
                             <label class="text-muted">VET ID</label>
-                            <input type="text" class="form-control shadow-none" placeholder="01-xxxx/xxxx">
+                            <input type="text" name="code_user" value="{{ Auth::user()->code_user }}" class="form-control shadow-none" placeholder="01-xxxx/xxxx">
                         </div>
                         
                         <div class="box-height-10"></div>
@@ -98,7 +99,7 @@ Test
                     </div>
                     <div class="form-group">
                         <label class="text-muted">ชื่อสถานที่ทำงาน</label>
-                        <input type="text" class="form-control shadow-none" placeholder="โปรดระบุสถานที่">
+                        <input type="text" class="form-control shadow-none" name="address" placeholder="โปรดระบุสถานที่">
                     </div>
                     <div class="form-group">
                         <label class="text-muted">เลือกผู้แทนที่ดูแลท่าน</label>
@@ -127,11 +128,11 @@ Test
                     </div>
                     <div id="input_othor" class="form-group hidden">
                         <label class="text-muted">โปรดระบุผู้แทนที่ดูแลท่าน กรณีเลือก อื่นๆ (โปรดระบุ)</label>
-                        <input type="text" class="form-control shadow-none" placeholder="โปรดระบุผู้แทนที่ดูแลท่าน">
+                        <input type="text" name="representative2" class="form-control shadow-none" placeholder="โปรดระบุผู้แทนที่ดูแลท่าน">
                     </div>
                     <div class="box-height-10"></div>
                     <div class="mt-3">
-                        <button class="btn btn-green btn-block" onclick="window.location.href='{{ url('create_account3') }}'">
+                        <button class="btn btn-green btn-block" type="submit">
                             ลงทะเบียน
                         </button>
                     </div>

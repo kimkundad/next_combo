@@ -30,49 +30,56 @@ Route::get('logout', '\App\Http\Controllers\Auth\LoginController@logout');
 
 Route::get('/service', [App\Http\Controllers\HomeController::class, 'service']);
 
-Route::get('/create_account', function () {
-    return view('create_account');
+Route::get('/create_account', [App\Http\Controllers\HomeController::class, 'create_account']);
+
+
+Route::post('/create_new_user', [App\Http\Controllers\HomeController::class, 'create_new_user']);
+
+
+Route::group(['middleware' => ['UserRole:superadmin|admin|user']], function() {
+
+    Route::get('/create_complete', function () {
+        return view('create_complete');
+    });
+
+    Route::post('/create_user_profile', [App\Http\Controllers\HomeController::class, 'create_user_profile']);
+
+    Route::get('/create_account2', [App\Http\Controllers\HomeController::class, 'create_account2']);
+
+    Route::get('/account_setting', [App\Http\Controllers\HomeController::class, 'account_setting']);
+
+    Route::get('/case_list', function () {
+        return view('case_list');
+    });
+    
+    Route::get('/open_ticket', function () {
+        return view('open_ticket');
+    });
+    
+    Route::get('/close_ticket', function () {
+        return view('close_ticket');
+    });
+    
+    Route::get('/servey_after', function () {
+        return view('servey_after');
+    });
+    
+    Route::get('/add_ticket', function () {
+        return view('add_ticket');
+    });
+    
+    Route::get('/servey_before', function () {
+        return view('servey_before');
+    });
+    
+    Route::get('/servey_success', function () {
+        return view('success_1');
+    });
+    Route::get('/servey_success2', function () {
+        return view('success_2');
+    });
+
 });
-
-Route::get('/create_account2', [App\Http\Controllers\HomeController::class, 'create_account2']);
-
-Route::get('/account_setting', [App\Http\Controllers\HomeController::class, 'account_setting']);
-
-Route::get('/create_complete', function () {
-    return view('create_complete');
-});
-
-Route::get('/case_list', function () {
-    return view('case_list');
-});
-
-Route::get('/open_ticket', function () {
-    return view('open_ticket');
-});
-
-Route::get('/close_ticket', function () {
-    return view('close_ticket');
-});
-
-Route::get('/servey_after', function () {
-    return view('servey_after');
-});
-
-Route::get('/add_ticket', function () {
-    return view('add_ticket');
-});
-
-Route::get('/servey_before', function () {
-    return view('servey_before');
-});
-
-Route::get('/servey_success', function () {
-    return view('success_1');
-});
-Route::get('/servey_success2', function () {
-    return view('success_2');
-});
-
 
 
 Route::group(['middleware' => ['UserRole:superadmin|admin']], function() {

@@ -26,27 +26,25 @@ Test
             </div>
             <div class="box-height-10"></div>
             <div class="p-26">
-                <div class="form-group row">
-                    <div class="col-sm-12">
-                        <div class="radio">
+                <form id="contactForm">
+                    <div class="form-group row">
+                        <div class="col-sm-12">
                             <label class="ui-check ui-check-lg">
-                                <input type="radio" name="a">
-                                <i class="dark-white"></i>
+                                <input type="checkbox" id="pdpa" name="pdpa" value="TRUE">
+                                <i class="green"></i>
                                 ยอมรับ <a href="https://www.spectrafordog.com/TH/privacy-policy.html" target="_blank">PDPA</a> เพื่อเข้าร่วมกิจกรรม
                             </label>
-                        </div>
-                        <div class="box-height-10"></div>
-                        <div class="radio">
+                            <div class="box-height-10"></div>
                             <label class="ui-check ui-check-lg">
-                                <input type="radio" name="b">
-                                <i class="dark-white"></i>
+                                <input type="checkbox" id="policy" name="policy" value="TRUE">
+                                <i class="green"></i>
                                 ท่านอนุญาตให้บริษัทฯ นำข้อมูลและภาพถ่ายที่ <span class="ml-36"> อัพโหลดไปใช้งานต่อได้ </span>
                             </label>
                         </div>
                     </div>
-                </div>
+                </form>
                 <div class="mt-3">
-                    <button class="btn btn-green btn-block" onclick="window.location.href='{{ url('create_account') }}'">
+                    <button class="btn btn-green btn-block" id="btn_send_create">
                         ลงทะเบียนเข้าร่วมกิจกรรม
                     </button>
                 </div>
@@ -72,5 +70,34 @@ Test
 @endsection
 
 @section('scripts')
+
+<script>
+
+$(document).on('click','#btn_send_create',function (event) {
+      event.preventDefault();
+      
+      var form = $('#contactForm')[0];
+      var formData = new FormData(form);
+
+      var button = $('#btn_send_create');
+        var oldValue = button.value;
+        var isDisabled = true;
+
+        button.attr('disabled', isDisabled);
+
+        setTimeout(function () {
+            button.value = oldValue;
+            button.attr('disabled', !isDisabled);
+        }, 3000)
+
+        var pdpa = $('input#pdpa').prop('checked')
+        var policy = $('input#policy').prop('checked')
+
+        console.log('submit', pdpa)
+
+        window.location.href = 'create_account?pdpa='+pdpa+'&policy='+policy;
+
+});
+</script>
 
 @stop('scripts')
