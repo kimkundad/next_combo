@@ -17,12 +17,12 @@ Test
             <div class="header_logo">
                 <div class="d-flex justify-content-center">
                     <a href="{{ url('/case_list') }}">
-                        <img class="img-fluid logo_website_main" src="{{ url('img/logo_head.jpg') }}" />
+                        <img class="img-fluid logo_website_main" src="{{ url('img/logo_head.png') }}" />
                     </a>
                 </div>
             </div>
             <div>
-                <img src="{{ url('img/main_landing.png') }}" class="img-fluid" alt="">
+                <img src="{{ url('img/main_landing.jpg') }}" class="img-fluid" alt="">
             </div>
             <div class="box-height-10"></div>
             <div class="p-26">
@@ -44,16 +44,16 @@ Test
                     </div>
                 </form>
                 <div class="mt-3">
-                    <button class="btn btn-green btn-block" id="btn_send_create">
-                        ลงทะเบียนเข้าร่วมกิจกรรม
+                    <button class="btn btn-green btn-block" id="btn_send_create" disabled>
+                        ลงทะเบียนครั้งแรก
                     </button>
                 </div>
                 <div class="text-center">
-                    <p class="mt-3 fs-16">หรือ</p>
+                    <p class="mt-3 fs-16">หากเคยลงทะเบียนแล้ว</p>
                 </div>
                 <div class="mt-3">
                     <button class="btn btn-green btn-block" onclick="window.location.href='{{ url('login') }}'">
-                        เข้าใช้งาน
+                        เข้าสู่ระบบ
                     </button>
                 </div>
             </div>
@@ -72,6 +72,16 @@ Test
 @section('scripts')
 
 <script>
+
+const checkbox = document.getElementById('pdpa')
+
+checkbox.addEventListener('change', (event) => {
+  if (event.currentTarget.checked) {
+    $('#btn_send_create').prop("disabled", false);
+  } else {
+    $('#btn_send_create').prop("disabled", true);
+  }
+})
 
 $(document).on('click','#btn_send_create',function (event) {
       event.preventDefault();

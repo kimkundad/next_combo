@@ -14,9 +14,9 @@
         <a target="_blank" href="{{ url('/')}}">
 
                         
-            <img src="{{ url('img/logo_head.jpg') }}" alt="Logo" class="h-35px app-sidebar-logo-default" />
+            <img src="{{ url('img/logo_head.png') }}" alt="Logo" class="h-35px app-sidebar-logo-default" />
                
-            <img src="{{ url('img/logo_head.jpg') }}" alt="Logo" class="h-35px app-sidebar-logo-minimize" />
+            <img src="{{ url('img/logo_head.png') }}" alt="Logo" class="h-35px app-sidebar-logo-minimize" />
                     
 
         </a>

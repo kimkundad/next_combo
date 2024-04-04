@@ -438,7 +438,7 @@
                                         </tr>
                                         <tr>
                                             <td>
-                                                8
+                                                0
                                             </td>
                                             <td class="text-center">
                                                 <span class="badge badge-light-warning fs-7 fw-bold">Open</span>

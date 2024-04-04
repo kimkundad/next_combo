@@ -28,7 +28,7 @@ Test
                 <div class="d-flex justify-content-between">
                     <div style="width: 51px;"></div>
                     <a href="{{ url('/case_list') }}">
-                        <img class="img-fluid logo_website_main" src="{{ url('img/logo_head.jpg') }}" />
+                        <img class="img-fluid logo_website_main" src="{{ url('img/logo_head.png') }}" />
                     </a>
                     <a href="{{ url('/account_setting') }}" style="padding-top: 20px; color:#000">
                         <svg xmlns="http://www.w3.org/2000/svg" width="35" height="35" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-menu mx-2"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
