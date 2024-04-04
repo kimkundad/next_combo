@@ -53,50 +53,7 @@ const validateEmail = (email) => {
     );
   };
 
-  const validate = () => {
-    const email = $('#email_create').val();
-  
-    if(validateEmail(email)){
-        console.log('Email validation')
-        $("#ch_email").prop("checked", true);
-     
-        if(length_pass_1 == true && number_pass_1 == true && letter_pass_1 == true && big_pass_1 == true ){
 
-
-            // $('#submit_newpass').prop('disabled', false);
-            if(check_point_1 == check_point_2){
-             
-             const email2 = $('#email_create').val();
-
-                 $("#same_pass").prop("checked", true);
-                 if(validateEmail(email2)){
-                     
-                     $('#submit_newpass').prop('disabled', false);
-                 }
-                 
-             }else{
-                 $("#same_pass").prop("checked", false);
-                 $('#submit_newpass').prop('disabled', true);
-             }
-
-         }else{
-             $('#submit_newpass').prop('disabled', true);
-             $("#same_pass").prop("checked", false);
-         }
-
-     check_email_format === true
-    } else{
-        $('#submit_newpass').prop('disabled', true);
-        console.log('Email invalidation')
-        $("#ch_email").prop("checked", false);
-        check_email_format === false
-    //    $('#submit_newpass').prop('disabled', true);
-    }
-    return false;
-  }
-
-
-$('#email_create').on('input', validate);
 
 
 
@@ -114,6 +71,51 @@ var check_point_1 = null;
     var big_pass = document.getElementById("big_pass");
     var same_pass = document.getElementById("same_pass");
     document.getElementById('submit_newpass').disabled = true;
+
+    const validate = () => {
+        const email = $('#email_create').val();
+      
+        if(validateEmail(email)){
+            console.log('Email validation')
+            $("#ch_email").prop("checked", true);
+         
+            if(length_pass_1 == true && number_pass_1 == true && letter_pass_1 == true && big_pass_1 == true ){
+    
+    
+                // $('#submit_newpass').prop('disabled', false);
+                if(check_point_1 == check_point_2){
+                 
+                 const email2 = $('#email_create').val();
+    
+                     $("#same_pass").prop("checked", true);
+                     if(validateEmail(email2)){
+                         
+                         $('#submit_newpass').prop('disabled', false);
+                     }
+                     
+                 }else{
+                     $("#same_pass").prop("checked", false);
+                     $('#submit_newpass').prop('disabled', true);
+                 }
+    
+             }else{
+                 $('#submit_newpass').prop('disabled', true);
+                 $("#same_pass").prop("checked", false);
+             }
+    
+         check_email_format === true
+        } else{
+            $('#submit_newpass').prop('disabled', true);
+            console.log('Email invalidation')
+            $("#ch_email").prop("checked", false);
+            check_email_format === false
+        //    $('#submit_newpass').prop('disabled', true);
+        }
+        return false;
+      }
+    
+    
+    $('#email_create').on('input', validate);
 
     function open_the_door(check_point1,check_point2){
 
