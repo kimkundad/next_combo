@@ -122,7 +122,7 @@
                 <div>
                     <div class="list list-row">
                         
-                        <div class="list-item border-bottom">
+                        {{-- <div class="list-item border-bottom">
                             <div class="flex">
                                 <p class="item-author text-color-green mb-0">Vet0001-0001</p>
                                 <div class="item-mail  fs-16">
@@ -351,7 +351,7 @@
                                 <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevron-right mx-2"><polyline points="9 18 15 12 9 6"></polyline></svg>
                                 
                             </div>
-                        </div>
+                        </div> --}}
                        
 
                     </div>
