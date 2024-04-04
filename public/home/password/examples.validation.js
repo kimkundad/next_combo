@@ -72,6 +72,13 @@ var check_point_1 = null;
     var same_pass = document.getElementById("same_pass");
     document.getElementById('submit_newpass').disabled = true;
 
+    $("#number_pass").prop("checked", false);
+    $("#big_pass").prop("checked", false);
+    $("#letter_pass").prop("checked", false);
+    $("#length_pass").prop("checked", false);
+    $("#same_pass").prop("checked", false);
+    
+
     const validate = () => {
         const email = $('#email_create').val();
       
@@ -116,6 +123,7 @@ var check_point_1 = null;
     
     
     $('#email_create').on('input', validate);
+
 
     function open_the_door(check_point1,check_point2){
 
