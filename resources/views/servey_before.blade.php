@@ -56,9 +56,10 @@ Test
                 </div>
             </div>
             
-            <form class="" role="form" action="{{ url('servey_success') }}">
+            <form class="" role="form" method="POST" action="{{ url('post_servey_before') }}">
+                {{ csrf_field() }}
                 <div class="p-26">
-                        
+                    <input type="hidden" name="ticket_orders_id" value="{{ $id_ticket }}">
                     <h2 class="text-md text-highlight fs-18">แบบประเมินหลังใช้งาน</h2>
                     <div class="box-height-10"></div>
                     <div class="form-group">

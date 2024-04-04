@@ -60,14 +60,14 @@ Test
                     <h2 class="text-md text-highlight fs-18">รายงานผลเพิ่มเติม</h2>
                     <div class="d-flex">
                         <div class="master_upload1">
-                            <input type="file" name="img[]" id="file_upload_id1" style="display:none" onchange="preview()">
+                            <input type="file" name="img[]" id="file_upload_id1" style="display:none" onchange="preview()" accept="image/png, image/gif, image/jpeg">
                             <img src="{{ url('img/upload_img.jpg') }}" id="icon_upload1" alt="upload_img" onclick="a_upload1()" style="height: 105px; width: 105px">
                             <span onclick="del_img1()" class="btn btn-raised btn-wave btn-icon btn-rounded mb-2 btn-active-color-primary" >
                                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-x mx-1"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
                             </span>
                         </div>
                         <div id="master_upload2" class="master_upload1 hidden">
-                            <input type="file" name="img[]" id="file_upload_id2" style="display:none" onchange="preview2()">
+                            <input type="file" name="img[]" id="file_upload_id2" style="display:none" onchange="preview2()" accept="image/png, image/gif, image/jpeg">
                             <img src="{{ url('img/upload_img.jpg') }}" id="icon_upload2" alt="upload_img" onclick="a_upload2()" style="height: 105px; width: 105px">
                             <span  onclick="del_img2()" class="btn btn-raised btn-wave btn-icon btn-rounded mb-2 btn-active-color-primary" >
                                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-x mx-1"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
@@ -75,7 +75,7 @@ Test
                         </div>
                         
                         <div id="master_upload3" class="master_upload1 hidden">
-                            <input type="file" name="img[]" id="file_upload_id3" style="display:none" onchange="preview3()">
+                            <input type="file" name="img[]" id="file_upload_id3" style="display:none" onchange="preview3()" accept="image/png, image/gif, image/jpeg">
                             <img src="{{ url('img/upload_img.jpg') }}" id="icon_upload3" alt="upload_img" onclick="a_upload3()" style="height: 105px; width: 105px">
                             <span onclick="del_img3()" class="btn btn-raised btn-wave btn-icon btn-rounded mb-2 btn-active-color-primary" >
                                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-x mx-1"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>

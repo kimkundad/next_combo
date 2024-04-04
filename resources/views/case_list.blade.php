@@ -121,6 +121,92 @@
                 </div>
                 <div>
                     <div class="list list-row">
+
+                        <div class="list-item border-bottom">
+                            <div class="flex">
+                                <p class="item-author text-color-green mb-0">Vet0001-0001</p>
+                                <div class="item-mail  fs-16">
+                                    จังโก้ - เอ็กซ์โซติก ช็อตแฮร์
+                                </div>
+                                <div class="d-flex">
+                                    <div>
+                                        <span class="fs-13"><svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-calendar"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg> 
+                                            14/09/2024
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div>
+                                <a href="{{ url('close_ticket') }}">
+                                    <img class="camera-green" src="{{ url('img/camera.jpg') }}" alt="">
+                                </a>
+                            </div>
+                        </div>
+                        <div class="list-item border-bottom">
+                            <div class="flex">
+                                <p class="item-author text-color-green mb-0">Vet0001-0001</p>
+                                <div class="item-mail  fs-16">
+                                    จังโก้ - เอ็กซ์โซติก ช็อตแฮร์
+                                </div>
+                                <div class="d-flex">
+                                    <div>
+                                        <span class="fs-13"><svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-calendar"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg> 
+                                            14/09/2024
+                                        </span>
+                                    </div>
+                                    <div class="d-flex ml-5px ">
+                                        <div>
+                                            <img class="img-check-green mr-5px" src="{{ url('img/checklist.jpg') }}" alt="">
+                                        </div>
+                                        <div>
+                                            <a href="{{ url('/add_ticket') }}">
+                                                <p class="fs-13 text-color-green mb-0 " style="font-size: 14px"> รายงานผลเพิ่มเติม</p>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevron-right mx-2"><polyline points="9 18 15 12 9 6"></polyline></svg>
+                                
+                            </div>
+                        </div>
+
+                        @isset($ticket)
+                            @foreach ($ticket as $item)
+
+                            <div class="list-item border-bottom">
+                                <div class="flex">
+                                    <p class="item-author text-color-green mb-0">{{ $item->code_ticket }}</p>
+                                    <div class="item-mail  fs-16">
+                                        {{ $item->name_ticket }}
+                                    </div>
+                                    <div class="d-flex">
+                                        <div>
+                                            <span class="fs-13"><svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-calendar"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg> 
+                                                {{ date('d/m/Y', strtotime($item->created_at)) }}
+                                            </span>
+                                        </div>
+                                        <div class="d-flex ml-5px ">
+                                            <div>
+                                                <img class="img-check-green mr-5px" src="{{ url('img/checklist.jpg') }}" alt="">
+                                            </div>
+                                            <div>
+                                                <a href="{{ url('/add_ticket') }}">
+                                                    <p class="fs-13 text-color-green mb-0 " style="font-size: 14px"> รายงานผลเพิ่มเติม</p>
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div>
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevron-right mx-2"><polyline points="9 18 15 12 9 6"></polyline></svg>
+                                    
+                                </div>
+                            </div>
+                                
+                            @endforeach
+                        @endisset
                         
                         {{-- <div class="list-item border-bottom">
                             <div class="flex">

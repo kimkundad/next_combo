@@ -22,6 +22,17 @@ Route::post('password/reset', [ResetPasswordController::class, 'reset'])->name('
 
 Auth::routes();
 
+Route::get('/images/{file}', function ($file) {
+	$url = Storage::disk('do_spaces')->temporaryUrl(
+	  $file,
+	  date('Y-m-d H:i:s', strtotime("+5 min"))
+	);
+	if ($url) {
+	   return Redirect::to($url);
+	}
+	return abort(404);
+  })->where('file', '.+');
+
 Route::get('/', function () {
     return view('welcome');
 });
@@ -38,6 +49,9 @@ Route::post('/create_new_user', [App\Http\Controllers\HomeController::class, 'cr
 
 Route::group(['middleware' => ['UserRole:superadmin|admin|user']], function() {
 
+    Route::post('/post_open_ticket', [App\Http\Controllers\HomeController::class, 'post_open_ticket']);
+    Route::post('/post_servey_before', [App\Http\Controllers\HomeController::class, 'post_servey_before']);
+    
     Route::get('/create_complete', function () {
         return view('create_complete');
     });
@@ -48,9 +62,8 @@ Route::group(['middleware' => ['UserRole:superadmin|admin|user']], function() {
 
     Route::get('/account_setting', [App\Http\Controllers\HomeController::class, 'account_setting']);
 
-    Route::get('/case_list', function () {
-        return view('case_list');
-    });
+    Route::get('/case_list', [App\Http\Controllers\HomeController::class, 'case_list']);
+
     
     Route::get('/open_ticket', function () {
         return view('open_ticket');
@@ -68,9 +81,7 @@ Route::group(['middleware' => ['UserRole:superadmin|admin|user']], function() {
         return view('add_ticket');
     });
     
-    Route::get('/servey_before', function () {
-        return view('servey_before');
-    });
+    Route::get('/servey_before/{id}', [App\Http\Controllers\HomeController::class, 'servey_before']);
     
     Route::get('/servey_success', function () {
         return view('success_1');

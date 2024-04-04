@@ -65,20 +65,20 @@ Test
                 </div>
             </div>
             
-            <form class="" role="form" action="{{ url('servey_before') }}">
+            <form class="" role="form" method="POST" action="{{ url('post_open_ticket') }}" enctype="multipart/form-data">
                 <div class="p-26">
-                        
+                    {{ csrf_field() }}
                     <h2 class="text-md text-highlight fs-18">ก่อนการใช้งานผลิตภัณฑ์</h2>
                     <div class="d-flex">
                         <div class="master_upload1">
-                            <input type="file" name="img[]" id="file_upload_id1" style="display:none" onchange="preview()">
+                            <input type="file" name="img[]" id="file_upload_id1" style="display:none" onchange="preview()" accept="image/png, image/gif, image/jpeg">
                             <img src="{{ url('img/upload_img.jpg') }}" id="icon_upload1" alt="upload_img" onclick="a_upload1()" style="height: 105px; width: 105px">
                             <span onclick="del_img1()" class="btn btn-raised btn-wave btn-icon btn-rounded mb-2 btn-active-color-primary" >
                                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-x mx-1"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
                             </span>
                         </div>
                         <div id="master_upload2" class="master_upload1 hidden">
-                            <input type="file" name="img[]" id="file_upload_id2" style="display:none" onchange="preview2()">
+                            <input type="file" name="img[]" id="file_upload_id2" style="display:none" onchange="preview2()" accept="image/png, image/gif, image/jpeg">
                             <img src="{{ url('img/upload_img.jpg') }}" id="icon_upload2" alt="upload_img" onclick="a_upload2()" style="height: 105px; width: 105px">
                             <span  onclick="del_img2()" class="btn btn-raised btn-wave btn-icon btn-rounded mb-2 btn-active-color-primary" >
                                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-x mx-1"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
@@ -86,7 +86,7 @@ Test
                         </div>
                         
                         <div id="master_upload3" class="master_upload1 hidden">
-                            <input type="file" name="img[]" id="file_upload_id3" style="display:none" onchange="preview3()">
+                            <input type="file" name="img[]" id="file_upload_id3" style="display:none" onchange="preview3()" accept="image/png, image/gif, image/jpeg">
                             <img src="{{ url('img/upload_img.jpg') }}" id="icon_upload3" alt="upload_img" onclick="a_upload3()" style="height: 105px; width: 105px">
                             <span onclick="del_img3()" class="btn btn-raised btn-wave btn-icon btn-rounded mb-2 btn-active-color-primary" >
                                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-x mx-1"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
@@ -111,12 +111,12 @@ Test
                     <h2 class="text-md text-highlight fs-18">ประวัติสัตว์เลี้ยง</h2>
                     <div class="form-group">
                         <label class="text-muted">ชื่อสัตว์เลี้ยง</label>
-                        <input type="text" class="form-control shadow-none" placeholder="รายละเอียด">
+                        <input type="text" class="form-control shadow-none" name="name_ticket" placeholder="รายละเอียด">
                     </div>
                     <div class="form-row">
                         <div class="form-group col-md-6">
                             <label class="text-muted">อายุ</label>
-                            <select class="form-control shadow-none">
+                            <select class="form-control shadow-none" name="age_ticket">
                                 <option>0-6 เดือน</option>
                                 <option>6 เดือน–1 ปี</option>
                                 <option>1-3 ปี</option>
@@ -129,7 +129,7 @@ Test
                         </div>
                         <div class="form-group col-md-6">
                             <label class="text-muted">เพศ</label>
-                            <select class="form-control shadow-none">
+                            <select class="form-control shadow-none" name="sex_ticket">
                                 <option>เพศผู้ ยังไม่ทำหมัน</option>
                                 <option>เพศผู้ ทำหมันแล้ว</option>
                                 <option>เพศเมีย ยังไม่ทำหมัน</option>
@@ -139,16 +139,16 @@ Test
                     </div>
                     <div class="form-group">
                         <label class="text-muted">พันธุ์</label>
-                        <select onchange="val2()" id="breed" class="form-control shadow-none js-example-basic-single2">
+                        <select onchange="val2()" id="breed" name="breed_ticket" class="form-control shadow-none js-example-basic-single2">
                         </select>
                     </div>
                     <div id="input_breed" class="form-group hidden">
                         <label class="text-muted">ระบุพันธ์ กรณีเลือก อื่นๆ (โปรดระบุ)</label>
-                        <input type="text" class="form-control shadow-none" placeholder="โปรดระบุพันธ์">
+                        <input type="text" class="form-control shadow-none" name="other_breed_ticket" placeholder="โปรดระบุพันธ์">
                     </div>
                     <div class="form-group">
                         <label class="text-muted">โรคประจำตัว (เลือกได้หลายข้อ)</label>
-                        <select onchange="diseasex()" id="disease" name="disease[]" multiple="multiple" class="form-control shadow-none js-disease" data-placeholder="ไม่มีโรคประจำตัว">
+                        <select onchange="diseasex()" id="disease" name="disease_ticket[]" multiple="multiple" class="form-control shadow-none js-disease" data-placeholder="ไม่มีโรคประจำตัว">
                             <option>ไม่มีโรคประจำตัว</option>
                             <option>โรคผิวหนัง</option>
                             <option>โรคตับ</option>
@@ -165,12 +165,12 @@ Test
                     </div>
                     <div id="input_disease" class="form-group hidden">
                         <label class="text-muted">โรคประจำตัว กรณีเลือก อื่นๆ (โปรดระบุ)</label>
-                        <input type="text" class="form-control shadow-none" placeholder="โปรดระบุโรคประจำตัว">
+                        <input type="text" class="form-control shadow-none" name="other_disease_ticket" placeholder="โปรดระบุโรคประจำตัว">
                     </div>
                     <div class="form-group">
                         <label class="text-muted">จุดประสงค์การใช้งาน (เลือกได้หลายข้อ)</label>
                         <div class="select-box choose-position">
-                            <select onchange="val()" id="objective" name="objective[]" multiple="multiple" class="form-control js-example-basic-single shadow-none" data-placeholder="ใช้สำหรับป้องกันปรสิตทั่วไป">
+                            <select onchange="val()" id="objective" name="objective_ticket[]" multiple="multiple" class="form-control js-example-basic-single shadow-none" data-placeholder="ใช้สำหรับป้องกันปรสิตทั่วไป">
                                 <option>ใช้สำหรับป้องกันปรสิตทั่วไป</option>
                                 <option>ใช้รักษาเห็บ</option>
                                 <option>ใช้รักษาหมัด</option>
@@ -186,10 +186,10 @@ Test
                     </div>
                     <div id="input_othor" class="form-group hidden">
                         <label class="text-muted">จุดประสงค์การใช้งาน กรณีเลือก อื่นๆ (โปรดระบุ)</label>
-                        <input type="text" class="form-control shadow-none" placeholder="โปรดระบุจุดประสงค์การใช้งาน">
+                        <input type="text" class="form-control shadow-none" name="other_objective_ticket" placeholder="โปรดระบุจุดประสงค์การใช้งาน">
                     </div>
                     <div class="mt-3">
-                        <button class="btn btn-green btn-block" onclick="window.location.href='{{ url('servey_before') }}'">
+                        <button class="btn btn-green btn-block" >
                             บันทึกข้อมูล
                         </button>
                     </div>
