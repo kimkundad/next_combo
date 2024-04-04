@@ -55,9 +55,11 @@ Test
                 </div>
             </div>
             
-            <form class="" role="form" action="{{ url('servey_success2') }}">
+
+                <form class="" role="form" method="POST" action="{{ url('post_servey_after') }}">
+                    {{ csrf_field() }}
                 <div class="p-26">
-                        
+                    <input type="hidden" name="ticket_orders_id" value="{{ $id_ticket }}">
                     <h2 class="text-md text-highlight fs-18">แบบประเมินหลังใช้งานผลิตภัณฑ์</h2>
                     <div class="box-height-10"></div>
                     <div class="form-group">
@@ -86,7 +88,7 @@ Test
 
                     <div class="form-group">
                         <label class="" style="font-size:15px">3. ข้อเสนอแนะเพิ่มเติม</label>
-                        <textarea id="event-desc" class="form-control" rows="6" placeholder="รายละเอียด..."></textarea>
+                        <textarea id="event-desc" class="form-control" name="detail" rows="6" placeholder="รายละเอียด..."></textarea>
                     </div>
 
                     <div class="box-height-20"></div>
@@ -101,7 +103,7 @@ Test
                     
                     
                     <div class="mt-3">
-                        <button class="btn btn-green btn-block" onclick="window.location.href='{{ url('servey_success2') }}'">
+                        <button class="btn btn-green btn-block" >
                             บันทึกข้อมูล และยืนยันการปิดเคส
                         </button>
                     </div>

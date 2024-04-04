@@ -50,36 +50,44 @@ Route::post('/create_new_user', [App\Http\Controllers\HomeController::class, 'cr
 Route::group(['middleware' => ['UserRole:superadmin|admin|user']], function() {
 
     Route::post('/post_open_ticket', [App\Http\Controllers\HomeController::class, 'post_open_ticket']);
+    Route::post('/post_close_ticket', [App\Http\Controllers\HomeController::class, 'post_close_ticket']);
+    Route::post('/post_add_ticket', [App\Http\Controllers\HomeController::class, 'post_add_ticket']);
+    
+
     Route::post('/post_servey_before', [App\Http\Controllers\HomeController::class, 'post_servey_before']);
+    Route::post('/post_servey_after', [App\Http\Controllers\HomeController::class, 'post_servey_after']);
     
     Route::get('/create_complete', function () {
         return view('create_complete');
     });
 
+    Route::get('/create_complete2', function () {
+        return view('create_complete2');
+    });
+
     Route::post('/create_user_profile', [App\Http\Controllers\HomeController::class, 'create_user_profile']);
+    Route::post('/create_user_profile2', [App\Http\Controllers\HomeController::class, 'create_user_profile2']);
+    
 
     Route::get('/create_account2', [App\Http\Controllers\HomeController::class, 'create_account2']);
 
     Route::get('/account_setting', [App\Http\Controllers\HomeController::class, 'account_setting']);
 
+    Route::get('/case_list_seaarch', [App\Http\Controllers\HomeController::class, 'case_list_seaarch']);
+
     Route::get('/case_list', [App\Http\Controllers\HomeController::class, 'case_list']);
 
-    
     Route::get('/open_ticket', function () {
         return view('open_ticket');
     });
     
-    Route::get('/close_ticket', function () {
-        return view('close_ticket');
-    });
+    Route::get('/detail_ticket/{id}', [App\Http\Controllers\HomeController::class, 'detail_ticket']);
     
-    Route::get('/servey_after', function () {
-        return view('servey_after');
-    });
+    Route::get('/close_ticket/{id}', [App\Http\Controllers\HomeController::class, 'close_ticket']);
     
-    Route::get('/add_ticket', function () {
-        return view('add_ticket');
-    });
+    Route::get('/add_ticket/{id}', [App\Http\Controllers\HomeController::class, 'add_ticket']);
+
+    Route::get('/servey_after/{id}', [App\Http\Controllers\HomeController::class, 'servey_after']);
     
     Route::get('/servey_before/{id}', [App\Http\Controllers\HomeController::class, 'servey_before']);
     

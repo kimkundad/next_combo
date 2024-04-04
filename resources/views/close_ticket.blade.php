@@ -53,20 +53,21 @@ Test
                 </div>
             </div>
             
-            <form class="" role="form" action="{{ url('servey_after') }}">
+            <form class="" role="form" method="POST" action="{{ url('post_close_ticket') }}" enctype="multipart/form-data">
                 <div class="p-26">
-                        
+                    @csrf
                     <h2 class="text-md text-highlight fs-18">หลังการใช้งานผลิตภัณฑ์</h2>
+                    <input type="hidden" name="ticket_orders_id" value="{{ $id_ticket }}">
                     <div class="d-flex">
                         <div class="master_upload1">
-                            <input type="file" name="img[]" id="file_upload_id1" style="display:none" onchange="preview()">
+                            <input type="file" name="img[]" id="file_upload_id1" style="display:none" onchange="preview()" accept="image/png, image/gif, image/jpeg">>
                             <img src="{{ url('img/upload_img.jpg') }}" id="icon_upload1" alt="upload_img" onclick="a_upload1()" style="height: 105px; width: 105px">
                             <span onclick="del_img1()" class="btn btn-raised btn-wave btn-icon btn-rounded mb-2 btn-active-color-primary" >
                                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-x mx-1"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
                             </span>
                         </div>
                         <div id="master_upload2" class="master_upload1 hidden">
-                            <input type="file" name="img[]" id="file_upload_id2" style="display:none" onchange="preview2()">
+                            <input type="file" name="img[]" id="file_upload_id2" style="display:none" onchange="preview2()" accept="image/png, image/gif, image/jpeg">>
                             <img src="{{ url('img/upload_img.jpg') }}" id="icon_upload2" alt="upload_img" onclick="a_upload2()" style="height: 105px; width: 105px">
                             <span  onclick="del_img2()" class="btn btn-raised btn-wave btn-icon btn-rounded mb-2 btn-active-color-primary" >
                                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-x mx-1"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
@@ -74,7 +75,7 @@ Test
                         </div>
                         
                         <div id="master_upload3" class="master_upload1 hidden">
-                            <input type="file" name="img[]" id="file_upload_id3" style="display:none" onchange="preview3()">
+                            <input type="file" name="img[]" id="file_upload_id3" style="display:none" onchange="preview3()" accept="image/png, image/gif, image/jpeg">>
                             <img src="{{ url('img/upload_img.jpg') }}" id="icon_upload3" alt="upload_img" onclick="a_upload3()" style="height: 105px; width: 105px">
                             <span onclick="del_img3()" class="btn btn-raised btn-wave btn-icon btn-rounded mb-2 btn-active-color-primary" >
                                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-x mx-1"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
@@ -90,14 +91,14 @@ Test
                             ลายหมัด ไรในหู ไรขี้เรื้อนแห้ง หรือหากไม่มีรอยโรคชัดเจน สามารถ <br>
                             อัพโหลดรูปทั้งตัวของน้องแมวได้เลย (อัพโหลดได้สูงสุด 3 รูป) 
                         </p>
-                        <p class="mb-0 text-danger ex-red">
+                        <a  data-toggle="modal" data-target="#modal" class="mb-0 ex-red">
                             คลิก เพื่อดูตัวอย่างรูปถ่าย
-                        </p>
+                        </a>
                     </div>
                     <div class="box-height-10"></div>
                     
                     <div class="mt-3">
-                        <button class="btn btn-green btn-block" onclick="window.location.href='{{ url('servey_after') }}'">
+                        <button class="btn btn-green btn-block" >
                             บันทึกข้อมูล
                         </button>
                     </div>
@@ -122,6 +123,27 @@ Test
     </div>
 </div>
 
+<!-- .modal -->
+<div id="modal" class="modal fade" data-backdrop="true">
+    <div class="modal-dialog ">
+        <div class="modal-content ">
+            <div class="modal-header ">
+                <div class="modal-title text-md fs-18">ตัวอย่างรูปถ่าย</div>
+                <button class="close" data-dismiss="modal">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div class="text-center">
+                    <img src="{{ url('img/cat_broken.jpg') }}" class="img-fluid" alt="">
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-light" data-dismiss="modal">ปิด</button>
+            </div>
+        </div>
+        <!-- /.modal-content -->
+    </div>
+</div>
+<!-- / .modal -->
 
 @endsection
 

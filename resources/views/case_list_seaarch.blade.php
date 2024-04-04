@@ -82,36 +82,36 @@
                 </div>
                 <div class="p-20" style="background: rgb(234,169,90);
                 background: linear-gradient(180deg, rgba(234,169,90,1) 0%, rgba(230,212,153,1) 46%, rgba(234,169,90,1) 100%);">
-                <form method="GET" action="{{ url('/case_list_seaarch') }}" >
-                    {{ csrf_field() }}
-                        <div class="input-group">
-                            <span class="input-group-append">
-                                <button class="btn btn-white no-border btn-sm" type="button"
-                                style="    
-                                border-top: 1px solid #b4aeae !important;
-                                border-bottom: 1px solid #b4aeae !important;
-                                border-left: 1px solid #b4aeae !important;
-                                height: 34px;
-                                border-top-left-radius: 5px;
-                                border-bottom-left-radius: 5px;
-                                ">
-                                    <span class="d-flex text-muted"><svg xmlns="http://www.w3.org/2000/svg" width="16"
-                                            height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                                            stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-                                            class="feather feather-search">
-                                            <circle cx="11" cy="11" r="8"></circle>
-                                            <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
-                                        </svg></span>
-                                </button>
-                            </span>
-                            <input type="text" name="search_name" class="form-control shadow-none form-control-theme search"
-                            style="
-                            border-left-style: none;
-                            padding-left:0px;
-                            "
-                                placeholder="ค้นหาเคส" required="">
-                        </div>
-                    </form>
+                    <form method="GET" action="{{ url('/case_list_seaarch') }}" >
+                        {{ csrf_field() }}
+                            <div class="input-group">
+                                <span class="input-group-append">
+                                    <button class="btn btn-white no-border btn-sm" type="button"
+                                    style="    
+                                    border-top: 1px solid #b4aeae !important;
+                                    border-bottom: 1px solid #b4aeae !important;
+                                    border-left: 1px solid #b4aeae !important;
+                                    height: 34px;
+                                    border-top-left-radius: 5px;
+                                    border-bottom-left-radius: 5px;
+                                    ">
+                                        <span class="d-flex text-muted"><svg xmlns="http://www.w3.org/2000/svg" width="16"
+                                                height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                                stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                                                class="feather feather-search">
+                                                <circle cx="11" cy="11" r="8"></circle>
+                                                <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                                            </svg></span>
+                                    </button>
+                                </span>
+                                <input type="text" value="{{ $search_name }}" name="search_name" class="form-control shadow-none form-control-theme search"
+                                style="
+                                border-left-style: none;
+                                padding-left:0px;
+                                "
+                                    placeholder="ค้นหาเคส" required="">
+                            </div>
+                        </form>
                 </div>
                 <div class="text-center border-bottom p-20">
                     <p class="mb-0">เรียงตามเวลาอัพเดท
@@ -195,15 +195,9 @@
                                                 <img class="img-check-green mr-5px" src="{{ url('img/checklist.jpg') }}" alt="">
                                             </div>
                                             <div>
-                                                @if($item->add_ticket !== 0)
-                                                <a href="{{ url('detail_ticket/'.$item->id) }}">
-                                                    <p class="fs-13 text-color-green mb-0 " style="font-size: 14px"> รายงานผลเพิ่มเติม</p>
-                                                </a>
-                                                @else
                                                 <a href="{{ url('add_ticket/'.$item->id) }}">
                                                     <p class="fs-13 text-color-green mb-0 " style="font-size: 14px"> รายงานผลเพิ่มเติม</p>
                                                 </a>
-                                                @endif
                                             </div>
                                         </div>
                                         @endif

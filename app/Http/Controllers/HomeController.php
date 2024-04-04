@@ -10,6 +10,11 @@ use App\Models\open_ticket;
 use App\Models\ticket_order;
 use App\Models\img_open_ticket;
 use App\Models\ask_open_ticket;
+use App\Models\close_ticket;
+use App\Models\ask_close_ticket;
+use App\Models\img_close_ticket;
+use App\Models\add_ticket;
+use App\Models\img_add_ticket;
 use Illuminate\Support\Facades\Hash;
 use Intervention\Image\ImageManagerStatic as Image;
 use Input;
@@ -43,13 +48,57 @@ class HomeController extends Controller
     return User::all();
   }
 
-  public function servey_before($id){
+  public function add_ticket($id){
+    $data['id_ticket'] = $id;
+
+    return view('add_ticket', $data);
+  }
+
+  public function servey_before($id)
+  {
     $data['id_ticket'] = $id;
 
     return view('servey_before', $data);
   }
 
-  
+  public function servey_after($id){
+    $data['id_ticket'] = $id;
+
+    return view('servey_after', $data);
+  }
+
+  public function close_ticket($id)
+  {
+    $data['id_ticket'] = $id;
+
+    return view('close_ticket', $data);
+  }
+
+  public function detail_ticket($id){
+
+    $objs = ticket_order::where('id', $id)->first();
+    $open = open_ticket::where('id', $objs->open_ticket)->first();
+    $add = add_ticket::where('id', $objs->add_ticket)->first();
+   $imgf = img_open_ticket::where('open_ticket_id', $objs->open_ticket)->get();
+   $imgb = img_close_ticket::where('close_ticket_id', $objs->close_ticket)->get();
+   $ask1 = ask_open_ticket::where('ticket_orders_id', $id)->first();
+   $ask2 = ask_close_ticket::where('ticket_orders_id', $objs->close_ticket)->first();
+   $img_add = img_add_ticket::where('add_ticket_id', $objs->add_ticket)->get();
+
+   $data['img_add'] = $img_add;
+   $data['add'] = $add;
+    $data['ask1'] = $ask1;
+    $data['ask2'] = $ask2;
+   $data['imgf'] = $imgf;
+   $data['imgb'] = $imgb;
+   $data['open'] = $open;
+   $data['head'] = $objs;
+   $data['id_ticket'] = $id;
+    return view('detail_ticket', $data);
+
+  }
+
+
   public function post_servey_before(Request $request)
   {
     $objs = new ask_open_ticket();
@@ -62,10 +111,41 @@ class HomeController extends Controller
     $objs->save();
 
     return view('success_1');
+  }
+
+  public function post_servey_after(Request $request)
+  {
+    $objs = new ask_close_ticket();
+    $objs->user_id = Auth::user()->id;
+    $objs->ticket_orders_id = $request['ticket_orders_id'];
+    $objs->ark1 = $request['ark1'];
+    $objs->ark2 = $request['ark2'];
+    $objs->detail = $request['detail'];
+    $objs->save();
+
+    return view('success_2');
+  }
+
+  public function case_list_seaarch(Request $request){
+
+
+    $objs = ticket_order::where('user_id', '=', Auth::user()->id);
+
+    if($request->filled('search_name')){
+      $objs = $objs->where('code_ticket', 'like', "%" . $request->search_name . "%")->orwhere('name_ticket', 'like', "%" . $request->search_name . "%");
+    }
+
+    $objs = $objs->get();
+  //  dd($objs);
+    $data['ticket'] = $objs;
+    $data['search_name'] = $request->search_name;
+
+    return view('case_list_seaarch', $data);
 
   }
 
-  public function case_list(){
+  public function case_list()
+  {
 
     $objs = ticket_order::where('user_id', '=', Auth::user()->id)->get();
 
@@ -74,10 +154,95 @@ class HomeController extends Controller
     return view('case_list', $data);
   }
 
+  public function post_add_ticket(Request $request){
+
+    $id = $request->ticket_orders_id;
+  //  dd($id);
+   // add_ticket
+
+    $objs = new add_ticket();
+    $objs->user_id = Auth::user()->id;
+    $objs->detail = $request->detail;
+    $objs->save();
+
+    $obj = ticket_order::find($id);
+    $obj->add_ticket = $objs->id;
+    $obj->save();
+
+    $gallary = $request->file('img');
+    //  dd(($gallary));
+    if (count($gallary) > 0) {
+      for ($i = 0; $i < sizeof($gallary); $i++) {
+
+        if (isset($gallary[$i])) {
+
+          $img = Image::make($gallary[$i]->getRealPath());
+          $img->resize(800, 800, function ($constraint) {
+            $constraint->aspectRatio();
+          });
+          $img->stream();
+          Storage::disk('do_spaces')->put('next_combo/add_ticket/' . $gallary[$i]->hashName(), $img, 'public');
+
+
+          $data1[] = [
+            'img' => $gallary[$i]->hashName(),
+            'add_ticket_id' => $objs->id
+          ];
+        }
+      }
+      img_add_ticket::insert($data1);
+    }
+
+    return redirect('servey_success/')->with('success', "Account successfully registered.");
+
+  }
+
+  public function post_close_ticket(Request $request)
+  {
+ //   dd($request->all());
+
+    $id = $request->ticket_orders_id;
+    $objs = new close_ticket();
+    $objs->user_id = Auth::user()->id;
+    $objs->ticket_orders_id = $id;
+    $objs->save();
+
+    $obj = ticket_order::find($id);
+    $obj->close_ticket = $objs->id;
+    $obj->save();
+
+    $gallary = $request->file('img');
+    //  dd(($gallary));
+    if (count($gallary) > 0) {
+      for ($i = 0; $i < sizeof($gallary); $i++) {
+
+        if (isset($gallary[$i])) {
+
+          $img = Image::make($gallary[$i]->getRealPath());
+          $img->resize(800, 800, function ($constraint) {
+            $constraint->aspectRatio();
+          });
+          $img->stream();
+          Storage::disk('do_spaces')->put('next_combo/close_ticket/' . $gallary[$i]->hashName(), $img, 'public');
+
+
+          $data1[] = [
+            'img' => $gallary[$i]->hashName(),
+            'close_ticket_id' => $objs->id
+          ];
+        }
+      }
+      img_close_ticket::insert($data1);
+    }
+
+    return redirect('servey_after/' . $objs->id)->with('success', "Account successfully registered.");
+
+  }
+
   public function post_open_ticket(Request $request)
   {
 
-   // dd($request->file('img'));
+    // dd($request->file('img'));
 
     $this->validate($request, [
       'name_ticket' => 'required'
@@ -87,13 +252,13 @@ class HomeController extends Controller
       $disease_ticket = implode(',', $request->disease_ticket);
       $input['disease_ticket'] = $disease_ticket;
     } else {
-        $input['disease_ticket'] = null; // Use = for assignment
+      $input['disease_ticket'] = null; // Use = for assignment
     }
 
-    if(isset($request->objective_ticket)){
-      $objective_ticket= implode(',', $request->objective_ticket);
+    if (isset($request->objective_ticket)) {
+      $objective_ticket = implode(',', $request->objective_ticket);
       $input['objective_ticket'] = $objective_ticket;
-    }else{
+    } else {
       $input['objective_ticket'] = null;
     }
 
@@ -114,7 +279,7 @@ class HomeController extends Controller
     $invID = ticket_order::where('user_id', Auth::user()->id)->count();
     $invID++;
 
-    $code_ticket = Auth::user()->code_user.'-'.str_pad($invID, 4, '0', STR_PAD_LEFT);
+    $code_ticket = Auth::user()->code_user . '-' . str_pad($invID, 4, '0', STR_PAD_LEFT);
 
     $obj = new ticket_order();
     $obj->name_ticket = $request['name_ticket'];
@@ -124,34 +289,52 @@ class HomeController extends Controller
     $obj->save();
 
     $gallary = $request->file('img');
-  //  dd(($gallary));
+    //  dd(($gallary));
     if (count($gallary) > 0) {
       for ($i = 0; $i < sizeof($gallary); $i++) {
 
-            if(isset($gallary[$i])){
+        if (isset($gallary[$i])) {
 
-            $img = Image::make($gallary[$i]->getRealPath());
-            $img->resize(800, 800, function ($constraint) {
+          $img = Image::make($gallary[$i]->getRealPath());
+          $img->resize(800, 800, function ($constraint) {
             $constraint->aspectRatio();
-            });
-            $img->stream();
-            Storage::disk('do_spaces')->put('next_combo/open_ticket/'.$gallary[$i]->hashName(), $img, 'public');
+          });
+          $img->stream();
+          Storage::disk('do_spaces')->put('next_combo/open_ticket/' . $gallary[$i]->hashName(), $img, 'public');
 
 
-        $data1[] = [
+          $data1[] = [
             'img' => $gallary[$i]->hashName(),
             'code_ticket' => $code_ticket,
             'open_ticket_id' => $objs->id
-        ];
-
-            }
-    
+          ];
+        }
       }
       img_open_ticket::insert($data1);
     }
 
-    return redirect('servey_before/'.$obj->id)->with('success', "Account successfully registered.");
+    return redirect('servey_before/' . $obj->id)->with('success', "Account successfully registered.");
+  }
 
+  public function create_user_profile2(Request $request)
+  {
+   // dd($request->all());
+
+    $objs = User::find(Auth::user()->id);
+    $objs->shop_id = 2;
+    $objs->ser = $request['ser'];
+    $objs->fname = $request['fname'];
+    $objs->lname = $request['lname'];
+    $objs->phone = $request['phone'];
+    $objs->code_user = $request['code_user'];
+    $objs->clinic_type = $request['clinic_type'];
+    $objs->province = $request['province'];
+    $objs->address = $request['address'];
+    $objs->representative = $request['representative'];
+    $objs->representative2 = $request['representative2'];
+    $objs->save();
+
+    return redirect('/create_complete2')->with('success', "Account successfully registered.");
   }
 
   public function create_user_profile(Request $request)

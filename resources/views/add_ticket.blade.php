@@ -54,10 +54,11 @@ Test
                 </div>
             </div>
             
-            <form class="" role="form" action="{{ url('case_list') }}">
+            <form class="" role="form" method="POST" action="{{ url('post_add_ticket') }}" enctype="multipart/form-data">
                 <div class="p-26">
-                        
+                    @csrf
                     <h2 class="text-md text-highlight fs-18">รายงานผลเพิ่มเติม</h2>
+                    <input type="hidden" name="ticket_orders_id" value="{{ $id_ticket }}">
                     <div class="d-flex">
                         <div class="master_upload1">
                             <input type="file" name="img[]" id="file_upload_id1" style="display:none" onchange="preview()" accept="image/png, image/gif, image/jpeg">
@@ -94,11 +95,11 @@ Test
                     <div class="box-height-10"></div>
                     <div class="form-group">
                         <label class="text-muted">ข้อเสนอแนะเพิ่มเติม</label>
-                        <textarea id="event-desc" class="form-control" rows="6" placeholder="รายละเอียด..."></textarea>
+                        <textarea id="event-desc" class="form-control" name="detail" rows="6" placeholder="รายละเอียด..."></textarea>
                     </div>
                     
                     <div class="mt-3">
-                        <button class="btn btn-green btn-block" onclick="window.location.href='{{ url('case_list') }}'">
+                        <button class="btn btn-green btn-block" >
                             บันทึกข้อมูล
                         </button>
                     </div>

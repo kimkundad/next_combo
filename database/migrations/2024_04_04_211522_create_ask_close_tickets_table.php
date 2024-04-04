@@ -13,12 +13,13 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('img_open_tickets', function (Blueprint $table) {
+        Schema::create('ask_close_tickets', function (Blueprint $table) {
             $table->id();
-            $table->string('img')->nullable();
-            $table->string('code_ticket')->nullable();
-            $table->string('code_ticket')->nullable();
-            $table->integer('open_ticket_id')->default('0');
+            $table->integer('ticket_orders_id')->default('0');
+            $table->integer('user_id')->default('0');
+            $table->integer('ark1')->default('0');
+            $table->integer('ark2')->default('0');
+            $table->text('detail')->nullable();
             $table->timestamps();
         });
     }
@@ -30,6 +31,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('img_open_tickets');
+        Schema::dropIfExists('ask_close_tickets');
     }
 };

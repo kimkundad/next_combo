@@ -13,12 +13,10 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('img_open_tickets', function (Blueprint $table) {
+        Schema::create('img_add_tickets', function (Blueprint $table) {
             $table->id();
             $table->string('img')->nullable();
-            $table->string('code_ticket')->nullable();
-            $table->string('code_ticket')->nullable();
-            $table->integer('open_ticket_id')->default('0');
+            $table->integer('add_ticket_id')->default('0');
             $table->timestamps();
         });
     }
@@ -30,6 +28,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('img_open_tickets');
+        Schema::dropIfExists('img_add_tickets');
     }
 };
