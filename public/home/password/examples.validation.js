@@ -45,6 +45,34 @@
 
 }).apply(this, [jQuery]);
 
+var check_email_format = null;
+
+const validateEmail = (email) => {
+    return email.match(
+      /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
+    );
+  };
+
+  const validate = () => {
+    const email = $('#email_create').val();
+  
+    if(validateEmail(email)){
+        console.log('Email validation')
+        $("#ch_email").prop("checked", true);
+     // $('#submit_newpass').prop('disabled', false);
+     check_email_format === true
+    } else{
+        console.log('Email invalidation')
+        $("#ch_email").prop("checked", false);
+        check_email_format === false
+    //    $('#submit_newpass').prop('disabled', true);
+    }
+    return false;
+  }
+
+
+$('#email_create').on('input', validate);
+
 
 
 var check_point_1 = null;
@@ -61,8 +89,6 @@ var check_point_1 = null;
     var big_pass = document.getElementById("big_pass");
     var same_pass = document.getElementById("same_pass");
     document.getElementById('submit_newpass').disabled = true;
-
- 
 
     function open_the_door(check_point1,check_point2){
 
@@ -129,13 +155,18 @@ var check_point_1 = null;
 
                // $('#submit_newpass').prop('disabled', false);
                if(check_point_1 == check_point_2){
+
                     $("#same_pass").prop("checked", true);
-                    $('#submit_newpass').prop('disabled', false);
+                    if(check_email_format === true){
+                        
+                        $('#submit_newpass').prop('disabled', false);
+                    }
+                    
                 }else{
                     $("#same_pass").prop("checked", false);
                     $('#submit_newpass').prop('disabled', true);
-               
                 }
+
             }else{
                 $('#submit_newpass').prop('disabled', true);
                 $("#same_pass").prop("checked", false);

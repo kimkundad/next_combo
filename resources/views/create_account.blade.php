@@ -73,6 +73,7 @@ Test
                         class="form-control shadow-none" 
                         placeholder="mail@gmail.com"
                         name="email"
+                        id="email_create"
                         value="{{ old('email') }}" required
                         >
                     </div>
@@ -136,6 +137,13 @@ Test
                             <input id="number_pass" type="checkbox" disabled >
                             <i class="green"></i>
                             ตัวเลข (0-9) อย่างน้อย 1 ตัว
+                         </label>
+                    </div>
+                    <div class="radio mt-2">
+                        <label class="md-check">
+                            <input id="ch_email" type="checkbox" disabled >
+                            <i class="green"></i>
+                            รูปแบบอีเมลที่ถูกต้อง
                          </label>
                     </div>
                     <div class="box-height-10"></div>

@@ -87,5 +87,10 @@ Test
 
 @section('scripts')
 
+<script>
+
+    
+</script>
+
 
 @stop('scripts')
