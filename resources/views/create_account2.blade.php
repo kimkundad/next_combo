@@ -51,12 +51,16 @@ Test
                                     <input type="radio" name="ser" value="นายสัตวแพทย์" id="option1" checked> นายสัตวแพทย์
                                 </label>
                                 <label class="btn">
-                                    <input type="radio" name="ser" value="สัตวแพทย์หญิง" id="option2"> สัตวแพทย์หญิง
+                                    <input type="radio" name="ser" value="สัตวแพทย์หญิง" id="option1"> สัตวแพทย์หญิง
                                 </label>
                                 <label class="btn">
-                                    <input type="radio" name="ser" value="อื่นๆ (โปรดระบุ)" id="option3"> อื่นๆ (โปรดระบุ)
+                                    <input type="radio" name="ser" value="อื่นๆ (โปรดระบุ)" id="option1"> อื่นๆ (โปรดระบุ)
                                 </label>
                             </div>
+                        </div>
+                        <div id="ser_othher" class="form-group hidden">
+                            <label class="text-muted">โปรดระบุคำนำหน้า กรณีเลือก อื่นๆ (โปรดระบุ)</label>
+                            <input type="text" name="ser_othher" class="form-control shadow-none" placeholder="โปรดระบุคำนำหน้า">
                         </div>
                         <div class="form-row">
                             <div class="form-group col-md-6">
@@ -114,17 +118,19 @@ Test
                             <option>หมอเบนซ์</option>
                             <option>หมอนุ่น</option>
                             <option>หมอดิว</option>
-                            <option>หมอป้อมแป้ม</option>
+                            <option>หมอป๋อมแป๋ม</option>
                             <option>หมอแจม</option>
                             <option>หมอหวาน</option>
                             <option>หมอวิว</option>
-                            <option>หมอพิ้นช์</option>
+                            <option>หมอพั้นซ์</option>
                             <option>หมอเบล</option>
                             <option>หมอบีม กมลวรรณ</option>
                             <option>หมอมิ้ว</option>
                             <option>หมอแต้ม</option>
                             <option>หมอโจ๊ก</option>
                             <option>หมอเอิน</option>
+                            <option>คุณซี</option>
+                            <option>คุณปอ</option>
                             <option>หมอเปตอง</option>
                             <option>อื่นๆ (โปรดระบุ)</option>
                         </select>
@@ -170,6 +176,18 @@ function val() {
         document.getElementById("input_othor").classList.add("hidden");
     }
 }
+
+
+$('input:radio[name="ser"]').change(function() {
+        if ($(this).val() == 'อื่นๆ (โปรดระบุ)') {
+            document.getElementById("ser_othher").classList.remove("hidden");
+            console.log('data',$(this).val() )
+        } else {
+            console.log('data',$(this).val() )
+            document.getElementById("ser_othher").classList.add("hidden");
+        }
+    });
+
 
 
 </script>

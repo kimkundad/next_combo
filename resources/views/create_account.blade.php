@@ -44,13 +44,17 @@ Test
                     </a>
                 </div>
             </div>
-            <div class="p-10 border-bottom">
-                <div class="text-center">
-                    <h1 class="big_text_green">CREATE ACCOUNTS</h1>
-                    <p class="sub_text_green">สร้างบัญชีผู้ใช้งาน</p>
-                </div>
+            <div class="d-flex justify-content-between p-10 border-bottom">
+                        <a href="{{ url('/') }}" style="color:#999; padding-top: 10px; width: 51px;">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevron-left mx-2"><polyline points="15 18 9 12 15 6"></polyline></svg>
+                        </a>
+                        <div class="text-center">
+                            <h1 class="big_text_green">CREATE ACCOUNTS</h1>
+                            <p class="sub_text_green">สร้างบัญชีผู้ใช้งาน</p>
+                        </div>
+                        <div style="width: 51px;"></div>
             </div>
-            
+
             <div class="p-26">
             
                 <h2 class="text-md text-highlight">สร้างบัญชีผู้ใช้งาน</h2>

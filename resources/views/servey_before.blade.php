@@ -59,7 +59,7 @@ Test
             <form class="" role="form" action="{{ url('servey_success') }}">
                 <div class="p-26">
                         
-                    <h2 class="text-md text-highlight fs-18">แบบประเมินหลังใช้งานผลิตภัณฑ์</h2>
+                    <h2 class="text-md text-highlight fs-18">แบบประเมินหลังใช้งาน</h2>
                     <div class="box-height-10"></div>
                     <div class="form-group">
                         <label class="" style="font-size:15px">1. กลิ่นของยาไม่เหม็นฉุน</label>

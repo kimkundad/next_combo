@@ -68,7 +68,7 @@ Test
             <form class="" role="form" action="{{ url('servey_before') }}">
                 <div class="p-26">
                         
-                    <h2 class="text-md text-highlight fs-18">ก่อนการใช้งานนผลิตภัณฑ์</h2>
+                    <h2 class="text-md text-highlight fs-18">ก่อนการใช้งานผลิตภัณฑ์</h2>
                     <div class="d-flex">
                         <div class="master_upload1">
                             <input type="file" name="img[]" id="file_upload_id1" style="display:none" onchange="preview()">
@@ -118,7 +118,7 @@ Test
                             <label class="text-muted">อายุ</label>
                             <select class="form-control shadow-none">
                                 <option>0-6 เดือน</option>
-                                <option>6 เดือน – 1 ปี</option>
+                                <option>6 เดือน–1 ปี</option>
                                 <option>1-3 ปี</option>
                                 <option>3-7 ปี</option>
                                 <option>7-10 ปี</option>
@@ -138,7 +138,7 @@ Test
                         </div>
                     </div>
                     <div class="form-group">
-                        <label class="text-muted">พันธ์</label>
+                        <label class="text-muted">พันธุ์</label>
                         <select onchange="val2()" id="breed" class="form-control shadow-none js-example-basic-single2">
                         </select>
                     </div>
@@ -165,7 +165,7 @@ Test
                     </div>
                     <div id="input_disease" class="form-group hidden">
                         <label class="text-muted">โรคประจำตัว กรณีเลือก อื่นๆ (โปรดระบุ)</label>
-                        <input type="text" class="form-control shadow-none" placeholder="โปรดระบุผู้แทนที่ดูแลท่าน">
+                        <input type="text" class="form-control shadow-none" placeholder="โปรดระบุโรคประจำตัว">
                     </div>
                     <div class="form-group">
                         <label class="text-muted">จุดประสงค์การใช้งาน (เลือกได้หลายข้อ)</label>
@@ -186,7 +186,7 @@ Test
                     </div>
                     <div id="input_othor" class="form-group hidden">
                         <label class="text-muted">จุดประสงค์การใช้งาน กรณีเลือก อื่นๆ (โปรดระบุ)</label>
-                        <input type="text" class="form-control shadow-none" placeholder="โปรดระบุผู้แทนที่ดูแลท่าน">
+                        <input type="text" class="form-control shadow-none" placeholder="โปรดระบุจุดประสงค์การใช้งาน">
                     </div>
                     <div class="mt-3">
                         <button class="btn btn-green btn-block" onclick="window.location.href='{{ url('servey_before') }}'">
