@@ -19,6 +19,7 @@ use Illuminate\Support\Facades\Hash;
 use Intervention\Image\ImageManagerStatic as Image;
 use Input;
 use Auth;
+use Redirect;
 use Illuminate\Support\Facades\Storage;
 
 class HomeController extends Controller
@@ -46,6 +47,15 @@ class HomeController extends Controller
   public function service()
   {
     return User::all();
+  }
+
+  public function welcome(){
+    
+    if (Auth::check()) {
+      return Redirect::to('case_list');
+    } else {
+          return view('welcome');
+    }
   }
 
   public function add_ticket($id){

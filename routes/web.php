@@ -33,9 +33,7 @@ Route::get('/images/{file}', function ($file) {
 	return abort(404);
   })->where('file', '.+');
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', [App\Http\Controllers\HomeController::class, 'welcome']);
 
 Route::get('logout', '\App\Http\Controllers\Auth\LoginController@logout');
 
