@@ -174,6 +174,6 @@ Test
 @section('scripts')
 
 <script src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.11.1/jquery.validate.min.js"></script>
-<script src="{{ url('home/password/examples.validation.js') }}"></script>
+<script src="{{ url('home/password/examples.validation.js') }}?v{{time()}}"></script>
 
 @stop('scripts')

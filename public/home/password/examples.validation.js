@@ -63,7 +63,6 @@ const validateEmail = (email) => {
         if(length_pass_1 == true && number_pass_1 == true && letter_pass_1 == true && big_pass_1 == true ){
 
 
-
             // $('#submit_newpass').prop('disabled', false);
             if(check_point_1 == check_point_2){
              
