@@ -53,6 +53,9 @@ Test
                                 <label class="btn">
                                     <input type="radio" name="ser" value="สัตวแพทย์หญิง" id="option2"> สัตวแพทย์หญิง
                                 </label>
+                                <label class="btn">
+                                    <input type="radio" name="ser" value="อื่นๆ (โปรดระบุ)" id="option3"> อื่นๆ (โปรดระบุ)
+                                </label>
                             </div>
                         </div>
                         <div class="form-row">
@@ -66,7 +69,7 @@ Test
                             </div>
                         </div>
                         <div class="form-group">
-                            <label class="text-muted">เบอร์โทรศัพย์</label>
+                            <label class="text-muted">เบอร์โทรศัพท์</label>
                             <input type="text" name="phone" class="form-control shadow-none" placeholder="รายละเอียด">
                         </div>
                         <div class="form-group">
