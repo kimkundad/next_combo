@@ -58,7 +58,8 @@ Test
             <div class="p-26">
                 <h2 class="text-md text-highlight">ตั้งค่าบัญชีผู้ใช้งาน</h2>
                 <div class="box-height-20"></div>
-                <form class="" role="form" action="{{ url('create_account2') }}">
+                <form class="" role="form" method="POST" action="{{ url('post_change_newpass') }}">
+                    @csrf
                     <div class="form-group">
                         <label>อีเมล</label>
                         <input 
@@ -71,24 +72,24 @@ Test
                         >
                     </div>
                     <div class="form-group">
-                        <label> Old Password</label>
+                        <label>New Password</label>
                         <input 
                         type="password" 
                         class="form-control shadow-none" 
                         placeholder="รหัสผู้ใช้"
-                        name="old_password"
+                        name="new_password"
                         required
                         onkeyup="open_the_door(this.value,null)"
                         onkeydown="open_the_door(this.value,null)"
                         >
                     </div>
                     <div class="form-group">
-                        <label>New Password</label>
+                        <label>Confirm Password</label>
                         <input 
                         type="password" 
                         class="form-control shadow-none" 
                         placeholder="ยืนยันรหัสผู้ใช้" 
-                        name="new_password"
+                        name="con_password"
                         required
                         onkeyup="open_the_door(null,this.value)"
                         onkeydown="open_the_door(null,this.value)">
@@ -116,13 +117,7 @@ Test
                             ตัวอักษรพิมพ์เล็ก (a-z) อย่างน้อย 1 ตัว
                          </label>
                     </div>
-                    <div class="radio mt-2">
-                        <label class="md-check">
-                            <input id="same_pass" type="checkbox" disabled checked>
-                            <i class="green"></i>
-                            รหัสผ่านกับยืนยันรหัสผ่านต้องเหมือนกัน
-                         </label>
-                    </div>
+                    
                     <div class="radio mt-2">
                         <label class="md-check">
                             <input id="number_pass" type="checkbox" disabled >
@@ -132,14 +127,14 @@ Test
                     </div>
                     <div class="radio mt-2">
                         <label class="md-check">
-                            <input id="ch_email" type="checkbox" disabled >
+                            <input id="same_pass" type="checkbox" disabled checked>
                             <i class="green"></i>
-                            รูปแบบอีเมลที่ถูกต้อง
+                            รหัสผ่านกับยืนยันรหัสผ่านต้องเหมือนกัน
                          </label>
                     </div>
                     <div class="box-height-10"></div>
                     <div class="mt-3">
-                        <button class="btn btn-green btn-block" onclick="window.location.href='{{ url('create_account2') }}'">
+                        <button class="btn btn-green btn-block" id="submit_newpass">
                             เปลี่ยนแปลง
                         </button>
                     </div>
@@ -255,9 +250,14 @@ Test
                         </div>
                         <div class="box-height-10"></div>
                     <div class="mt-3">
-                        <button class="btn btn-green btn-block" onclick="window.location.href='{{ url('create_account3') }}'">
+                        <button class="btn btn-green btn-block" >
                             เปลี่ยนแปลง
                         </button>
+                    </div>
+                    <div class="mt-3">
+                        <a class="btn btn-raised btn-wave btn-red  btn-block" href="{{ url('logout') }}" style="color:#fff">
+                            ออกจากระบบ
+                        </a>
                     </div>
             </div>
             </form>
@@ -270,13 +270,21 @@ Test
     </div>
 </div>
 
-
+<style>
+    .btn-red {
+    color: #ffffff;
+    background-color: #f44336;
+    border-color: #f44336;
+    padding: 12px 0.75rem;
+    font-size: 22px;
+}
+</style>
 @endsection
 
 @section('scripts')
 
 <script src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.11.1/jquery.validate.min.js"></script>
-{{-- <script src="{{ url('home/password/examples.validation2.js') }}?v{{time()}}"></script> --}}
+<script src="{{ url('home/password/examples.validation2.js') }}?v{{time()}}"></script> 
 
 <script>
     $(document).ready(function() {

@@ -15,12 +15,12 @@ use App\Models\ask_close_ticket;
 use App\Models\img_close_ticket;
 use App\Models\add_ticket;
 use App\Models\img_add_ticket;
-use Illuminate\Support\Facades\Hash;
 use Intervention\Image\ImageManagerStatic as Image;
 use Input;
 use Auth;
 use Redirect;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\Hash;
 
 class HomeController extends Controller
 {
@@ -108,6 +108,21 @@ class HomeController extends Controller
 
   }
 
+  public function post_change_newpass(Request $request){
+
+    $this->validate($request, [
+      'new_password' => 'required',
+      'con_password' => 'required'
+  ]);
+
+        $user =  User::find(Auth::user()->id);
+        $user->password =  Hash::make($request->new_password);
+        $user->save();
+
+        return redirect('/create_complete2')->with('success', "Account successfully registered.");
+
+
+  }
 
   public function post_servey_before(Request $request)
   {

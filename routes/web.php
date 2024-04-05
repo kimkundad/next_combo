@@ -50,8 +50,8 @@ Route::group(['middleware' => ['UserRole:superadmin|admin|user']], function() {
     Route::post('/post_open_ticket', [App\Http\Controllers\HomeController::class, 'post_open_ticket']);
     Route::post('/post_close_ticket', [App\Http\Controllers\HomeController::class, 'post_close_ticket']);
     Route::post('/post_add_ticket', [App\Http\Controllers\HomeController::class, 'post_add_ticket']);
+    Route::post('/post_change_newpass', [App\Http\Controllers\HomeController::class, 'post_change_newpass']);
     
-
     Route::post('/post_servey_before', [App\Http\Controllers\HomeController::class, 'post_servey_before']);
     Route::post('/post_servey_after', [App\Http\Controllers\HomeController::class, 'post_servey_after']);
     
