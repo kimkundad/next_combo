@@ -141,7 +141,7 @@ class HomeController extends Controller
     $objs->ark1 = $request['ark1'];
     $objs->ark2 = $request['ark2'];
     $objs->ark3 = $request['ark3'];
-    $objs->ark3 = $request['ark4'];
+    $objs->ark4 = $request['ark4'];
     $objs->save();
 
     return view('success_1');
