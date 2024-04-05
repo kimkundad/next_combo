@@ -126,13 +126,22 @@ class HomeController extends Controller
 
   public function post_servey_before(Request $request)
   {
+
+    $this->validate($request, [
+      'ark1' => 'required',
+      'ark2' => 'required',
+      'ark3' => 'required',
+      'ark4' => 'required'
+  ]);
+
+
     $objs = new ask_open_ticket();
     $objs->user_id = Auth::user()->id;
     $objs->ticket_orders_id = $request['ticket_orders_id'];
     $objs->ark1 = $request['ark1'];
     $objs->ark2 = $request['ark2'];
     $objs->ark3 = $request['ark3'];
-    $objs->ark4 = $request['ark4'];
+    $objs->ark3 = $request['ark4'];
     $objs->save();
 
     return view('success_1');
@@ -140,6 +149,11 @@ class HomeController extends Controller
 
   public function post_servey_after(Request $request)
   {
+
+    $this->validate($request, [
+      'ark1' => 'required',
+      'ark2' => 'required'
+  ]);
     $objs = new ask_close_ticket();
     $objs->user_id = Auth::user()->id;
     $objs->ticket_orders_id = $request['ticket_orders_id'];
@@ -180,6 +194,11 @@ class HomeController extends Controller
   }
 
   public function post_add_ticket(Request $request){
+
+    $this->validate($request, [
+      'img' => 'required',
+      'detail' => 'required',
+    ]);
 
     $id = $request->ticket_orders_id;
   //  dd($id);
@@ -226,6 +245,10 @@ class HomeController extends Controller
   {
  //   dd($request->all());
 
+    $this->validate($request, [
+      'img' => 'required',
+    ]);
+
     $id = $request->ticket_orders_id;
     $objs = new close_ticket();
     $objs->user_id = Auth::user()->id;
@@ -267,11 +290,18 @@ class HomeController extends Controller
   public function post_open_ticket(Request $request)
   {
 
-    // dd($request->file('img'));
+   //  dd($request->all());
 
     $this->validate($request, [
-      'name_ticket' => 'required'
+      'name_ticket' => 'required',
+      'img' => 'required',
+      'age_ticket' => 'required',
+      'sex_ticket' => 'required',
+      'breed_ticket' => 'required',
+      'objective_ticket' => 'required',
+      'disease_ticket' => 'required',
     ]);
+
 
     if (isset($request->disease_ticket)) {
       $disease_ticket = implode(',', $request->disease_ticket);

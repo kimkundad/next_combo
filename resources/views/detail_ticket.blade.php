@@ -182,7 +182,7 @@ Test
                             </div>
         
                             <div class="form-group">
-                                <label class="" style="font-size:15px">4. ภาพรวมของโปรแกรม NEXT COMBO</label>
+                                <label class="" style="font-size:15px">4. ภาพรวมของโปรแกรม NEXT COMBO {{ $ask1->ark4 }}</label>
                                 <select class="star-rating" name="ark4">
                                     <option value="">Select a rating</option>
                                     <option value="5" @if( $ask1->ark4 == 5) selected='selected' @endif>Excellent</option>
@@ -246,7 +246,7 @@ Test
         
                             <div class="form-group">
                                 <label class="" style="font-size:15px">3. ข้อเสนอแนะเพิ่มเติม</label>
-                                <textarea id="event-desc" class="form-control" name="detail" rows="6" placeholder="รายละเอียด..." readonly>{{ $ask2->detail }}</textarea>
+                                <textarea id="event-desc" class="form-control" name="detail" rows="6" placeholder="รายละเอียด..." readonly>@isset($ask2->detail){{ $ask2->detail }}@endisset</textarea>
                             </div>
                     </div>
                     <div class="tab-pane fade" id="contact2" role="tabpanel" aria-labelledby="contact-tab">
@@ -272,7 +272,7 @@ Test
                             <div class="box-height-20"></div>
                             <div class="form-group">
                                 <label class="" style="font-size:15px">ข้อเสนอแนะเพิ่มเติม</label>
-                                <textarea id="event-desc" class="form-control" name="detail" rows="6" placeholder="รายละเอียด..." readonly>{{ $add->detail }}</textarea>
+                                <textarea id="event-desc" class="form-control" name="detail" rows="6" placeholder="รายละเอียด..." readonly>@isset($add){{ $add->detail }}@endisset</textarea>
                             </div>
                     </div>
                 </div>

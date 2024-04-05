@@ -59,6 +59,22 @@ Test
                 <form class="" role="form" method="POST" action="{{ url('post_servey_after') }}">
                     {{ csrf_field() }}
                 <div class="p-26">
+
+                    @error('ark1')
+                    <div class="alert alert-warning" role="alert">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-alert-circle"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="8" x2="12" y2="12"></line><line x1="12" y1="16" x2="12" y2="16"></line></svg>
+                        <span class="mx-2">กรุณากรอกแบบประเมิน ข้อ 1</span>
+                    </div>
+                    @enderror
+
+                    @error('ark2')
+                    <div class="alert alert-warning" role="alert">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-alert-circle"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="8" x2="12" y2="12"></line><line x1="12" y1="16" x2="12" y2="16"></line></svg>
+                        <span class="mx-2">กรุณากรอกแบบประเมิน ข้อ 2</span>
+                    </div>
+                    @enderror
+
+
                     <input type="hidden" name="ticket_orders_id" value="{{ $id_ticket }}">
                     <h2 class="text-md text-highlight fs-18">แบบประเมินหลังใช้งานผลิตภัณฑ์</h2>
                     <div class="box-height-10"></div>

@@ -24,6 +24,13 @@ Test
 <div id="main">
     <div class="chakra-container-page">
         <div id="content" >
+            <div class="header_logo">
+                <div class="d-flex justify-content-center">
+                    <a href="{{ url('/case_list') }}">
+                        <img class="img-fluid logo_website_main" src="{{ url('img/logo_head.png') }}" />
+                    </a>
+                </div>
+            </div>
             <div>
                 <img src="{{ url('img/Login.jpg') }}" class="img-fluid" alt="">
             </div>

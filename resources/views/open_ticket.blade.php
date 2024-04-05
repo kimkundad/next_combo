@@ -64,9 +64,13 @@ Test
 
                 </div>
             </div>
+
             
+
             <form class="" role="form" method="POST" action="{{ url('post_open_ticket') }}" enctype="multipart/form-data">
                 <div class="p-26">
+
+
                     {{ csrf_field() }}
                     <h2 class="text-md text-highlight fs-18">ก่อนการใช้งานผลิตภัณฑ์</h2>
                     <div class="d-flex">
@@ -102,11 +106,60 @@ Test
                             ลายหมัด ไรในหู ไรขี้เรื้อนแห้ง หรือหากไม่มีรอยโรคชัดเจน สามารถ <br>
                             อัพโหลดรูปทั้งตัวของน้องแมวได้เลย (อัพโหลดได้สูงสุด 3 รูป) 
                         </p>
-                        <p class="mb-0 text-danger ex-red">
+                        <a  data-toggle="modal" data-target="#modal" class="mb-0 ex-red">
                             คลิก เพื่อดูตัวอย่างรูปถ่าย
-                        </p>
+                        </a>
                     </div>
                     <div class="box-height-10"></div>
+
+                    @error('img')
+                    <div class="alert alert-warning" role="alert">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-alert-circle"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="8" x2="12" y2="12"></line><line x1="12" y1="16" x2="12" y2="16"></line></svg>
+                        <span class="mx-2">กรุณาอัพโหลดรูปภาพ</span>
+                    </div>
+                    @enderror
+
+                    @error('name_ticket')
+                    <div class="alert alert-warning" role="alert">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-alert-circle"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="8" x2="12" y2="12"></line><line x1="12" y1="16" x2="12" y2="16"></line></svg>
+                        <span class="mx-2">กรุณาป้อนชื่อสัตว์เลี้ยง</span>
+                    </div>
+                    @enderror
+
+                    @error('age_ticket')
+                    <div class="alert alert-warning" role="alert">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-alert-circle"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="8" x2="12" y2="12"></line><line x1="12" y1="16" x2="12" y2="16"></line></svg>
+                        <span class="mx-2">กรุณาป้อนอายุ</span>
+                    </div>
+                    @enderror
+
+                    @error('sex_ticket')
+                    <div class="alert alert-warning" role="alert">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-alert-circle"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="8" x2="12" y2="12"></line><line x1="12" y1="16" x2="12" y2="16"></line></svg>
+                        <span class="mx-2">กรุณาป้อนเพศ</span>
+                    </div>
+                    @enderror
+
+                    @error('breed_ticket')
+                    <div class="alert alert-warning" role="alert">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-alert-circle"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="8" x2="12" y2="12"></line><line x1="12" y1="16" x2="12" y2="16"></line></svg>
+                        <span class="mx-2">กรุณาป้อนพันธุ์</span>
+                    </div>
+                    @enderror
+
+                    @error('disease_ticket')
+                    <div class="alert alert-warning" role="alert">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-alert-circle"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="8" x2="12" y2="12"></line><line x1="12" y1="16" x2="12" y2="16"></line></svg>
+                        <span class="mx-2">กรุณาเลือกโรคประจำตัว</span>
+                    </div>
+                    @enderror
+
+                    @error('objective_ticket')
+                    <div class="alert alert-warning" role="alert">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-alert-circle"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="8" x2="12" y2="12"></line><line x1="12" y1="16" x2="12" y2="16"></line></svg>
+                        <span class="mx-2">กรุณาเลือกจุดประสงค์การใช้งาน</span>
+                    </div>
+                    @enderror
                     
                     <h2 class="text-md text-highlight fs-18">ประวัติสัตว์เลี้ยง</h2>
                     <div class="form-group">
@@ -204,6 +257,27 @@ Test
     </div>
 </div>
 
+<!-- .modal -->
+<div id="modal" class="modal fade" data-backdrop="true">
+    <div class="modal-dialog ">
+        <div class="modal-content ">
+            <div class="modal-header ">
+                <div class="modal-title text-md fs-18">ตัวอย่างรูปถ่าย</div>
+                <button class="close" data-dismiss="modal">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div class="text-center">
+                    <img src="{{ url('img/cat_broken.jpg') }}" class="img-fluid" alt="">
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-light" data-dismiss="modal">ปิด</button>
+            </div>
+        </div>
+        <!-- /.modal-content -->
+    </div>
+</div>
+<!-- / .modal -->
 
 @endsection
 
