@@ -82,11 +82,11 @@ Test
                         <label class="" style="font-size:15px">1. ได้ผลตรงตามจุดประสงค์การใช้งาน</label>
                         <select class="star-rating" name="ark1">
                             <option value="">Select a rating</option>
-                            <option value="5">Excellent</option>
-                            <option value="4">Very Good</option>
+                            <option value="1">Excellent</option>
+                            <option value="2">Very Good</option>
                             <option value="3">Average</option>
-                            <option value="2">Poor</option>
-                            <option value="1">Terrible</option>
+                            <option value="4">Poor</option>
+                            <option value="5">Terrible</option>
                         </select>
                     </div>
 
@@ -94,11 +94,11 @@ Test
                         <label class="" style="font-size:15px">2. ภาพรวมของโปรแกรม NEXT COMBO</label>
                         <select class="star-rating" name="ark2">
                             <option value="">Select a rating</option>
-                            <option value="5">Excellent</option>
-                            <option value="4">Very Good</option>
+                            <option value="1">Excellent</option>
+                            <option value="2">Very Good</option>
                             <option value="3">Average</option>
-                            <option value="2">Poor</option>
-                            <option value="1">Terrible</option>
+                            <option value="4">Poor</option>
+                            <option value="5">Terrible</option>
                         </select>
                     </div>
 

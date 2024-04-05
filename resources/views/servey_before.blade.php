@@ -96,11 +96,11 @@ Test
                         <label class="" style="font-size:15px">1. กลิ่นของยาไม่เหม็นฉุน</label>
                         <select class="star-rating" name="ark1">
                             <option value="">Select a rating</option>
-                            <option value="5">Excellent</option>
-                            <option value="4">Very Good</option>
+                            <option value="1">Excellent</option>
+                            <option value="2">Very Good</option>
                             <option value="3">Average</option>
-                            <option value="2">Poor</option>
-                            <option value="1">Terrible</option>
+                            <option value="4">Poor</option>
+                            <option value="5">Terrible</option>
                         </select>
                     </div>
 
@@ -108,11 +108,11 @@ Test
                         <label class="" style="font-size:15px">2. สะดวกแค่หยดไม่ต้องป้อนยา ถ่ายพยาธิ</label>
                         <select class="star-rating" name="ark2">
                             <option value="">Select a rating</option>
-                            <option value="5">Excellent</option>
-                            <option value="4">Very Good</option>
+                            <option value="1">Excellent</option>
+                            <option value="2">Very Good</option>
                             <option value="3">Average</option>
-                            <option value="2">Poor</option>
-                            <option value="1">Terrible</option>
+                            <option value="4">Poor</option>
+                            <option value="5">Terrible</option>
                         </select>
                     </div>
 
@@ -120,11 +120,11 @@ Test
                         <label class="" style="font-size:15px">3. มั่นใจในความปลอดภัย เช่น ใช้ได้ใน แมวแม่พันธุ์ ตั้งท้อง ให้นมลูก</label>
                         <select class="star-rating" name="ark3">
                             <option value="">Select a rating</option>
-                            <option value="5">Excellent</option>
-                            <option value="4">Very Good</option>
+                            <option value="1">Excellent</option>
+                            <option value="2">Very Good</option>
                             <option value="3">Average</option>
-                            <option value="2">Poor</option>
-                            <option value="1">Terrible</option>
+                            <option value="4">Poor</option>
+                            <option value="5">Terrible</option>
                         </select>
                     </div>
 
@@ -132,11 +132,11 @@ Test
                         <label class="" style="font-size:15px">4. ภาพรวมของโปรแกรม NEXT COMBO</label>
                         <select class="star-rating" name="ark4">
                             <option value="">Select a rating</option>
-                            <option value="5">Excellent</option>
-                            <option value="4">Very Good</option>
+                            <option value="1">Excellent</option>
+                            <option value="2">Very Good</option>
                             <option value="3">Average</option>
-                            <option value="2">Poor</option>
-                            <option value="1">Terrible</option>
+                            <option value="4">Poor</option>
+                            <option value="5">Terrible</option>
                         </select>
                     </div>
 

@@ -91,7 +91,7 @@ class HomeController extends Controller
     $add = add_ticket::where('id', $objs->add_ticket)->first();
    $imgf = img_open_ticket::where('open_ticket_id', $objs->open_ticket)->get();
    $imgb = img_close_ticket::where('close_ticket_id', $objs->close_ticket)->get();
-   $ask1 = ask_open_ticket::where('ticket_orders_id', $id)->first();
+   $ask1 = ask_open_ticket::where('ticket_orders_id', $objs->open_ticket)->first();
    $ask2 = ask_close_ticket::where('ticket_orders_id', $objs->close_ticket)->first();
    $img_add = img_add_ticket::where('add_ticket_id', $objs->add_ticket)->get();
 
@@ -368,7 +368,7 @@ class HomeController extends Controller
       img_open_ticket::insert($data1);
     }
 
-    return redirect('servey_before/' . $obj->id)->with('success', "Account successfully registered.");
+    return redirect('servey_before/' . $objs->id)->with('success', "Account successfully registered.");
   }
 
   public function create_user_profile2(Request $request)

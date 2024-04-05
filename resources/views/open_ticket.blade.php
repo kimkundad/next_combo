@@ -164,7 +164,7 @@ Test
                     <h2 class="text-md text-highlight fs-18">ประวัติสัตว์เลี้ยง</h2>
                     <div class="form-group">
                         <label class="text-muted">ชื่อสัตว์เลี้ยง</label>
-                        <input type="text" class="form-control shadow-none" name="name_ticket" placeholder="รายละเอียด">
+                        <input type="text" class="form-control shadow-none" name="name_ticket" value="{{old('name_ticket') ? old('name_ticket') : ''}}" placeholder="รายละเอียด">
                     </div>
                     <div class="form-row">
                         <div class="form-group col-md-6">
