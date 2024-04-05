@@ -47,7 +47,7 @@ Test
                 </div>
                 <div class="box-height-20"></div>
                     <div class="mt-3">
-                        <button class="btn btn-green btn-block" onclick="window.location.href='{{ url('case_list') }}'">
+                        <button class="btn btn-green btn-block" onclick="window.location.href='{{ url('video') }}'">
                             รับชมวีดีโอ NEXT COMBO
                         </button>
                     </div>

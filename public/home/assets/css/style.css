@@ -775,7 +775,13 @@ input:focus{
   background-color: #004e36;
   box-shadow: none;
 }
+.text-green{
+  color: #004e36;
+}
 
+.fb-x{
+  font-weight: 700;
+}
 .add_regis_succ {
   color: #004e36;
 }

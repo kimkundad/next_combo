@@ -44,6 +44,7 @@ Route::get('/create_account', [App\Http\Controllers\HomeController::class, 'crea
 
 Route::post('/create_new_user', [App\Http\Controllers\HomeController::class, 'create_new_user']);
 
+
 Route::get('/test', function () {
     return view('emails.password');
 });
@@ -64,6 +65,10 @@ Route::group(['middleware' => ['UserRole:superadmin|admin|user']], function() {
 
     Route::get('/create_complete2', function () {
         return view('create_complete2');
+    });
+
+    Route::get('/video', function () {
+        return view('video');
     });
 
     Route::post('/create_user_profile', [App\Http\Controllers\HomeController::class, 'create_user_profile']);

@@ -1,0 +1,121 @@
+@extends('layouts.template')
+
+
+@section('title')
+Test
+@stop
+
+@section('stylesheet')
+
+@stop('stylesheet')
+<link href="https://vjs.zencdn.net/8.10.0/video-js.css" rel="stylesheet">
+<style>
+    .ui-check {
+  font-size: 15px;
+}
+.ui-check > i {
+    width: 18px;
+    height: 18px;
+}
+</style>
+
+@section('content')
+
+<div id="main">
+    <div class="chakra-container-page">
+        <div id="content" >
+            <div class="header_logo">
+                <div class="d-flex justify-content-between">
+                    <div style="width: 51px;"></div>
+                    <a href="{{ url('/case_list') }}">
+                        <img class="img-fluid logo_website_main" src="{{ url('img/logo_head.png') }}" />
+                    </a>
+                    <a href="{{ url('/account_setting') }}" style="padding-top: 20px; color:#000">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="35" height="35" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-menu mx-2"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
+                    </a>
+                </div>
+            </div>
+            <div class="p-18 border-bottom ">
+                <div class="d-flex justify-content-center">
+
+                    <div class="d-flex">
+                        <div class="pt-5px">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20"
+                                viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                stroke-linecap="round" stroke-linejoin="round"
+                                class="feather feather-play-circle text-muted" style="margin-right:5px">
+                                <circle cx="12" cy="12" r="10"></circle>
+                                <polygon points="10 8 16 12 10 16 10 8"></polygon>
+                            </svg>
+                        </div>
+                        <div>
+                            <p class="text-muted mb-0 fs-19" style="margin-top: 2px;">รับชมวีดีโอ</p>
+                        </div>
+
+                    </div>
+
+                </div>
+            </div>
+            <div class="p-26 text-center">
+                <div class="d-flex justify-content-center">
+                    {{-- <video id="VisaChipCardVideo" style="min-width: 446px; max-width: 660px;"  controls>
+                        <source src="https://kimspace2.sgp1.cdn.digitaloceanspaces.com/next_combo/VDO_NexGard_Combo.mp4" style="min-width: 446px; max-width: 660px;" type="video/mp4">
+                        <!--Browser does not support <video> tag --> cover_video.jpg
+                      </video> --}}
+                      <video id="myPlayer" class="video-js"
+                        controls preload="auto"style="min-width: 446px; height:251px; max-width: 660px;" 
+                        poster="{{ url('img/cover_video.jpg') }}"
+                        >
+                    <source src="https://kimspace2.sgp1.cdn.digitaloceanspaces.com/next_combo/VDO_NexGard_Combo.mp4" type="video/mp4">
+                    </video>
+                </div>
+                <div class="box-height-20"></div>
+                <div>Time Played: <span id="timePlayed">0</span> วินาที</div>
+                <h2 class=" text-md text-green fs-20 fb-x">รับชมวิดีโอ NEXT COMBO</h2>
+                <p class=" mb-0 fs-16" style="margin-top: 2px;">เข้าสู่ระบบครั้งแรกรับชมวีดีโอ 20 วินาที <br> หลังจากนั้นระบบจะนำท่านเข้าสู๋การใช้งานระบบ</p>
+            </div>
+            
+            
+
+            <div class="box-height-20"></div>
+            <div class="box-height-20"></div>
+            <div class="box-height-20"></div>
+            <div class="box-height-20"></div>
+            <div class="box-height-20"></div>
+            <div class="box-height-20"></div>
+            <div class="box-height-20"></div>
+            <div class="box-height-20"></div>
+            <div class="box-height-20"></div>
+
+            
+            
+        </div>
+    </div>
+</div>
+
+
+@endsection
+
+@section('scripts')
+
+<script src='https://vjs.zencdn.net/8.10.0/video.min.js'></script>
+
+<script>
+    const video = document.getElementById('myPlayer');
+    const timePlayedElement = document.getElementById('timePlayed');
+    let timer = 0;
+    video.addEventListener('timeupdate', function() {
+      timePlayedElement.textContent = video.currentTime.toFixed(0);
+      console.log('video --> ',video.currentTime.toFixed(0));
+      timer =  video.currentTime.toFixed(0);
+    });
+
+    function view_stack(){
+    
+        if(timer >= 20){ window.location.href = '{{ url('/case_list') }}'; }
+    }
+
+      setInterval(view_stack, 1000);
+
+  </script>
+@stop('scripts')

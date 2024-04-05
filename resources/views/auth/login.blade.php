@@ -53,11 +53,19 @@ Test
                             เข้าใช้งาน
                         </button>
                     </div>
-                    <div class="box-height-10"></div>
                     <div class="box-height-20"></div>
                     <div class="text-center">
                         <a href="{{ route('password.request') }}">
                             <h2 class=" text-md text-muted fs-18">ลืมรหัสผ่านการใช้งาน</h2>
+                        </a>
+                    </div>
+                    <hr>
+                    <div class="text-center">
+                        <p class="mt-3 fs-16">หากยังไม่เคยลงทะเบียน</p>
+                    </div>
+                    <div class="mt-3">
+                        <a href="{{ url('/') }}" class="btn btn-green btn-block text-white">
+                            ลงทะเบียนครั้งแรก
                         </a>
                     </div>
                     
