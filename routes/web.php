@@ -44,6 +44,9 @@ Route::get('/create_account', [App\Http\Controllers\HomeController::class, 'crea
 
 Route::post('/create_new_user', [App\Http\Controllers\HomeController::class, 'create_new_user']);
 
+Route::get('/test', function () {
+    return view('emails.password');
+});
 
 Route::group(['middleware' => ['UserRole:superadmin|admin|user']], function() {
 

@@ -49,7 +49,7 @@ Test
                     <h2 class="text-md text-highlight fs-20">ลืมรหัสผ่านการใช้งาน</h2>
                     <div class="box-height-10"></div>
                     <div class="form-group">
-                        <label class="text-dark">Username</label>
+                        <label class="text-dark">Email</label>
                         <input type="text" name="email" value="{{ old('email') }}" class="form-control shadow-none" placeholder="อีเมล" required>
                     </div>
                     <div class="mt-4">
