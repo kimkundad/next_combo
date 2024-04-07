@@ -69,7 +69,7 @@ Test
                 <div class="box-height-20"></div>
                 <div>Time Played: <span id="timePlayed">0</span> วินาที</div>
                 <h2 class=" text-md text-green fs-20 fb-x">รับชมวิดีโอ NEXT COMBO</h2>
-                <p class=" mb-0 fs-16" style="margin-top: 2px;">เข้าสู่ระบบครั้งแรกรับชมวีดีโอ 20 วินาที <br> หลังจากนั้นระบบจะนำท่านเข้าสู๋การใช้งานระบบ</p>
+                <p class=" mb-0 fs-16" style="margin-top: 2px;">เมื่อเข้าสู่ระบบครั้งแรก <br> หลังจากนั้นระบบจะนำท่านเข้าสู่การใช้งานระบบ</p>
             </div>
             
             
@@ -109,7 +109,7 @@ Test
 
     function view_stack(){
     
-        if(timer >= 20){ window.location.href = '{{ url('/case_list') }}'; }
+        if(timer >= 180){ window.location.href = '{{ url('/case_list') }}'; }
     }
 
       setInterval(view_stack, 1000);

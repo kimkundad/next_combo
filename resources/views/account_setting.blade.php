@@ -214,11 +214,11 @@ Test
       
                     <div class="form-row">
                         <div class="form-group col-md-6">
-                            <label class="text-muted">ชื่อ ( ภาษาไทย )</label>
+                            <label class="text-muted">ชื่อ (ภาษาไทย)</label>
                             <input type="text" name="fname" value="{{ Auth::user()->fname }}" class="form-control shadow-none" placeholder="รายละเอียด" required>
                         </div>
                         <div class="form-group col-md-6">
-                            <label class="text-muted">นามสกุล ( ภาษาไทย )</label>
+                            <label class="text-muted">นามสกุล (ภาษาไทย)</label>
                             <input type="text" name="lname" value="{{ Auth::user()->lname }}" class="form-control shadow-none" placeholder="รายละเอียด" required>
                         </div>
                     </div>

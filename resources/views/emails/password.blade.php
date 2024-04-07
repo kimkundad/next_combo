@@ -34,7 +34,7 @@
                     CHOOSE A NEW PASSWORD
                 </p>
                 
-                <a href="{{  $url }}" target="_blank" 
+                <a href="{{ $url }}" target="_blank" 
                 style="background-color:#004e36; text-decoration: none; border-radius:6px;display:inline-block; padding:11px 19px; color: #FFFFFF; font-size: 14px; font-weight:500;">
                     CHOOSE A NEW PASSWORD
                 </a>

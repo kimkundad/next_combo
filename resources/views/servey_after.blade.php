@@ -83,7 +83,7 @@ Test
 
 
                     <input type="hidden" name="ticket_orders_id" value="{{ $id_ticket }}">
-                    <h2 class="text-md text-highlight fs-18">แบบประเมินหลังใช้งานผลิตภัณฑ์</h2>
+                    <h2 class="text-md text-highlight fs-18">แบบประเมินหลังใช้</h2>
                     <div class="box-height-10"></div>
                     <div class="form-group">
                         <label class="" style="font-size:15px">1. ได้ผลตรงตามจุดประสงค์การใช้งาน</label>
