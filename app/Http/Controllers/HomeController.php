@@ -152,7 +152,8 @@ class HomeController extends Controller
 
     $this->validate($request, [
       'ark1' => 'required',
-      'ark2' => 'required'
+      'ark2' => 'required',
+      'detail' => 'required'
   ]);
     $objs = new ask_close_ticket();
     $objs->user_id = Auth::user()->id;
@@ -215,12 +216,14 @@ class HomeController extends Controller
 
     $gallary = $request->file('img');
     //  dd(($gallary));
+    $data1 = [];
     if (count($gallary) > 0) {
       for ($i = 0; $i < sizeof($gallary); $i++) {
 
         if (isset($gallary[$i])) {
 
           $img = Image::make($gallary[$i]->getRealPath());
+          $img->orientate();
           $img->resize(800, 800, function ($constraint) {
             $constraint->aspectRatio();
           });
@@ -261,12 +264,14 @@ class HomeController extends Controller
 
     $gallary = $request->file('img');
     //  dd(($gallary));
+    $data1 = [];
     if (count($gallary) > 0) {
       for ($i = 0; $i < sizeof($gallary); $i++) {
 
         if (isset($gallary[$i])) {
 
           $img = Image::make($gallary[$i]->getRealPath());
+          $img->orientate();
           $img->resize(800, 800, function ($constraint) {
             $constraint->aspectRatio();
           });
@@ -289,9 +294,7 @@ class HomeController extends Controller
 
   public function post_open_ticket(Request $request)
   {
-
-   //  dd($request->all());
-
+    
     $this->validate($request, [
       'name_ticket' => 'required',
       'img' => 'required',
@@ -345,26 +348,29 @@ class HomeController extends Controller
 
     $gallary = $request->file('img');
     //  dd(($gallary));
+    $data1 = [];
     if (count($gallary) > 0) {
-      for ($i = 0; $i < sizeof($gallary); $i++) {
+      foreach ($request->file('img') as $image){
 
-        if (isset($gallary[$i])) {
+        if (isset($image)) {
 
-          $img = Image::make($gallary[$i]->getRealPath());
+          $img = Image::make($image->getRealPath());
+          $img->orientate();
           $img->resize(800, 800, function ($constraint) {
             $constraint->aspectRatio();
           });
           $img->stream();
-          Storage::disk('do_spaces')->put('next_combo/open_ticket/' . $gallary[$i]->hashName(), $img, 'public');
+          Storage::disk('do_spaces')->put('next_combo/open_ticket/' . $image->hashName(), $img, 'public');
 
 
           $data1[] = [
-            'img' => $gallary[$i]->hashName(),
+            'img' => $image->hashName(),
             'code_ticket' => $code_ticket,
             'open_ticket_id' => $objs->id
           ];
         }
       }
+     // dd($data1);
       img_open_ticket::insert($data1);
     }
 
@@ -375,13 +381,25 @@ class HomeController extends Controller
   {
    // dd($request->all());
 
+   $this->validate($request, [
+    'ser' => 'required',
+    'fname' => 'required',
+    'lname' => 'required',
+    'phone' => 'required',
+    'clinic_type' => 'required',
+    'province' => 'required',
+    'address' => 'required',
+    'representative' => 'required'
+  ]);
+
     $objs = User::find(Auth::user()->id);
     $objs->shop_id = 2;
     $objs->ser = $request['ser'];
+    $objs->ser_othher = $request['ser_othher'];
     $objs->fname = $request['fname'];
     $objs->lname = $request['lname'];
     $objs->phone = $request['phone'];
-    $objs->code_user = $request['code_user'];
+    $objs->vet_id = $request['vet_id'];
     $objs->clinic_type = $request['clinic_type'];
     $objs->province = $request['province'];
     $objs->address = $request['address'];
@@ -395,14 +413,25 @@ class HomeController extends Controller
   public function create_user_profile(Request $request)
   {
 
+    $this->validate($request, [
+      'ser' => 'required',
+      'fname' => 'required',
+      'lname' => 'required',
+      'phone' => 'required',
+      'clinic_type' => 'required',
+      'province' => 'required',
+      'address' => 'required',
+      'representative' => 'required'
+    ]);
 
     $objs = User::find(Auth::user()->id);
     $objs->shop_id = 2;
     $objs->ser = $request['ser'];
+    $objs->ser_othher = $request['ser_othher'];
     $objs->fname = $request['fname'];
     $objs->lname = $request['lname'];
     $objs->phone = $request['phone'];
-    $objs->code_user = $request['code_user'];
+    $objs->vet_id = $request['vet_id'];
     $objs->clinic_type = $request['clinic_type'];
     $objs->province = $request['province'];
     $objs->address = $request['address'];
@@ -422,7 +451,7 @@ class HomeController extends Controller
 
     $invID = User::count();
     $invID++;
-    $characters = 'Vet' . str_pad($invID, 4, '0', STR_PAD_LEFT);
+    $characters = 'VET' . str_pad($invID, 4, '0', STR_PAD_LEFT);
 
     $user = User::create([
       'name' => $request->email,

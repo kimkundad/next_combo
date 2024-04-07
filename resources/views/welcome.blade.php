@@ -49,7 +49,7 @@ Test
                     </button>
                 </div>
                 <div class="text-center">
-                    <p class="mt-3 fs-16">หากเคยลงทะเบียนแล้ว</p>
+                    <p class="mt-3 fs-16">หรือหากเคยลงทะเบียนแล้ว</p>
                 </div>
                 <div class="mt-3">
                     <button class="btn btn-green btn-block" onclick="window.location.href='{{ url('login') }}'">

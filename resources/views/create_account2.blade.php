@@ -41,6 +41,45 @@ Test
             <form class="" role="form" method="POST" action="{{ url('create_user_profile') }}">
                 @csrf
                 <div class="p-26">
+
+                    @error('ser')
+                    <div class="alert alert-warning" role="alert">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-alert-circle"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="8" x2="12" y2="12"></line><line x1="12" y1="16" x2="12" y2="16"></line></svg>
+                        <span class="mx-2">กรุณาเลือกคำนำหน้า</span>
+                    </div>
+                    @enderror
+                    @error('fname')
+                    <div class="alert alert-warning" role="alert">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-alert-circle"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="8" x2="12" y2="12"></line><line x1="12" y1="16" x2="12" y2="16"></line></svg>
+                        <span class="mx-2">กรุณาป้อนชื่อจริง</span>
+                    </div>
+                    @enderror
+                    @error('lname')
+                    <div class="alert alert-warning" role="alert">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-alert-circle"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="8" x2="12" y2="12"></line><line x1="12" y1="16" x2="12" y2="16"></line></svg>
+                        <span class="mx-2">กรุณาป้อนนามสกุล</span>
+                    </div>
+                    @enderror
+                    @error('phone')
+                    <div class="alert alert-warning" role="alert">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-alert-circle"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="8" x2="12" y2="12"></line><line x1="12" y1="16" x2="12" y2="16"></line></svg>
+                        <span class="mx-2">กรุณาป้อนเบอร์โทรศัพท์</span>
+                    </div>
+                    @enderror
+                    @error('address')
+                    <div class="alert alert-warning" role="alert">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-alert-circle"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="8" x2="12" y2="12"></line><line x1="12" y1="16" x2="12" y2="16"></line></svg>
+                        <span class="mx-2">กรุณาป้อนชื่อสถานที่ทำงาน</span>
+                    </div>
+                    @enderror
+                    @error('representative')
+                    <div class="alert alert-warning" role="alert">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-alert-circle"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="8" x2="12" y2="12"></line><line x1="12" y1="16" x2="12" y2="16"></line></svg>
+                        <span class="mx-2">กรุณาเลือกผู้แทนที่ดูแลท่าน</span>
+                    </div>
+                    @enderror
+                    
+
                         <h2 class="text-md text-highlight">ข้อมูลส่วนตัว</h2>
                         <div class="box-height-10"></div>
                         <div class="form-group">
@@ -64,21 +103,21 @@ Test
                         </div>
                         <div class="form-row">
                             <div class="form-group col-md-6">
-                                <label class="text-muted">ชื่อ</label>
-                                <input type="text" name="fname" class="form-control shadow-none" placeholder="รายละเอียด">
+                                <label class="text-muted">ชื่อ ( ภาษาไทย )</label>
+                                <input type="text" name="fname" class="form-control shadow-none" placeholder="รายละเอียด" required>
                             </div>
                             <div class="form-group col-md-6">
-                                <label class="text-muted">นามสกุล</label>
-                                <input type="text" name="lname" class="form-control shadow-none" placeholder="รายละเอียด">
+                                <label class="text-muted">นามสกุล ( ภาษาไทย )</label>
+                                <input type="text" name="lname" class="form-control shadow-none" placeholder="รายละเอียด" required>
                             </div>
                         </div>
                         <div class="form-group">
                             <label class="text-muted">เบอร์โทรศัพท์</label>
-                            <input type="text" name="phone" class="form-control shadow-none" placeholder="รายละเอียด">
+                            <input type="text" name="phone" class="form-control shadow-none" placeholder="รายละเอียด" required>
                         </div>
                         <div class="form-group">
                             <label class="text-muted">VET ID</label>
-                            <input type="text" name="code_user" value="{{ Auth::user()->code_user }}" class="form-control shadow-none" placeholder="01-xxxx/xxxx">
+                            <input type="text" name="vet_id" value="{{ Auth::user()->vet_id }}" class="form-control shadow-none" placeholder="01-xxxx/xxxx">
                         </div>
                         
                         <div class="box-height-10"></div>
@@ -88,14 +127,14 @@ Test
                     <div class="form-row">
                         <div class="form-group col-md-6">
                             <label class="text-muted">ประเภท</label>
-                            <select class="form-control shadow-none" name="clinic_type">
+                            <select class="form-control shadow-none" name="clinic_type" required>
                                 <option value="คลินิก">คลินิก</option>
                                 <option value="โรงพยาบาลสัตว์">โรงพยาบาลสัตว์</option>
                             </select>
                         </div>
                         <div class="form-group col-md-6">
                             <label class="text-muted">จังหวัด</label>
-                            <select class="form-control js-example-basic-single" name="province">
+                            <select class="form-control js-example-basic-single" name="province" required>
                                 @isset($provinces)
                                     @foreach ($provinces as $item)
                                         <option value="{{ $item->province }}">{{ $item->province }}</option>
@@ -106,11 +145,11 @@ Test
                     </div>
                     <div class="form-group">
                         <label class="text-muted">ชื่อสถานที่ทำงาน</label>
-                        <input type="text" class="form-control shadow-none" name="address" placeholder="โปรดระบุสถานที่">
+                        <input type="text" class="form-control shadow-none" name="address" placeholder="โปรดระบุสถานที่" required>
                     </div>
                     <div class="form-group">
                         <label class="text-muted">เลือกผู้แทนที่ดูแลท่าน</label>
-                        <select onchange="val()" id="doctor" class="form-control js-example-basic-single2 shadow-none" name="representative">
+                        <select onchange="val()" id="doctor" class="form-control js-example-basic-single2 shadow-none" name="representative" required>
                             <option>หมออิ๋ม</option>
                             <option>หมอรุ้ง</option>
                             <option>หมออาย</option>

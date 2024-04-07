@@ -191,20 +191,25 @@
                                         </div>
                                         @if($item->close_ticket !== 0)
                                         <div class="d-flex ml-5px ">
-                                            <div>
-                                                <img class="img-check-green mr-5px" src="{{ url('img/checklist.jpg') }}" alt="">
-                                            </div>
-                                            <div>
                                                 @if($item->add_ticket !== 0)
-                                                <a href="{{ url('detail_ticket/'.$item->id) }}">
-                                                    <p class="fs-13 text-color-green mb-0 " style="font-size: 14px"> รายงานผลเพิ่มเติม</p>
-                                                </a>
+                                                <div>
+                                                    <img class="img-check-green mr-5px" src="{{ url('img/checklist.jpg') }}" alt="">
+                                                </div>
+                                                <div>
+                                                    <a href="{{ url('detail_ticket/'.$item->id) }}">
+                                                        <p class="fs-13 text-color-green mb-0 " style="font-size: 14px"> รายงานผลเพิ่มเติม</p>
+                                                    </a>
+                                                </div>
+
                                                 @else
+                                                
+                                                <div style="margin-left: 10px">
                                                 <a href="{{ url('add_ticket/'.$item->id) }}">
                                                     <p class="fs-13 text-color-green mb-0 " style="font-size: 14px"> รายงานผลเพิ่มเติม</p>
                                                 </a>
+                                                </div>
                                                 @endif
-                                            </div>
+
                                         </div>
                                         @endif
                                     </div>
@@ -240,13 +245,13 @@
     </div>
 
 
-    <div id="light">
+        <div id="light">
         <a class="boxclose" id="boxclose" onclick="lightbox_close();"></a>
-        <video id="VisaChipCardVideo" style="min-width: 446px; max-width: 660px;"  controls>
+        <video id="VisaChipCardVideo" style="max-width: 356px;"  controls>
             <source src="https://kimspace2.sgp1.cdn.digitaloceanspaces.com/next_combo/VDO_NexGard_Combo.mp4" style="min-width: 446px; max-width: 660px;" type="video/mp4">
             <!--Browser does not support <video> tag -->
           </video>
-      </div>
+        </div>
       <div id="fade" onClick="lightbox_close();"></div>
 
 @endsection

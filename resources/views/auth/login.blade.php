@@ -38,7 +38,7 @@ Test
             <form data-plugin="parsley" data-option="{}" method="POST" action="{{ route('login') }}">
                 <div class="p-26 ">
                     {{ csrf_field() }}
-                    <h2 class="text-md text-highlight fs-20">เข้าใจงานระบบ</h2>
+                    <h2 class="text-md text-highlight fs-20">เข้าสู่ระบบ</h2>
                     <div class="box-height-10"></div>
                     <div class="form-group">
                         <label class="text-dark">Username</label>
@@ -50,7 +50,7 @@ Test
                     </div>
                     <div class="mt-4">
                         <button type="submit" class="btn btn-green btn-block" >
-                            เข้าใช้งาน
+                            เข้าสู่ระบบ
                         </button>
                     </div>
                     <div class="box-height-20"></div>

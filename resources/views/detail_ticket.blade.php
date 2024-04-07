@@ -18,7 +18,7 @@ Test
     height: 18px;
 }
 </style>
-<link rel="stylesheet" href="{{ url('Magnific-Popup/dist/magnific-popup.css') }}" type="text/css" />
+
 <link href="{{ url('home/star/dist/star-rating.css') }}" rel="stylesheet" />
 @section('content')
 
@@ -123,8 +123,8 @@ Test
                                 <label class="text-muted">โรคประจำตัว (เลือกได้หลายข้อ)</label>
                                 <input type="text" class="form-control shadow-none" value="{{ $open->disease_ticket }}" readonly>
                             </div>
-                            @isset($open->other_breed_ticket)
-                            <div id="input_disease" class="form-group hidden">
+                            @isset($open->other_disease_ticket)
+                            <div id="input_disease" class="form-group ">
                                 <label class="text-muted">โรคประจำตัว กรณีเลือก อื่นๆ (โปรดระบุ)</label>
                                 <input type="text" class="form-control shadow-none" value="{{ $open->other_disease_ticket }}" readonly>
                             </div>
@@ -136,7 +136,7 @@ Test
                                 </div>
                             </div>
                             @isset($open->other_objective_ticket)
-                            <div id="input_othor" class="form-group hidden">
+                            <div id="input_othor" class="form-group ">
                                 <label class="text-muted">จุดประสงค์การใช้งาน กรณีเลือก อื่นๆ (โปรดระบุ)</label>
                                 <input type="text" class="form-control shadow-none" value="{{ $open->other_objective_ticket }}" readonly>
                             </div>
@@ -182,7 +182,7 @@ Test
                             </div>
         
                             <div class="form-group">
-                                <label class="" style="font-size:15px">4. ภาพรวมของโปรแกรม NEXT COMBO {{ $ask1->ark4 }}</label>
+                                <label class="" style="font-size:15px">4. ภาพรวมของโปรแกรม NEXT COMBO </label>
                                 <select class="star-rating" name="ark4">
                                     <option value="">Select a rating</option>
                                     <option value="5" @if( $ask1->ark4 == 5) selected='selected' @endif>Excellent</option>
@@ -197,7 +197,7 @@ Test
 
                     </div>
                     <div class="tab-pane fade" id="profile2" role="tabpanel" aria-labelledby="profile-tab">
-                        <h2 class="text-md text-highlight fs-16">ก่อนการใช้งานผลิตภัณฑ์</h2>
+                        <h2 class="text-md text-highlight fs-16">หลังการใช้งานผลิตภัณฑ์</h2>
                             <div class="d-flex">
                                 <div class="img-gallery-magnific">
                                     @isset($imgb)
@@ -205,7 +205,7 @@ Test
                                         @foreach ($imgb as $item)
 
                                             <div class="magnific-img">
-                                                <a class="image-popup-vertical-fit" href="{{ url('images/next_combo/open_ticket/'.$item->img) }}">
+                                                <a class="image-popup-vertical-fit2" href="{{ url('images/next_combo/close_ticket/'.$item->img) }}">
                                                     <img src="{{ url('images/next_combo/close_ticket/'.$item->img) }}" id="icon_upload1"  style="height: 105px; width: 105px; border-radius: 5px;">
                                                 </a>
                                             </div>
@@ -218,7 +218,7 @@ Test
                             </div>
                             <div class="box-height-20"></div>
 
-                            <h2 class="text-md text-highlight fs-16">แบบประเมินหลังใช้งานผลิตภัณฑ์</h2>
+                            <h2 class="text-md text-highlight fs-16">แบบประเมินหลังใช้งาน</h2>
                             <div class="box-height-10"></div>
                             <div class="form-group">
                                 <label class="" style="font-size:15px">1. ได้ผลตรงตามจุดประสงค์การใช้งาน</label>
@@ -258,7 +258,7 @@ Test
                                         @foreach ($img_add as $item)
 
                                             <div class="magnific-img">
-                                                <a class="image-popup-vertical-fit" href="{{ url('images/next_combo/open_ticket/'.$item->img) }}">
+                                                <a class="image-popup-vertical-fit3" href="{{ url('images/next_combo/add_ticket/'.$item->img) }}">
                                                     <img src="{{ url('images/next_combo/add_ticket/'.$item->img) }}" id="icon_upload1"  style="height: 105px; width: 105px; border-radius: 5px;">
                                                 </a>
                                             </div>
@@ -303,12 +303,54 @@ Test
 
 @section('scripts')
 
-<script src="{{ url('Magnific-Popup/dist/jquery.magnific-popup.js') }}"></script>
+
 
 <script>
 
 $(document).ready(function(){
 $('.image-popup-vertical-fit').magnificPopup({
+	type: 'image',
+  mainClass: 'mfp-with-zoom', 
+  gallery:{
+			enabled:true
+		},
+
+  zoom: {
+    enabled: true, 
+
+    duration: 300, // duration of the effect, in milliseconds
+    easing: 'ease-in-out', // CSS transition easing function
+
+    opener: function(openerElement) {
+
+      return openerElement.is('img') ? openerElement : openerElement.find('img');
+  }
+}
+
+});
+
+$('.image-popup-vertical-fit2').magnificPopup({
+	type: 'image',
+  mainClass: 'mfp-with-zoom', 
+  gallery:{
+			enabled:true
+		},
+
+  zoom: {
+    enabled: true, 
+
+    duration: 300, // duration of the effect, in milliseconds
+    easing: 'ease-in-out', // CSS transition easing function
+
+    opener: function(openerElement) {
+
+      return openerElement.is('img') ? openerElement : openerElement.find('img');
+  }
+}
+
+});
+
+$('.image-popup-vertical-fit3').magnificPopup({
 	type: 'image',
   mainClass: 'mfp-with-zoom', 
   gallery:{

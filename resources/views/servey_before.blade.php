@@ -105,7 +105,7 @@ Test
                     </div>
 
                     <div class="form-group">
-                        <label class="" style="font-size:15px">2. สะดวกแค่หยดไม่ต้องป้อนยา ถ่ายพยาธิ</label>
+                        <label class="" style="font-size:15px">2. สะดวกแค่หยดไม่ต้องป้อนยาถ่ายพยาธิ</label>
                         <select class="star-rating" name="ark2">
                             <option value="">Select a rating</option>
                             <option value="1">Excellent</option>

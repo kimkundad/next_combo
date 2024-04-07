@@ -48,14 +48,20 @@ Test
                     </a>
                 </div>
             </div>
-            <div class="p-10 border-bottom">
+            <div class="d-flex justify-content-between p-10 border-bottom">
+                <a href="{{ url('/case_list') }}" style="color:#999; padding-top: 10px; width: 51px;">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevron-left mx-2"><polyline points="15 18 9 12 15 6"></polyline></svg>
+                </a>
                 <div class="text-center">
                     <h1 class="big_text_green">ACCOUNT SETTING</h1>
                     <p class="sub_text_green">แก้ไขผู้ใช้งาน</p>
                 </div>
+                <div style="width: 51px;"></div>
             </div>
 
+
             <div class="p-26">
+
                 <h2 class="text-md text-highlight">ตั้งค่าบัญชีผู้ใช้งาน</h2>
                 <div class="box-height-20"></div>
                 <form class="" role="form" method="POST" action="{{ url('post_change_newpass') }}">
@@ -145,6 +151,44 @@ Test
             <form class="" role="form" method="POST" action="{{ url('create_user_profile2') }}">
                 @csrf
                 <div class="p-26">
+
+                    @error('ser')
+                    <div class="alert alert-warning" role="alert">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-alert-circle"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="8" x2="12" y2="12"></line><line x1="12" y1="16" x2="12" y2="16"></line></svg>
+                        <span class="mx-2">กรุณาเลือกคำนำหน้า</span>
+                    </div>
+                    @enderror
+                    @error('fname')
+                    <div class="alert alert-warning" role="alert">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-alert-circle"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="8" x2="12" y2="12"></line><line x1="12" y1="16" x2="12" y2="16"></line></svg>
+                        <span class="mx-2">กรุณาป้อนชื่อจริง</span>
+                    </div>
+                    @enderror
+                    @error('lname')
+                    <div class="alert alert-warning" role="alert">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-alert-circle"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="8" x2="12" y2="12"></line><line x1="12" y1="16" x2="12" y2="16"></line></svg>
+                        <span class="mx-2">กรุณาป้อนนามสกุล</span>
+                    </div>
+                    @enderror
+                    @error('phone')
+                    <div class="alert alert-warning" role="alert">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-alert-circle"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="8" x2="12" y2="12"></line><line x1="12" y1="16" x2="12" y2="16"></line></svg>
+                        <span class="mx-2">กรุณาป้อนเบอร์โทรศัพท์</span>
+                    </div>
+                    @enderror
+                    @error('address')
+                    <div class="alert alert-warning" role="alert">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-alert-circle"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="8" x2="12" y2="12"></line><line x1="12" y1="16" x2="12" y2="16"></line></svg>
+                        <span class="mx-2">กรุณาป้อนชื่อสถานที่ทำงาน</span>
+                    </div>
+                    @enderror
+                    @error('representative')
+                    <div class="alert alert-warning" role="alert">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-alert-circle"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="8" x2="12" y2="12"></line><line x1="12" y1="16" x2="12" y2="16"></line></svg>
+                        <span class="mx-2">กรุณาเลือกผู้แทนที่ดูแลท่าน</span>
+                    </div>
+                    @enderror
+
                     <h2 class="text-md text-highlight">ข้อมูลส่วนตัว</h2>
                     <div class="box-height-10"></div>
                     <div class="form-group">
@@ -170,21 +214,21 @@ Test
       
                     <div class="form-row">
                         <div class="form-group col-md-6">
-                            <label class="text-muted">ชื่อ</label>
-                            <input type="text" name="fname" value="{{ Auth::user()->fname }}" class="form-control shadow-none" placeholder="รายละเอียด">
+                            <label class="text-muted">ชื่อ ( ภาษาไทย )</label>
+                            <input type="text" name="fname" value="{{ Auth::user()->fname }}" class="form-control shadow-none" placeholder="รายละเอียด" required>
                         </div>
                         <div class="form-group col-md-6">
-                            <label class="text-muted">นามสกุล</label>
-                            <input type="text" name="lname" value="{{ Auth::user()->lname }}" class="form-control shadow-none" placeholder="รายละเอียด">
+                            <label class="text-muted">นามสกุล ( ภาษาไทย )</label>
+                            <input type="text" name="lname" value="{{ Auth::user()->lname }}" class="form-control shadow-none" placeholder="รายละเอียด" required>
                         </div>
                     </div>
                     <div class="form-group">
                         <label class="text-muted">เบอร์โทรศัพท์</label>
-                        <input type="text" name="phone" value="{{ Auth::user()->phone }}" class="form-control shadow-none" placeholder="รายละเอียด">
+                        <input type="text" name="phone" value="{{ Auth::user()->phone }}" class="form-control shadow-none" placeholder="รายละเอียด" required>
                     </div>
                     <div class="form-group">
                         <label class="text-muted">VET ID</label>
-                        <input type="text" name="code_user" value="{{ Auth::user()->code_user }}" class="form-control shadow-none" placeholder="01-xxxx/xxxx">
+                        <input type="text" name="vet_id" value="{{ Auth::user()->vet_id }}" class="form-control shadow-none" placeholder="01-xxxx/xxxx" >
                     </div>
                         
                         <div class="box-height-10"></div>
@@ -194,7 +238,7 @@ Test
                         <div class="form-row">
                             <div class="form-group col-md-6">
                                 <label class="text-muted">ประเภท</label>
-                                <select class="form-control shadow-none" name="clinic_type">
+                                <select class="form-control shadow-none" name="clinic_type" required>
                                     <option value="{{ Auth::user()->clinic_type }}">{{ Auth::user()->clinic_type }}</option>
                                     <option value="คลินิก">คลินิก</option>
                                     <option value="โรงพยาบาลสัตว์">โรงพยาบาลสัตว์</option>
@@ -202,7 +246,7 @@ Test
                             </div>
                             <div class="form-group col-md-6">
                                 <label class="text-muted">จังหวัด</label>
-                                <select class="form-control js-example-basic-single" name="province">
+                                <select class="form-control js-example-basic-single" name="province" required>
                                     <option value="{{ Auth::user()->province }}">{{ Auth::user()->province }}</option>
                                     @isset($provinces)
                                         @foreach ($provinces as $item)
@@ -218,7 +262,7 @@ Test
                         </div>
                         <div class="form-group">
                             <label class="text-muted">เลือกผู้แทนที่ดูแลท่าน</label>
-                            <select onchange="val()" id="doctor" class="form-control js-example-basic-single2 shadow-none" name="representative">
+                            <select onchange="val()" id="doctor" class="form-control js-example-basic-single2 shadow-none" name="representative" required>
                                 <option value="{{ Auth::user()->representative }}">{{ Auth::user()->representative }}</option>
                                 <option>หมออิ๋ม</option>
                                 <option>หมอรุ้ง</option>
@@ -244,7 +288,12 @@ Test
                                 <option>อื่นๆ (โปรดระบุ)</option>
                             </select>
                         </div>
-                        <div id="input_othor" class="form-group hidden">
+                        <div id="input_othor" class="form-group 
+                        @if(Auth::user()->representative !== 'อื่นๆ (โปรดระบุ)')
+                         hidden
+                         @else
+                         @endif
+                         ">
                             <label class="text-muted">โปรดระบุผู้แทนที่ดูแลท่าน กรณีเลือก อื่นๆ (โปรดระบุ)</label>
                             <input type="text" name="representative2" value="{{ Auth::user()->representative2 }}" class="form-control shadow-none" placeholder="โปรดระบุผู้แทนที่ดูแลท่าน">
                         </div>

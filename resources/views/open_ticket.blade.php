@@ -102,13 +102,13 @@ Test
                     </div>
                     <div>
                         <p class="mb-0 text-danger fs-10px-red">
-                            อัพโหลดรูปภาพน้องแมว ให้เห็นบริเวณที่มีรอยโรค/ปรสิต เช่น ภูมิแพ้น้ำ <br>
-                            ลายหมัด ไรในหู ไรขี้เรื้อนแห้ง หรือหากไม่มีรอยโรคชัดเจน สามารถ <br>
+                            อัพโหลดรูปภาพน้องแมว ให้เห็นบริเวณที่มีรอยโรค/ปรสิต เช่น ภูมิแพ้น้ำ 
+                            ลายหมัด ไรในหู ไรขี้เรื้อนแห้ง หรือหากไม่มีรอยโรคชัดเจน สามารถ 
                             อัพโหลดรูปทั้งตัวของน้องแมวได้เลย (อัพโหลดได้สูงสุด 3 รูป) 
                         </p>
-                        <a  data-toggle="modal" data-target="#modal" class="mb-0 ex-red">
-                            คลิก เพื่อดูตัวอย่างรูปถ่าย
-                        </a>
+                                <a  class="image-popup-vertical-fit mb-0 ex-red" href="{{ url('img/cat_broken.jpg') }}"  >
+                                    คลิก เพื่อดูตัวอย่างรูปถ่าย
+                                </a>
                     </div>
                     <div class="box-height-10"></div>
 
@@ -502,5 +502,18 @@ function val() {
         }
     }
 </script>
+
+<script>
+
+    $(document).ready(function(){
+
+        $('.image-popup-vertical-fit').magnificPopup({
+        type: 'image'
+        // other options
+        });
+        
+    
+    });
+    </script>
 
 @stop('scripts')
