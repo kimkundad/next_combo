@@ -114,16 +114,22 @@
                     </form>
                 </div>
                 <div class="text-center border-bottom p-20">
-                    <p class="mb-0">เรียงตามเวลาอัพเดท
-                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24"
-                            fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                            stroke-linejoin="round" class="feather feather-chevron-down mx-2">
-                            <polyline points="6 9 12 15 18 9"></polyline>
-                        </svg>
-                    </p>
+                    
+                    <a class="mb-0" id="icon-up-down">
+                        <div class="d-flex justify-content-center">
+                            <span>เรียงตามเวลาอัพเดท</span>
+                            <div id="cha_icon">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24"
+                                    fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                    stroke-linejoin="round" class="feather feather-chevron-down mx-2">
+                                    <polyline points="6 9 12 15 18 9"></polyline>
+                                </svg>
+                            </div>
+                        </div>
+                    </a>
                 </div>
                 <div>
-                    <div class="list list-row">
+                    <div class="list list-row" id="list-row">
 
                         {{-- <div class="list-item border-bottom">
                             <div class="flex">
@@ -177,7 +183,7 @@
                         @isset($ticket)
                             @foreach ($ticket as $item)
 
-                            <div class="list-item border-bottom">
+                            <div class="list-item border-bottom" id="dv_{{ $item->id }}" data-order="{{ $item->id }}">
                                 <div class="flex">
                                     <p class="item-author text-color-green mb-0">{{ $item->code_ticket }}</p>
                                     <div class="item-mail  fs-16">
@@ -282,6 +288,66 @@ function lightbox_close() {
   document.getElementById('fade').style.display = 'none';
   lightBoxVideo.pause();
 }
+
+//list-row
+$(document).on('click','#icon-up-down',function (event) {
+      event.preventDefault();
+
+      $.ajax({
+                type:'get',
+                url:'{{url('api/api_post_case')}}',
+                headers: {'X-CSRF-TOKEN': '{{ csrf_token() }}' },
+                success: function(data){
+                  if(data.data.success){
+
+                    
+
+                    if(data.data.up === 1){
+
+                        console.log('1-->',data.data.up)
+
+                        var downx = '<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24"'+
+                                    'fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"'+
+                                    'stroke-linejoin="round" class="feather feather-chevron-down mx-2">'+
+                                    '<polyline points="6 9 12 15 18 9"></polyline>'+
+                                    '</svg>';
+                        $('#cha_icon').html('');
+                        $('#cha_icon').prepend(downx);
+
+                        var main = document.getElementById( 'list-row' );
+
+                        [].map.call( main.children, Object ).sort( function ( a, b ) {
+                        console.log(a.dataset.order);
+                            return +b.dataset.order - +a.dataset.order;
+                        }).forEach( function ( elem ) {
+                            main.appendChild( elem );
+                        });
+
+                    }else{
+
+                        var upx = '<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevron-up mx-2"><polyline points="18 15 12 9 6 15"></polyline></svg>';
+                        $('#cha_icon').html('');
+                        $('#cha_icon').prepend(upx);
+                        console.log('0-->',data.data.up)
+
+                        var main = document.getElementById( 'list-row' );
+
+                        [].map.call( main.children, Object ).sort( function ( a, b ) {
+                        console.log(a.dataset.order);
+                            return +a.dataset.order - +b.dataset.order;
+                        }).forEach( function ( elem ) {
+                            main.appendChild( elem );
+                        });
+
+                    }
+                    
+
+                  }
+                }
+            });
+
+    
+});
 </script>
 
 @stop('scripts')

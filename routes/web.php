@@ -74,7 +74,8 @@ Route::group(['middleware' => ['UserRole:superadmin|admin|user']], function() {
     Route::post('/create_user_profile', [App\Http\Controllers\HomeController::class, 'create_user_profile']);
     Route::post('/create_user_profile2', [App\Http\Controllers\HomeController::class, 'create_user_profile2']);
     
-
+    
+    Route::get('/api/api_post_case', [App\Http\Controllers\HomeController::class, 'api_post_case']);
     Route::get('/create_account2', [App\Http\Controllers\HomeController::class, 'create_account2']);
 
     Route::get('/account_setting', [App\Http\Controllers\HomeController::class, 'account_setting']);

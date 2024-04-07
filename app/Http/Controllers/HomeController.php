@@ -194,6 +194,26 @@ class HomeController extends Controller
     return view('case_list', $data);
   }
 
+  public function api_post_case(){
+
+    $user = User::findOrFail(Auth::user()->id);
+
+              if($user->point == 1){
+                  $user->point = 0;
+              } else {
+                  $user->point = 1;
+              }
+
+
+      return response()->json([
+      'data' => [
+        'success' => $user->save(),
+        'up' => $user->point
+      ]
+    ]);
+    
+  }
+
   public function post_add_ticket(Request $request){
 
     $this->validate($request, [
@@ -474,6 +494,8 @@ class HomeController extends Controller
 
     return redirect('/create_account2')->with('success', "Account successfully registered.");
   }
+
+  
 
   public function create_account(Request $request)
   {
