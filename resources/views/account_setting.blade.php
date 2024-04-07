@@ -207,10 +207,17 @@ Test
                         </div>
                     </div>
                     
+                    @if(Auth::user()->ser_othher == null)
                     <div id="ser_othher" class="form-group hidden">
                         <label class="text-muted">โปรดระบุคำนำหน้า กรณีเลือก อื่นๆ (โปรดระบุ)</label>
                         <input type="text" name="ser_othher" class="form-control shadow-none" value="{{ Auth::user()->ser_othher }}" placeholder="โปรดระบุคำนำหน้า">
                     </div>
+                    @else
+                    <div id="ser_othher" class="form-group">
+                        <label class="text-muted">โปรดระบุคำนำหน้า กรณีเลือก อื่นๆ (โปรดระบุ)</label>
+                        <input type="text" name="ser_othher" class="form-control shadow-none" value="{{ Auth::user()->ser_othher }}" placeholder="โปรดระบุคำนำหน้า">
+                    </div>
+                    @endif
       
                     <div class="form-row">
                         <div class="form-group col-md-6">

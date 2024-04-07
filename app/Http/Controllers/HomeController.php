@@ -412,7 +412,9 @@ class HomeController extends Controller
     'representative' => 'required'
   ]);
 
-    $objs = User::find(Auth::user()->id);
+    if($request['ser'] == 'อื่นๆ (โปรดระบุ)'){
+
+      $objs = User::find(Auth::user()->id);
     $objs->shop_id = 2;
     $objs->ser = $request['ser'];
     $objs->ser_othher = $request['ser_othher'];
@@ -426,6 +428,26 @@ class HomeController extends Controller
     $objs->representative = $request['representative'];
     $objs->representative2 = $request['representative2'];
     $objs->save();
+
+    }else{
+
+      $objs = User::find(Auth::user()->id);
+    $objs->shop_id = 2;
+    $objs->ser = $request['ser'];
+    $objs->ser_othher = null;
+    $objs->fname = $request['fname'];
+    $objs->lname = $request['lname'];
+    $objs->phone = $request['phone'];
+    $objs->vet_id = $request['vet_id'];
+    $objs->clinic_type = $request['clinic_type'];
+    $objs->province = $request['province'];
+    $objs->address = $request['address'];
+    $objs->representative = $request['representative'];
+    $objs->representative2 = $request['representative2'];
+    $objs->save();
+
+    }
+
 
     return redirect('/create_complete2')->with('success', "Account successfully registered.");
   }
