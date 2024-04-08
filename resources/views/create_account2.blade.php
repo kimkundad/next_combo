@@ -128,6 +128,7 @@ Test
                         <div class="form-group col-md-6">
                             <label class="text-muted">ประเภท</label>
                             <select class="form-control shadow-none" name="clinic_type" required>
+                                <option value="">กรุณาเลือกประเภท</option>
                                 <option value="คลินิก">คลินิก</option>
                                 <option value="โรงพยาบาลสัตว์">โรงพยาบาลสัตว์</option>
                             </select>
@@ -135,6 +136,7 @@ Test
                         <div class="form-group col-md-6">
                             <label class="text-muted">จังหวัด</label>
                             <select class="form-control js-example-basic-single" name="province" required>
+                                <option value="">กรุณาเลือกจังหวัด</option>
                                 @isset($provinces)
                                     @foreach ($provinces as $item)
                                         <option value="{{ $item->province }}">{{ $item->province }}</option>
@@ -150,28 +152,29 @@ Test
                     <div class="form-group">
                         <label class="text-muted">เลือกผู้แทนที่ดูแลท่าน</label>
                         <select onchange="val()" id="doctor" class="form-control js-example-basic-single2 shadow-none" name="representative" required>
-                            <option>หมออิ๋ม</option>
-                            <option>หมอรุ้ง</option>
-                            <option>หมออาย</option>
-                            <option>หมอบีม อรุณทิพย์</option>
-                            <option>หมอเบนซ์</option>
-                            <option>หมอนุ่น</option>
-                            <option>หมอดิว</option>
-                            <option>หมอป๋อมแป๋ม</option>
-                            <option>หมอแจม</option>
-                            <option>หมอหวาน</option>
-                            <option>หมอวิว</option>
-                            <option>หมอพั้นซ์</option>
-                            <option>หมอเบล</option>
-                            <option>หมอบีม กมลวรรณ</option>
-                            <option>หมอมิ้ว</option>
-                            <option>หมอแต้ม</option>
-                            <option>หมอโจ๊ก</option>
-                            <option>หมอเอิน</option>
-                            <option>คุณซี</option>
-                            <option>คุณปอ</option>
-                            <option>หมอเปตอง</option>
-                            <option>อื่นๆ (โปรดระบุ)</option>
+                            <option value="">กรุณาเลือกผู้แทนที่ดูแลท่าน</option>
+                            <option value="หมออิ๋ม">หมออิ๋ม</option>
+                            <option value="หมอรุ้ง">หมอรุ้ง</option>
+                            <option value="หมออาย">หมออาย</option>
+                            <option value="หมอบีม อรุณทิพย์">หมอบีม อรุณทิพย์</option>
+                            <option value="หมอเบนซ์">หมอเบนซ์</option>
+                            <option value="หมอนุ่น">หมอนุ่น</option>
+                            <option value="หมอดิว">หมอดิว</option>
+                            <option value="หมอป๋อมแป๋ม">หมอป๋อมแป๋ม</option>
+                            <option value="หมอแจม">หมอแจม</option>
+                            <option value="หมอหวาน">หมอหวาน</option>
+                            <option value="หมอวิว">หมอวิว</option>
+                            <option value="หมอพั้นซ์">หมอพั้นซ์</option>
+                            <option value="หมอเบล">หมอเบล</option>
+                            <option value="หมอบีม กมลวรรณ">หมอบีม กมลวรรณ</option>
+                            <option value="หมอมิ้ว">หมอมิ้ว</option>
+                            <option value="หมอแต้ม">หมอแต้ม</option>
+                            <option value="หมอโจ๊ก">หมอโจ๊ก</option>
+                            <option value="หมอเอิน">หมอเอิน</option>
+                            <option value="คุณซี">คุณซี</option>
+                            <option value="คุณปอ">คุณปอ</option>
+                            <option value="หมอเปตอง">หมอเปตอง</option>
+                            <option value="อื่นๆ (โปรดระบุ)">อื่นๆ (โปรดระบุ)</option>
                         </select>
                     </div>
                     <div id="input_othor" class="form-group hidden">

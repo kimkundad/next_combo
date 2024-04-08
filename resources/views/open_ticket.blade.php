@@ -163,76 +163,79 @@ Test
                     <h2 class="text-md text-highlight fs-18">ประวัติสัตว์เลี้ยง</h2>
                     <div class="form-group">
                         <label class="text-muted">ชื่อสัตว์เลี้ยง</label>
-                        <input type="text" class="form-control shadow-none" name="name_ticket" value="{{old('name_ticket') ? old('name_ticket') : ''}}" placeholder="รายละเอียด">
+                        <input type="text" class="form-control shadow-none" name="name_ticket" value="{{old('name_ticket') ? old('name_ticket') : ''}}" placeholder="รายละเอียด" required>
                     </div>
                     <div class="form-row">
                         <div class="form-group col-md-6">
                             <label class="text-muted">อายุ</label>
-                            <select class="form-control shadow-none" name="age_ticket">
-                                <option>0-6 เดือน</option>
-                                <option>6 เดือน–1 ปี</option>
-                                <option>1-3 ปี</option>
-                                <option>3-7 ปี</option>
-                                <option>7-10 ปี</option>
-                                <option>10-15 ปี</option>
-                                <option>15-20 ปี</option>
-                                <option>มากกว่า 20 ปี</option>
+                            <select class="form-control shadow-none" name="age_ticket" required>
+                                <option value="">กรุณาเลือกอายุ</option>
+                                <option value="0-6 เดือน">0-6 เดือน</option>
+                                <option value="6 เดือน–1 ปี">6 เดือน–1 ปี</option>
+                                <option value="1-3 ปี">1-3 ปี</option>
+                                <option value="3-7 ปี">3-7 ปี</option>
+                                <option value="7-10 ปี">7-10 ปี</option>
+                                <option value="10-15 ปี">10-15 ปี</option>
+                                <option value="15-20 ปี">15-20 ปี</option>
+                                <option value="มากกว่า 20 ปี">มากกว่า 20 ปี</option>
                             </select>
                         </div>
                         <div class="form-group col-md-6">
                             <label class="text-muted">เพศ</label>
-                            <select class="form-control shadow-none" name="sex_ticket">
-                                <option>เพศผู้ ยังไม่ทำหมัน</option>
-                                <option>เพศผู้ ทำหมันแล้ว</option>
-                                <option>เพศเมีย ยังไม่ทำหมัน</option>
-                                <option>เพศเมีย ทำหมันแล้ว</option>
+                            <select class="form-control shadow-none" name="sex_ticket" required>
+                                <option value="">กรุณาเลือกเพศ</option>
+                                <option value="เพศผู้ ยังไม่ทำหมัน">เพศผู้ ยังไม่ทำหมัน</option>
+                                <option value="เพศผู้ ทำหมันแล้ว">เพศผู้ ทำหมันแล้ว</option>
+                                <option value="เพศเมีย ยังไม่ทำหมัน">เพศเมีย ยังไม่ทำหมัน</option>
+                                <option value="เพศเมีย ทำหมันแล้ว">เพศเมีย ทำหมันแล้ว</option>
                             </select>
                         </div>
                     </div>
                     <div class="form-group">
                         <label class="text-muted">พันธุ์</label>
-                        <select onchange="val2()" id="breed" name="breed_ticket" class="form-control shadow-none js-example-basic-single2">
+                        <select onchange="val2()" id="breed" name="breed_ticket" class="form-control shadow-none js-example-basic-single2" required>
+                            <option value="">กรุณาเลือกพันธุ์</option>
                         </select>
                     </div>
                     <div id="input_breed" class="form-group hidden">
-                        <label class="text-muted">ระบุพันธ์ กรณีเลือก อื่นๆ (โปรดระบุ)</label>
-                        <input type="text" class="form-control shadow-none" name="other_breed_ticket" placeholder="โปรดระบุพันธ์">
+                        <label class="text-muted">ระบุพันธุ์ กรณีเลือก อื่นๆ (โปรดระบุ)</label>
+                        <input type="text" class="form-control shadow-none" name="other_breed_ticket" placeholder="โปรดระบุพันธ์" >
                     </div>
                     <div class="form-group">
                         <label class="text-muted">โรคประจำตัว (เลือกได้หลายข้อ)</label>
-                        <select onchange="diseasex()" id="disease" name="disease_ticket[]" multiple="multiple" class="form-control shadow-none js-disease" data-placeholder="ไม่มีโรคประจำตัว">
-                            <option>ไม่มีโรคประจำตัว</option>
-                            <option>โรคผิวหนัง</option>
-                            <option>โรคตับ</option>
-                            <option>โรคไต</option>
-                            <option>โรคทางระบบประสาท</option>
-                            <option>โรคหัวใจ</option>
-                            <option>โรคระบบต่อมไร้ท่อ</option>
-                            <option>โรคทางเดินหายใจ</option>
-                            <option>โรคทางเดินอาหาร</option>
-                            <option>โรคตา</option>
-                            <option>โรคระบบสืบพันธุ์</option>
-                            <option>อื่นๆ (โปรดระบุ)</option>
+                        <select onchange="diseasex()" id="disease" name="disease_ticket[]" multiple="multiple" class="form-control shadow-none js-disease" data-placeholder="กรุณาเลือกโรคประจำตัว" required>
+                            <option value="ไม่มีโรคประจำตัว">ไม่มีโรคประจำตัว</option>
+                            <option value="โรคผิวหนัง">โรคผิวหนัง</option>
+                            <option value="โรคตับ">โรคตับ</option>
+                            <option value="โรคไต">โรคไต</option>
+                            <option value="โรคทางระบบประสาท">โรคทางระบบประสาท</option>
+                            <option value="โรคหัวใจ">โรคหัวใจ</option>
+                            <option value="โรคระบบต่อมไร้ท่อ">โรคระบบต่อมไร้ท่อ</option>
+                            <option value="โรคทางเดินหายใจ">โรคทางเดินหายใจ</option>
+                            <option value="โรคทางเดินอาหาร">โรคทางเดินอาหาร</option>
+                            <option value="โรคตา">โรคตา</option>
+                            <option value="โรคระบบสืบพันธุ์">โรคระบบสืบพันธุ์</option>
+                            <option value="อื่นๆ (โปรดระบุ)">อื่นๆ (โปรดระบุ)</option>
                         </select>
                     </div>
                     <div id="input_disease" class="form-group hidden">
                         <label class="text-muted">โรคประจำตัว กรณีเลือก อื่นๆ (โปรดระบุ)</label>
-                        <input type="text" class="form-control shadow-none" name="other_disease_ticket" placeholder="โปรดระบุโรคประจำตัว">
+                        <input type="text" class="form-control shadow-none" name="other_disease_ticket" placeholder="โปรดระบุโรคประจำตัว" >
                     </div>
                     <div class="form-group">
                         <label class="text-muted">จุดประสงค์การใช้งาน (เลือกได้หลายข้อ)</label>
                         <div class="select-box choose-position">
-                            <select onchange="val()" id="objective" name="objective_ticket[]" multiple="multiple" class="form-control js-example-basic-single shadow-none" data-placeholder="ใช้สำหรับป้องกันปรสิตทั่วไป">
-                                <option>ใช้สำหรับป้องกันปรสิตทั่วไป</option>
-                                <option>ใช้รักษาเห็บ</option>
-                                <option>ใช้รักษาหมัด</option>
-                                <option>ใช้รักษาไรหู</option>
-                                <option>ใช้รักษาไรขี้เรื้อนหน้า</option>
-                                <option>ใช้รักษาเหา</option>
-                                <option>ใช้สำหรับรักษาปรสิตภายนอกอื่นๆ</option>
-                                <option>ใช้สำหรับถ่ายพยาธิ</option>
-                                <option>ใช้ป้องกันพยาธิหนอนหัวใจ</option>
-                                <option>อื่นๆ (โปรดระบุ)</option>
+                            <select onchange="val()" id="objective" name="objective_ticket[]" multiple="multiple" class="form-control js-example-basic-single shadow-none" data-placeholder="กรุณาเลือกจุดประสงค์การใช้งาน" required>
+                                <option value="ใช้สำหรับป้องกันปรสิตทั่วไป">ใช้สำหรับป้องกันปรสิตทั่วไป</option>
+                                <option value="ใช้รักษาเห็บ">ใช้รักษาเห็บ</option>
+                                <option value="ใช้รักษาหมัด">ใช้รักษาหมัด</option>
+                                <option value="ใช้รักษาไรหู">ใช้รักษาไรหู</option>
+                                <option value="ใช้รักษาไรขี้เรื้อนหน้า">ใช้รักษาไรขี้เรื้อนหน้า</option>
+                                <option value="ใช้รักษาเหา">ใช้รักษาเหา</option>
+                                <option value="ใช้สำหรับรักษาปรสิตภายนอกอื่นๆ">ใช้สำหรับรักษาปรสิตภายนอกอื่นๆ</option>
+                                <option value="ใช้สำหรับถ่ายพยาธิ">ใช้สำหรับถ่ายพยาธิ</option>
+                                <option value="ใช้ป้องกันพยาธิหนอนหัวใจ">ใช้ป้องกันพยาธิหนอนหัวใจ</option>
+                                <option value="อื่นๆ (โปรดระบุ)">อื่นๆ (โปรดระบุ)</option>
                             </select>
                         </div>
                     </div>
