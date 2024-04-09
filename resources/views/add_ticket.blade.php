@@ -54,7 +54,7 @@ Test
                 </div>
             </div>
             
-            <form class="" role="form" method="POST" action="{{ url('post_add_ticket') }}" enctype="multipart/form-data">
+            <form class="" role="form" id="form-id1" method="POST" action="{{ url('post_add_ticket') }}" enctype="multipart/form-data">
                 <div class="p-26">
                     @csrf
                     <h2 class="text-md text-highlight fs-18">รายงานผลเพิ่มเติม</h2>
@@ -109,7 +109,7 @@ Test
                     </div>
                     
                     <div class="mt-3">
-                        <button class="btn btn-green btn-block" >
+                        <button id="btnSubmit" class="btn btn-green btn-block" >
                             บันทึกข้อมูล
                         </button>
                     </div>
@@ -140,6 +140,19 @@ Test
 @section('scripts')
 
 <script>
+
+$(document).ready(function () {
+     $("#btnSubmit").on('click', function (event) {  
+           event.preventDefault();
+           var el = $(this);
+           el.prop('disabled', true);
+
+           var form = document.getElementById("form-id1");
+           form.submit();
+           
+           setTimeout(function(){el.prop('disabled', false); }, 3000);
+     });
+});
 
     del_img1 = () => {
         console.log('del_img1')

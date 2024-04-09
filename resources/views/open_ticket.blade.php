@@ -199,7 +199,7 @@ Test
                     </div>
                     <div id="input_breed" class="form-group hidden">
                         <label class="text-muted">ระบุพันธุ์ กรณีเลือก อื่นๆ (โปรดระบุ)</label>
-                        <input type="text" class="form-control shadow-none" name="other_breed_ticket" placeholder="โปรดระบุพันธ์" >
+                        <input type="text" class="form-control shadow-none" name="other_breed_ticket" placeholder="โปรดระบุพันธ์ุ" >
                     </div>
                     <div class="form-group">
                         <label class="text-muted">โรคประจำตัว (เลือกได้หลายข้อ)</label>

@@ -38,7 +38,7 @@ Test
                 </div>
             </div>
             
-            <form class="" role="form" method="POST" action="{{ url('create_user_profile') }}">
+            <form class="" id="form-id1" role="form" method="POST" action="{{ url('create_user_profile') }}">
                 @csrf
                 <div class="p-26">
 
@@ -183,7 +183,7 @@ Test
                     </div>
                     <div class="box-height-10"></div>
                     <div class="mt-3">
-                        <button class="btn btn-green btn-block" type="submit">
+                        <button id="btnSubmit" class="btn btn-green btn-block" type="submit">
                             ลงทะเบียน
                         </button>
                     </div>
@@ -205,6 +205,21 @@ Test
 
 
 <script>
+
+$(document).ready(function () {
+     $("#btnSubmit").on('click', function (event) {  
+           event.preventDefault();
+           var el = $(this);
+           el.prop('disabled', true);
+
+           var form = document.getElementById("form-id1");
+           form.submit();
+           
+           setTimeout(function(){el.prop('disabled', false); }, 3000);
+     });
+});
+
+
     $(document).ready(function() {
     $('.js-example-basic-single').select2();
     $('.js-example-basic-single2').select2();

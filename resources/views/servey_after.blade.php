@@ -56,7 +56,7 @@ Test
             </div>
             
 
-                <form class="" role="form" method="POST" action="{{ url('post_servey_after') }}">
+                <form class="" id="form-id1" role="form" method="POST" action="{{ url('post_servey_after') }}">
                     {{ csrf_field() }}
                 <div class="p-26">
 
@@ -121,7 +121,7 @@ Test
                     
                     
                     <div class="mt-3">
-                        <button class="btn btn-green btn-block" >
+                        <button id="btnSubmit" class="btn btn-green btn-block" >
                             บันทึกข้อมูล และยืนยันการปิดเคส
                         </button>
                     </div>
@@ -154,6 +154,19 @@ Test
 <script src="{{ url('home/star/dist/star-rating.min.js') }}"></script>
 
 <script>
+
+$(document).ready(function () {
+     $("#btnSubmit").on('click', function (event) {  
+           event.preventDefault();
+           var el = $(this);
+           el.prop('disabled', true);
+
+           var form = document.getElementById("form-id1");
+           form.submit();
+           
+           setTimeout(function(){el.prop('disabled', false); }, 3000);
+     });
+});
 
 var starRatingControl = new StarRating('.star-rating',{
     maxStars: 5
