@@ -114,7 +114,7 @@ Test
                             </div>
                             @isset($open->other_breed_ticket)
                                 <div id="input_breed" class="form-group">
-                                    <label class="text-muted">ระบุพันธ์ กรณีเลือก อื่นๆ (โปรดระบุ)</label>
+                                    <label class="text-muted">ระบุพันธุ์ กรณีเลือก อื่นๆ (โปรดระบุ)</label>
                                     <input type="text" class="form-control shadow-none" value="{{ $open->other_breed_ticket }}" readonly>
                                 </div>
                             @endisset
@@ -148,11 +148,11 @@ Test
                                 <label class="" style="font-size:15px">1. กลิ่นของยาไม่เหม็นฉุน</label>
                                 <select class="star-rating" name="ark1">
                                     <option value="">Select a rating</option>
-                                    <option value="5" @if( $ask1->ark1 == 5) selected='selected' @endif>Excellent</option>
-                                    <option value="4" @if( $ask1->ark1 == 4) selected='selected' @endif>Very Good</option>
+                                    <option value="1" @if( $ask1->ark1 == 1) selected='selected' @endif>Excellent</option>
+                                    <option value="2" @if( $ask1->ark1 == 2) selected='selected' @endif>Very Good</option>
                                     <option value="3" @if( $ask1->ark1 == 3) selected='selected' @endif>Average</option>
-                                    <option value="2" @if( $ask1->ark1 == 2) selected='selected' @endif>Poor</option>
-                                    <option value="1" @if( $ask1->ark1 == 1) selected='selected' @endif>Terrible</option>
+                                    <option value="4" @if( $ask1->ark1 == 4) selected='selected' @endif>Poor</option>
+                                    <option value="5" @if( $ask1->ark1 == 5) selected='selected' @endif>Terrible</option>
                                 </select>
                             </div>
 
@@ -161,11 +161,11 @@ Test
                                 <label class="" style="font-size:15px">2. สะดวกแค่หยดไม่ต้องป้อนยา ถ่ายพยาธิ</label>
                                 <select class="star-rating" name="ark2">
                                     <option value="">Select a rating</option>
-                                    <option value="5" @if( $ask1->ark2 == 5) selected='selected' @endif>Excellent</option>
-                                    <option value="4" @if( $ask1->ark2 == 4) selected='selected' @endif>Very Good</option>
+                                    <option value="1" @if( $ask1->ark2 == 1) selected='selected' @endif>Excellent</option>
+                                    <option value="2" @if( $ask1->ark2 == 2) selected='selected' @endif>Very Good</option>
                                     <option value="3" @if( $ask1->ark2 == 3) selected='selected' @endif>Average</option>
-                                    <option value="2" @if( $ask1->ark2 == 2) selected='selected' @endif>Poor</option>
-                                    <option value="1" @if( $ask1->ark2 == 1) selected='selected' @endif>Terrible</option>
+                                    <option value="4" @if( $ask1->ark2 == 4) selected='selected' @endif>Poor</option>
+                                    <option value="5" @if( $ask1->ark2 == 5) selected='selected' @endif>Terrible</option>
                                 </select>
                             </div>
         
@@ -173,11 +173,11 @@ Test
                                 <label class="" style="font-size:15px">3. มั่นใจในความปลอดภัย เช่น ใช้ได้ใน แมวแม่พันธุ์ ตั้งท้อง ให้นมลูก</label>
                                 <select class="star-rating" name="ark3">
                                     <option value="">Select a rating</option>
-                                    <option value="5" @if( $ask1->ark3 == 5) selected='selected' @endif>Excellent</option>
-                                    <option value="4" @if( $ask1->ark3 == 4) selected='selected' @endif>Very Good</option>
+                                    <option value="1" @if( $ask1->ark3 == 1) selected='selected' @endif>Excellent</option>
+                                    <option value="2" @if( $ask1->ark3 == 2) selected='selected' @endif>Very Good</option>
                                     <option value="3" @if( $ask1->ark3 == 3) selected='selected' @endif>Average</option>
-                                    <option value="2" @if( $ask1->ark3 == 2) selected='selected' @endif>Poor</option>
-                                    <option value="1" @if( $ask1->ark3 == 1) selected='selected' @endif>Terrible</option>
+                                    <option value="4" @if( $ask1->ark3 == 4) selected='selected' @endif>Poor</option>
+                                    <option value="5" @if( $ask1->ark3 == 5) selected='selected' @endif>Terrible</option>
                                 </select>
                             </div>
         
@@ -185,11 +185,11 @@ Test
                                 <label class="" style="font-size:15px">4. ภาพรวมของโปรแกรม NEXT COMBO </label>
                                 <select class="star-rating" name="ark4">
                                     <option value="">Select a rating</option>
-                                    <option value="5" @if( $ask1->ark4 == 5) selected='selected' @endif>Excellent</option>
-                                    <option value="4" @if( $ask1->ark4 == 4) selected='selected' @endif>Very Good</option>
+                                    <option value="1" @if( $ask1->ark4 == 1) selected='selected' @endif>Excellent</option>
+                                    <option value="2" @if( $ask1->ark4 == 2) selected='selected' @endif>Very Good</option>
                                     <option value="3" @if( $ask1->ark4 == 3) selected='selected' @endif>Average</option>
-                                    <option value="2" @if( $ask1->ark4 == 2) selected='selected' @endif>Poor</option>
-                                    <option value="1" @if( $ask1->ark4 == 1) selected='selected' @endif>Terrible</option>
+                                    <option value="4" @if( $ask1->ark4 == 4) selected='selected' @endif>Poor</option>
+                                    <option value="5" @if( $ask1->ark4 == 5) selected='selected' @endif>Terrible</option>
                                 </select>
                             </div>
 
@@ -224,11 +224,11 @@ Test
                                 <label class="" style="font-size:15px">1. ได้ผลตรงตามจุดประสงค์การใช้งาน</label>
                                 <select class="star-rating" name="ark1">
                                     <option value="">Select a rating</option>
-                                    <option value="5" @if( $ask2->ark1 == 5) selected='selected' @endif>Excellent</option>
-                                    <option value="4" @if( $ask2->ark1 == 4) selected='selected' @endif>Very Good</option>
+                                    <option value="1" @if( $ask2->ark1 == 1) selected='selected' @endif>Excellent</option>
+                                    <option value="2" @if( $ask2->ark1 == 2) selected='selected' @endif>Very Good</option>
                                     <option value="3" @if( $ask2->ark1 == 3) selected='selected' @endif>Average</option>
-                                    <option value="2" @if( $ask2->ark1 == 2) selected='selected' @endif>Poor</option>
-                                    <option value="1" @if( $ask2->ark1 == 1) selected='selected' @endif>Terrible</option>
+                                    <option value="4" @if( $ask2->ark1 == 4) selected='selected' @endif>Poor</option>
+                                    <option value="5" @if( $ask2->ark1 == 5) selected='selected' @endif>Terrible</option>
                                 </select>
                             </div>
         
@@ -236,11 +236,11 @@ Test
                                 <label class="" style="font-size:15px">2. ภาพรวมของโปรแกรม NEXT COMBO</label>
                                 <select class="star-rating" name="ark2">
                                     <option value="">Select a rating</option>
-                                    <option value="5" @if( $ask2->ark2 == 5) selected='selected' @endif>Excellent</option>
-                                    <option value="4" @if( $ask2->ark2 == 4) selected='selected' @endif>Very Good</option>
+                                    <option value="1" @if( $ask2->ark2 == 1) selected='selected' @endif>Excellent</option>
+                                    <option value="2" @if( $ask2->ark2 == 2) selected='selected' @endif>Very Good</option>
                                     <option value="3" @if( $ask2->ark2 == 3) selected='selected' @endif>Average</option>
-                                    <option value="2" @if( $ask2->ark2 == 2) selected='selected' @endif>Poor</option>
-                                    <option value="1" @if( $ask2->ark2 == 1) selected='selected' @endif>Terrible</option>
+                                    <option value="4" @if( $ask2->ark2 == 4) selected='selected' @endif>Poor</option>
+                                    <option value="5" @if( $ask2->ark2 == 5) selected='selected' @endif>Terrible</option>
                                 </select>
                             </div>
         

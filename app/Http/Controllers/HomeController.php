@@ -152,8 +152,7 @@ class HomeController extends Controller
 
     $this->validate($request, [
       'ark1' => 'required',
-      'ark2' => 'required',
-      'detail' => 'required'
+      'ark2' => 'required'
   ]);
     $objs = new ask_close_ticket();
     $objs->user_id = Auth::user()->id;
@@ -217,8 +216,7 @@ class HomeController extends Controller
   public function post_add_ticket(Request $request){
 
     $this->validate($request, [
-      'img' => 'required',
-      'detail' => 'required',
+      'img' => 'required'
     ]);
 
     $id = $request->ticket_orders_id;

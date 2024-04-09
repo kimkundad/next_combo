@@ -106,7 +106,7 @@
                                             </svg>
                                         </span>
                                         <!--end::Svg Icon-->
-                                        <input type="text" id="search_name" name="search" class="form-control form-control-solid w-400px ps-14" placeholder="ค้นหารายชื่อ รหัสใบเคส" />
+                                        <input type="text" id="search_name" name="search" value="{{$search}}" class="form-control form-control-solid w-400px ps-14" placeholder="ค้นหารายชื่อ รหัสใบเคส" />
                                         <button type="submit" class="btn btn-primary filter ml-3">ค้นหา</button>
                                     
                                 </div>

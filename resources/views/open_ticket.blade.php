@@ -67,7 +67,7 @@ Test
 
             
 
-            <form class="" role="form" method="POST" action="{{ url('post_open_ticket') }}" enctype="multipart/form-data">
+            <form class="" id="form-id1" role="form" method="POST" action="{{ url('post_open_ticket') }}" enctype="multipart/form-data">
                 <div class="p-26">
 
 
@@ -244,7 +244,7 @@ Test
                         <input type="text" class="form-control shadow-none" name="other_objective_ticket" placeholder="โปรดระบุจุดประสงค์การใช้งาน">
                     </div>
                     <div class="mt-3">
-                        <button class="btn btn-green btn-block" >
+                        <button id="btnSubmit" class="btn btn-green btn-block" >
                             บันทึกข้อมูล
                         </button>
                     </div>
@@ -286,6 +286,22 @@ Test
 @section('scripts')
 
 <script>
+
+
+$(document).ready(function () {
+     $("#btnSubmit").on('click', function (event) {  
+           event.preventDefault();
+           var el = $(this);
+           el.prop('disabled', true);
+
+           var form = document.getElementById("form-id1");
+           form.submit();
+           
+           setTimeout(function(){el.prop('disabled', false); }, 3000);
+     });
+});
+
+
     // Your data
     var data = `Abyssinian
     Aegean

@@ -8,6 +8,9 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Database\Eloquent\Relations\HasMany;
+use Illuminate\Database\Eloquent\Relations\HasManyThrough;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use App\Notifications\ResetPasswordNotification;
 
 class User extends Authenticatable
@@ -22,6 +25,12 @@ class User extends Authenticatable
     protected $fillable = [
         'name', 'fname', 'pdpa', 'province', 'policy', 'ser', 'lname', 'email', 'representative', 'representative2', 'password', 'email_verified_at', 'is_admin', 'provider', 'provider_id', 'access_token', 'clinic_type', 'avatar', 'phone', 'address', 'birthday', 'zipcode', 'point', 'idcard', 'code_user', 'shop_id',
     ];
+
+
+    public function ticket_orders()
+    {
+      return $this->hasMany(ticket_order::class);
+    }
 
     public function sendPasswordResetNotification($token)
     {

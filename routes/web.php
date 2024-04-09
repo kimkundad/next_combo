@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ForgotPasswordController;
 use App\Http\Controllers\ResetPasswordController;
+use App\Http\Controllers\MyUserController;
 
 /*
 |--------------------------------------------------------------------------
@@ -111,5 +112,11 @@ Route::group(['middleware' => ['UserRole:superadmin|admin|user']], function() {
 Route::group(['middleware' => ['UserRole:superadmin|admin']], function() {
 
     Route::get('/admin/case', [App\Http\Controllers\DashboardController::class, 'index']);
+    Route::get('admin/sace_search/', [App\Http\Controllers\DashboardController::class, 'sace_search']);
+
+
+    Route::resource('/admin/MyUser', MyUserController::class);
+    Route::post('/api/api_post_status_MyUser', [App\Http\Controllers\MyUserController::class, 'api_post_status_MyUser']);
+    Route::get('api/del_MyUser/{id}', [App\Http\Controllers\MyUserController::class, 'del_MyUser']);
 
 });
