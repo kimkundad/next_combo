@@ -29,6 +29,13 @@ class DashboardController extends Controller
         return view('admin.case.index', compact('count_user','count_user', 'ticket_order', 'ticket_order_close', 'objs'));
     }
 
+    public function getData($id){
+
+        $objs = ticket_order::with('users','open_tickets', 'open_tickets.img_open_tickets', 'open_tickets.ask_open_tickets' ,'close_tickets', 'close_tickets.img_close_tickets', 'close_tickets.ask_close_tickets','add_tickets', 'add_tickets.img_add_tickets')->where('id', $id)->orderby('id', 'desc')->first();
+
+        return view('admin.case.modal', compact('objs'));
+    }
+
 
     public function exportCSVFile() 
     {

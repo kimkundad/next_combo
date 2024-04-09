@@ -31,7 +31,7 @@
         font-size: 16px
     }
 </style>
-<link href="{{ url('home/star/dist/star-rating.css') }}" rel="stylesheet" />
+
 
 @stop('stylesheet')
 
@@ -206,244 +206,12 @@
                                                 <span class="text-muted fw-semibold d-block fs-7">ชื่อคลีนิก {{ $item->users->address }}</span>
                                             </td>
                                             
-                                            <td class="text-end">
-                                                <a href="#" data-bs-toggle="modal" data-bs-target="#kt_modal_{{ $item->id }}" class="btn btn-secondary btn-sm me-2 mb-2">ดูข้อมูล</a>
+                                            <td class="text-end" style="width: 100px;">
+                                                <a href="#" data-id="{{ $item->id }}" id="get_mymodal" class="btn btn-secondary btn-sm me-2 mb-2">ดูข้อมูล</a>
                                             </td>
                                         </tr>
 
-                                        <div class="modal fade" tabindex="-1" id="kt_modal_{{ $item->id }}">
-                                            <div class="modal-dialog">
-                                                <div class="modal-content">
-                                                    <div class="modal-header">
-                                                        <h3 class="modal-title text-success">ข้อมูลของ {{ $item->code_ticket }}</h3>
                                         
-                                                        <!--begin::Close-->
-                                                        <div class="btn btn-icon btn-sm btn-active-light-primary ms-2" data-bs-dismiss="modal" aria-label="Close">
-                                                            <i class="ki-duotone ki-cross fs-1"><span class="path1"></span><span class="path2"></span></i>
-                                                        </div>
-                                                        <!--end::Close-->
-                                                    </div>
-                                        
-                                                    <div class="modal-body">
-                                                        <ul class="nav nav-tabs nav-line-tabs mb-5 fs-6">
-                                                            <li class="nav-item">
-                                                                <a class="nav-link active" data-bs-toggle="tab" href="#kt_tab_pane_{{ $item->id }}">ก่อนการใช้งาน</a>
-                                                            </li>
-                                                            <li class="nav-item">
-                                                                <a class="nav-link" data-bs-toggle="tab" href="#kt_tab_pane_2_{{ $item->id }}">หลังการใช้งาน</a>
-                                                            </li>
-                                                            <li class="nav-item">
-                                                                <a class="nav-link" data-bs-toggle="tab" href="#kt_tab_pane_3_{{ $item->id }}">ผลเพิ่มเติม</a>
-                                                            </li>
-                                                        </ul>
-                                                        
-                                                        <div class="tab-content" id="myTabContent">
-                                                            <div class="tab-pane fade show active" id="kt_tab_pane_{{ $item->id }}" role="tabpanel">
-                                                                
-                                                                <div class="d-flex justify-content-around" style="width: 100%">
-
-                                                                    @if(isset($item->open_tickets->img_open_tickets))
-                                                                        @foreach ($item->open_tickets->img_open_tickets as $img)
-                                                                            <div class="mr-15"><img src="{{ url('images/next_combo/open_ticket/'.$img->img) }}" class="img-fluid card-rounded" alt="cat"></div>
-                                                                        @endforeach
-                                                                    @endif
-
-                                                                </div>
-                                                                <br>
-                                                                <h2 class="text-md text-highlight fs-18">ประวัติสัตว์เลี้ยง</h2>
-                                                                <div class="form-group">
-                                                                    <label class="text-muted">ชื่อสัตว์เลี้ยง</label>
-                                                                    <input type="text" class="form-control shadow-none" value="{{ $item->open_tickets->name_ticket }}" readonly>
-                                                                </div>
-                                                                <div class="box-height-10"></div>
-                                                                <div class="row">
-                                                                    <div class="form-group col-md-6">
-                                                                        <label class="text-muted">อายุ</label>
-                                                                        <input type="text" class="form-control shadow-none" value="{{ $item->open_tickets->age_ticket }}" readonly>
-                                                                    </div>
-                                                                    <div class="form-group col-md-6">
-                                                                        <label class="text-muted">เพศ</label>
-                                                                        <input type="text" class="form-control shadow-none" value="{{ $item->open_tickets->sex_ticket }}" readonly>
-                                                                    </div>
-                                                                </div>
-                                                                <div class="box-height-10"></div>
-                                                                <div class="form-group">
-                                                                    <label class="text-muted">พันธุ์</label>
-                                                                    <input type="text" class="form-control shadow-none" value="{{ $item->open_tickets->breed_ticket }}" readonly>
-                                                                </div>
-                                                                @isset($item->open_tickets->other_breed_ticket)
-                                                                <div class="box-height-10"></div>
-                                                                <div id="input_breed" class="form-group ">
-                                                                    <label class="text-muted">ระบุพันธ์ กรณีเลือก อื่นๆ (โปรดระบุ)</label>
-                                                                    <input type="text" class="form-control shadow-none" value="{{ $item->open_tickets->other_breed_ticket }}" readonly>
-                                                                </div>
-                                                                @endif
-                                                                <div class="box-height-10"></div>
-                                                                <div class="form-group">
-                                                                    <label class="text-muted">โรคประจำตัว (เลือกได้หลายข้อ)</label>
-                                                                    <input type="text" class="form-control shadow-none" value="{{ $item->open_tickets->disease_ticket }}" readonly>
-                                                                </div>
-                                                                @isset($item->open_tickets->other_disease_ticket)
-                                                                <div class="box-height-10"></div>
-                                                                <div id="input_disease" class="form-group ">
-                                                                    <label class="text-muted">โรคประจำตัว กรณีเลือก อื่นๆ (โปรดระบุ)</label>
-                                                                    <input type="text" class="form-control shadow-none" value="{{ $item->open_tickets->other_disease_ticket }}" readonly>
-                                                                </div>
-                                                                @endif
-                                                                <div class="box-height-10"></div>
-                                                                <div class="form-group">
-                                                                    <label class="text-muted">จุดประสงค์การใช้งาน (เลือกได้หลายข้อ)</label>
-                                                                    <input type="text" class="form-control shadow-none" value="{{ $item->open_tickets->objective_ticket }}" readonly>
-                                                                </div>
-                                                                @isset($item->open_tickets->other_objective_ticket)
-                                                                <div class="box-height-10"></div>
-                                                                <div id="input_othor" class="form-group ">
-                                                                    <label class="text-muted">จุดประสงค์การใช้งาน กรณีเลือก อื่นๆ (โปรดระบุ)</label>
-                                                                    <input type="text" class="form-control shadow-none" value="{{ $item->open_tickets->other_objective_ticket }}" readonly>
-                                                                </div>
-                                                                @endif
-                                                                <br>
-                                                                <h2 class="text-md text-highlight fs-18 mt-3">แบบประเมินหลังใช้งาน</h2>
-                                                                <div class="box-height-10"></div>
-
-                                                                    @isset($item->open_tickets->ask_open_tickets)
-                                                                    <div class="form-group"> 
-                                                                        <label class="" style="font-size:15px">1. กลิ่นของยาไม่เหม็นฉุน</label>
-                                                                        <select class="star-rating" name="ark1">
-                                                                            <option value="">Select a rating</option>
-                                                                            <option value="5" @if( $item->open_tickets->ask_open_tickets->ark1 == 5) selected='selected' @endif>Excellent</option>
-                                                                            <option value="4" @if( $item->open_tickets->ask_open_tickets->ark1 == 4) selected='selected' @endif>Very Good</option>
-                                                                            <option value="3" @if( $item->open_tickets->ask_open_tickets->ark1 == 3) selected='selected' @endif>Average</option>
-                                                                            <option value="2" @if( $item->open_tickets->ask_open_tickets->ark1 == 2) selected='selected' @endif>Poor</option>
-                                                                            <option value="1" @if( $item->open_tickets->ask_open_tickets->ark1 == 1) selected='selected' @endif>Terrible</option>
-                                                                        </select>
-                                                                    </div>
-                                                                    
-                                                                    <div class="box-height-10"></div>
-                                                                    <div class="form-group">
-                                                                        <label class="" style="font-size:15px">2. สะดวกแค่หยดไม่ต้องป้อนยา ถ่ายพยาธิ</label>
-                                                                        <select class="star-rating" name="ark2">
-                                                                            <option value="">Select a rating</option>
-                                                                            <option value="5" @if( $item->open_tickets->ask_open_tickets->ark2 == 5) selected='selected' @endif>Excellent</option>
-                                                                            <option value="4" @if( $item->open_tickets->ask_open_tickets->ark2 == 4) selected='selected' @endif>Very Good</option>
-                                                                            <option value="3" @if( $item->open_tickets->ask_open_tickets->ark2 == 3) selected='selected' @endif>Average</option>
-                                                                            <option value="2" @if( $item->open_tickets->ask_open_tickets->ark2 == 2) selected='selected' @endif>Poor</option>
-                                                                            <option value="1" @if( $item->open_tickets->ask_open_tickets->ark2 == 1) selected='selected' @endif>Terrible</option>
-                                                                        </select>
-                                                                    </div>
-                                                                    <div class="box-height-10"></div>
-                                                                    <div class="form-group">
-                                                                        <label class="" style="font-size:15px">3. มั่นใจในความปลอดภัย เช่น ใช้ได้ใน แมวแม่พันธุ์ ตั้งท้อง ให้นมลูก</label>
-                                                                        <select class="star-rating" name="ark3">
-                                                                            <option value="">Select a rating</option>
-                                                                            <option value="5" @if( $item->open_tickets->ask_open_tickets->ark3 == 5) selected='selected' @endif>Excellent</option>
-                                                                            <option value="4" @if( $item->open_tickets->ask_open_tickets->ark3 == 4) selected='selected' @endif>Very Good</option>
-                                                                            <option value="3" @if( $item->open_tickets->ask_open_tickets->ark3 == 3) selected='selected' @endif>Average</option>
-                                                                            <option value="2" @if( $item->open_tickets->ask_open_tickets->ark3 == 2) selected='selected' @endif>Poor</option>
-                                                                            <option value="1" @if( $item->open_tickets->ask_open_tickets->ark3 == 1) selected='selected' @endif>Terrible</option>
-                                                                        </select>
-                                                                    </div>
-                                                                    <div class="box-height-10"></div>
-                                                                    <div class="form-group">
-                                                                        <label class="" style="font-size:15px">4. ภาพรวมของโปรแกรม NEXT COMBO</label>
-                                                                        <select class="star-rating" name="ark4">
-                                                                            <option value="">Select a rating</option>
-                                                                            <option value="5" @if( $item->open_tickets->ask_open_tickets->ark4 == 5) selected='selected' @endif>Excellent</option>
-                                                                            <option value="4" @if( $item->open_tickets->ask_open_tickets->ark4 == 4) selected='selected' @endif>Very Good</option>
-                                                                            <option value="3" @if( $item->open_tickets->ask_open_tickets->ark4 == 3) selected='selected' @endif>Average</option>
-                                                                            <option value="2" @if( $item->open_tickets->ask_open_tickets->ark4 == 2) selected='selected' @endif>Poor</option>
-                                                                            <option value="1" @if( $item->open_tickets->ask_open_tickets->rk4 == 1) selected='selected' @endif>Terrible</option>
-                                                                        </select>
-                                                                    </div>
-                                                                    @endisset
-                                
-                                                            </div>
-                                                            <div class="tab-pane fade" id="kt_tab_pane_2_{{ $item->id }}" role="tabpanel">
-                                                                <div class="p-26">
-                                                                    
-                                                                   
-                                                             
-                                                                    <div class="d-flex justify-content-around" style="width: 100%">
-
-                                                                        @if(isset($item->close_tickets->img_close_tickets))
-                                                                            @foreach ($item->close_tickets->img_close_tickets as $img)
-                                                                                <div class="mr-15"><img src="{{ url('images/next_combo/close_ticket/'.$img->img) }}" class="img-fluid card-rounded" alt="cat"></div>
-                                                                            @endforeach
-                                                                        @endif
-    
-                                                                    </div>
-                                                                    <br>
-                                                                    <h2 class="text-md text-highlight fs-16">แบบประเมินหลังใช้งาน</h2>
-                                                                    <div class="box-height-10"></div>
-                                                                    @isset(($item->close_tickets->ask_close_tickets->ark1))
-                                                                    <div class="form-group">
-                                                                        <label class="" style="font-size:15px">1. ได้ผลตรงตามจุดประสงค์การใช้งาน</label>
-                                                                        <select class="star-rating" name="ark1">
-                                                                            <option value="">Select a rating</option>
-                                                                            <option value="1" @if( $item->close_tickets->ask_close_tickets->ark1 == 1) selected='selected' @endif>Excellent</option>
-                                                                            <option value="2" @if( $item->close_tickets->ask_close_tickets->ark1 == 2) selected='selected' @endif>Very Good</option>
-                                                                            <option value="3" @if( $item->close_tickets->ask_close_tickets->ark1 == 3) selected='selected' @endif>Average</option>
-                                                                            <option value="4" @if( $item->close_tickets->ask_close_tickets->ark1 == 4) selected='selected' @endif>Poor</option>
-                                                                            <option value="5" @if( $item->close_tickets->ask_close_tickets->ark1 == 5) selected='selected' @endif>Terrible</option>
-                                                                        </select>
-                                                                    </div>
-                                                                    @endisset
-                                                                    @isset(($item->close_tickets->ask_close_tickets->ark2))
-                                                                    <div class="form-group">
-                                                                        <label class="" style="font-size:15px">2. ภาพรวมของโปรแกรม NEXT COMBO</label>
-                                                                        <select class="star-rating" name="ark2">
-                                                                            <option value="">Select a rating</option>
-                                                                            <option value="1" @if( $item->close_tickets->ask_close_tickets->ark2 == 1) selected='selected' @endif>Excellent</option>
-                                                                            <option value="2" @if( $item->close_tickets->ask_close_tickets->ark2 == 2) selected='selected' @endif>Very Good</option>
-                                                                            <option value="3" @if( $item->close_tickets->ask_close_tickets->ark2 == 3) selected='selected' @endif>Average</option>
-                                                                            <option value="4" @if( $item->close_tickets->ask_close_tickets->ark2 == 4) selected='selected' @endif>Poor</option>
-                                                                            <option value="5" @if( $item->close_tickets->ask_close_tickets->ark2 == 5) selected='selected' @endif>Terrible</option>
-                                                                        </select>
-                                                                    </div>
-                                                                    @endisset
-                                                
-                                                                    <div class="form-group">
-                                                                        <label class="" style="font-size:15px">3. ข้อเสนอแนะเพิ่มเติม</label>
-                                                                        <textarea id="event-desc" class="form-control" name="detail" rows="6" placeholder="รายละเอียด..." readonly>@isset($item->close_tickets->ask_close_tickets->detail){{ $item->close_tickets->ask_close_tickets->detail }}@endisset</textarea>
-                                                                    </div>
-                                                                    
-                                                                
-                                                                    
-                                                                    
-                                                                </div>
-                                                            </div>
-
-                                                            <div class="tab-pane fade" id="kt_tab_pane_3_{{ $item->id }}" role="tabpanel">
-                                                                <div class="p-26">
-
-                                                                    <div class="d-flex justify-content-around" style="width: 100%">
-
-                                                                        @if(isset($item->add_tickets->img_add_tickets))
-                                                                            @foreach ($item->add_tickets->img_add_tickets as $img)
-                                                                                <div class="mr-15"><img src="{{ url('images/next_combo/add_ticket/'.$img->img) }}" class="img-fluid card-rounded" alt="cat"></div>
-                                                                            @endforeach
-                                                                        @endif
-    
-                                                                    </div>
-                                                                    <br>
-                                                                    <div class="box-height-10"></div>
-                                                                    <div class="form-group">
-                                                                        <label class="" style="font-size:15px">ข้อเสนอแนะเพิ่มเติม</label>
-                                                                        <textarea id="event-desc" class="form-control" name="detail" rows="6" placeholder="รายละเอียด..." readonly>@isset($item->add_tickets->detail){{ $item->add_tickets->detail }}@endisset</textarea>
-                                                                    </div>
-
-                                                                </div>
-                                                            </div>
-
-                                                        </div>
-                                                    </div>
-                                        
-                                                    <div class="modal-footer justify-content-center">
-                                                        <button type="button" class="btn btn-light" data-bs-dismiss="modal">ปิดหน้าต่าง</button>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
                                         @endforeach
                                         @endif
 
@@ -474,16 +242,43 @@
 
 @section('scripts')
 
+    <div class="modal fade" tabindex="-1" id="kt_modal_1">
+        <div class="modal-dialog">
+            <div id="modal-content" class="modal-content">
+                
+            </div>
+        </div>
+    </div>
 
 
-
-<script src="{{ url('home/star/dist/star-rating.min.js') }}"></script>
 
 <script>
 
-var starRatingControl = new StarRating('.star-rating',{
-    maxStars: 5
+$(document).on('click','#get_mymodal',function (event) {
+      event.preventDefault();
+
+      var mo_id = $(this).data('id');
+      console.log('mo_id', mo_id)
+      $.ajax({
+        url: '{{ url('api/modal-data/') }}/'+mo_id,
+        type: 'GET',
+        success: function(response) {
+            // Populate modal with data
+            // Example assuming modal content with ID "modal-content"
+            $('#modal-content').html(response);
+            // Display modal
+            $('#kt_modal_1').modal('show');
+        },
+        error: function(xhr, status, error) {
+            console.error(error);
+        }
+    });
+
+  
+
 });
+
+
     
 </script>
 

@@ -4,8 +4,9 @@ namespace App\Exports;
 
 use App\Models\ticket_order;
 use Maatwebsite\Excel\Concerns\FromCollection;
+use Maatwebsite\Excel\Concerns\WithHeadings;
 
-class ExportTicket implements FromCollection
+class ExportTicket implements FromCollection, WithHeadings
 {
     /**
     * @return \Illuminate\Support\Collection
@@ -80,7 +81,6 @@ class ExportTicket implements FromCollection
             'users.address',
             'users.representative',
             'users.representative2',
-            'users.representative2',
             'open_tickets.name_ticket',
             'open_tickets.age_ticket',
             'open_tickets.sex_ticket',
@@ -118,5 +118,52 @@ class ExportTicket implements FromCollection
             ->leftjoin('add_tickets', 'add_tickets.id',  'ticket_orders.add_ticket')
             ->leftjoin('ask_open_tickets', 'ask_open_tickets.ticket_orders_id',  'ticket_orders.open_ticket')
             ->get();
+    }
+
+    public function headings(): array
+    {
+        return [
+            'date',
+            'no.case',
+            'Prefix_name',
+            'Othor_Prefix_name',
+            'Name',
+            'Surname',
+            'Tel',
+            'VET ID',
+            'Job_Type',
+            'Province',
+            'Name_clinic',
+            'Name_Ref',
+            'Othor_Name_Ref',
+            'Pet_Name',
+            'Pet_Age',
+            'Pet_sex',
+            'Pet_type',
+            'Othor_Pet_type',
+            'Pet_Disease',
+            'Othor_Pet_Disease',
+            'Perpose',
+            'Othor_Perpose',
+            'Photo_link_before1',
+            'Photo_link_before2',
+            'Photo_link_before3',
+            'Photo_link_After1',
+            'Photo_link_After2',
+            'Photo_link_After3',
+            'Addition_Text',
+            'Photo_link_Addon1',
+            'Photo_link_Addon2',
+            'Photo_link_Addon3',
+            'Addition_Text_addon',
+            'PDPA',
+            'PHOTO Allowed',
+            'Quiz1_01',
+            'Quiz1_02',
+            'Quiz1_03',
+            'Quiz1_04',
+            'Quiz2_01',
+            'Quiz1_02'
+        ];
     }
 }
