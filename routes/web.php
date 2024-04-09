@@ -111,6 +111,8 @@ Route::group(['middleware' => ['UserRole:superadmin|admin|user']], function() {
 
 Route::group(['middleware' => ['UserRole:superadmin|admin']], function() {
 
+    Route::get('export/csv', [App\Http\Controllers\DashboardController::class, 'exportCSVFile'])->name('export.csv');
+
     Route::get('/admin/case', [App\Http\Controllers\DashboardController::class, 'index']);
     Route::get('admin/sace_search/', [App\Http\Controllers\DashboardController::class, 'sace_search']);
 

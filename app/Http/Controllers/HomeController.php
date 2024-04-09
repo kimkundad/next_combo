@@ -236,27 +236,28 @@ class HomeController extends Controller
     //  dd(($gallary));
     $data1 = [];
     if (count($gallary) > 0) {
-      for ($i = 0; $i < sizeof($gallary); $i++) {
+      foreach ($request->file('img') as $image){
 
-        if (isset($gallary[$i])) {
+        if (isset($image)) {
 
-          $img = Image::make($gallary[$i]->getRealPath());
+          $img = Image::make($image->getRealPath());
           $img->orientate();
           $img->resize(800, 800, function ($constraint) {
             $constraint->aspectRatio();
           });
           $img->stream();
-          Storage::disk('do_spaces')->put('next_combo/add_ticket/' . $gallary[$i]->hashName(), $img, 'public');
-
-
+          Storage::disk('do_spaces')->put('next_combo/add_ticket/' . $image->hashName(), $img, 'public');
+          
           $data1[] = [
-            'img' => $gallary[$i]->hashName(),
-            'add_ticket_id' => $objs->id
+            'img' => $image->hashName(),
+            'close_ticket_id' => $objs->id
           ];
         }
       }
       img_add_ticket::insert($data1);
     }
+
+    
 
     return redirect('servey_success/')->with('success', "Account successfully registered.");
 
@@ -282,23 +283,23 @@ class HomeController extends Controller
 
     $gallary = $request->file('img');
     //  dd(($gallary));
+
     $data1 = [];
     if (count($gallary) > 0) {
-      for ($i = 0; $i < sizeof($gallary); $i++) {
+      foreach ($request->file('img') as $image){
 
-        if (isset($gallary[$i])) {
+        if (isset($image)) {
 
-          $img = Image::make($gallary[$i]->getRealPath());
+          $img = Image::make($image->getRealPath());
           $img->orientate();
           $img->resize(800, 800, function ($constraint) {
             $constraint->aspectRatio();
           });
           $img->stream();
-          Storage::disk('do_spaces')->put('next_combo/close_ticket/' . $gallary[$i]->hashName(), $img, 'public');
-
-
+          Storage::disk('do_spaces')->put('next_combo/close_ticket/' . $image->hashName(), $img, 'public');
+          
           $data1[] = [
-            'img' => $gallary[$i]->hashName(),
+            'img' => $image->hashName(),
             'close_ticket_id' => $objs->id
           ];
         }
@@ -380,7 +381,6 @@ class HomeController extends Controller
           $img->stream();
           Storage::disk('do_spaces')->put('next_combo/open_ticket/' . $image->hashName(), $img, 'public');
 
-
           $data1[] = [
             'img' => $image->hashName(),
             'code_ticket' => $code_ticket,
@@ -388,7 +388,6 @@ class HomeController extends Controller
           ];
         }
       }
-     // dd($data1);
       img_open_ticket::insert($data1);
     }
 

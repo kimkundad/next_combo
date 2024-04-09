@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\User;
 use App\Models\ticket_order;
+use App\Exports\ExportTicket;
+use Maatwebsite\Excel\Facades\Excel;
 
 class DashboardController extends Controller
 {
@@ -17,12 +19,18 @@ class DashboardController extends Controller
         $ticket_order = ticket_order::count();
 
         $objs = ticket_order::with('users','open_tickets', 'open_tickets.img_open_tickets', 'open_tickets.ask_open_tickets' ,'close_tickets', 'close_tickets.img_close_tickets', 'close_tickets.ask_close_tickets','add_tickets', 'add_tickets.img_add_tickets')->paginate(15);
-        //dd($objs[1]->add_tickets->img_add_tickets);
+      //  dd($objs[1]->add_tickets->img_add_tickets);
         $objs->setPath('');
 
        
 
         return view('admin.case.index', compact('count_user','count_user', 'ticket_order', 'ticket_order_close', 'objs'));
+    }
+
+
+    public function exportCSVFile() 
+    {
+        return Excel::download(new ExportTicket , 'ticket.xlsx');
     }
 
     public function sace_search(Request $request){
