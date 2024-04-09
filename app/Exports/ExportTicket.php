@@ -12,7 +12,61 @@ class ExportTicket implements FromCollection
     */
     public function collection()
     {
-        dd(ticket_order::select(
+        // dd(ticket_order::select(
+        //     'ticket_orders.created_at',
+        //     'ticket_orders.code_ticket',
+        //     'users.ser',
+        //     'users.ser_othher',
+        //     'users.fname',
+        //     'users.lname',
+        //     'users.phone',
+        //     'users.vet_id',
+        //     'users.clinic_type',
+        //     'users.province',
+        //     'users.address',
+        //     'users.representative',
+        //     'users.representative2',
+        //     'users.representative2',
+        //     'open_tickets.name_ticket',
+        //     'open_tickets.age_ticket',
+        //     'open_tickets.sex_ticket',
+        //     'open_tickets.breed_ticket',
+        //     'open_tickets.other_breed_ticket',
+        //     'open_tickets.disease_ticket',
+        //     'open_tickets.other_disease_ticket',
+        //     'open_tickets.objective_ticket',
+        //     'open_tickets.other_objective_ticket',
+        //     'open_tickets.img_1',
+        //     'open_tickets.img_2',
+        //     'open_tickets.img_3',
+        //     'close_tickets.c_img1',
+        //     'close_tickets.c_img2',
+        //     'close_tickets.c_img3',
+        //     'ask_close_tickets.detail',
+        //     'add_tickets.add_img1',
+        //     'add_tickets.add_img2',
+        //     'add_tickets.add_img3',
+        //     'add_tickets.detail',
+        //     'users.pdpa',
+        //     'users.policy',
+        //     'ask_open_tickets.ark1',
+        //     'ask_open_tickets.ark2',
+        //     'ask_open_tickets.ark3',
+        //     'ask_open_tickets.ark4',
+        //     'ask_close_tickets.ark1',
+        //     'ask_close_tickets.ark2',
+        //     )
+        //     ->orderby('ticket_orders.created_at', 'desc')
+        //     ->leftjoin('users', 'users.id',  'ticket_orders.user_id')
+        //     ->leftjoin('open_tickets', 'open_tickets.id',  'ticket_orders.open_ticket')
+        //     ->leftjoin('close_tickets', 'close_tickets.id',  'ticket_orders.close_ticket')
+        //     ->leftjoin('ask_close_tickets', 'ask_close_tickets.ticket_orders_id',  'ticket_orders.close_ticket')
+        //     ->leftjoin('add_tickets', 'add_tickets.id',  'ticket_orders.add_ticket')
+        //     ->leftjoin('ask_open_tickets', 'ask_open_tickets.ticket_orders_id',  'ticket_orders.open_ticket')
+        //     ->get()
+        // );
+
+        return ticket_order::select(
             'ticket_orders.created_at',
             'ticket_orders.code_ticket',
             'users.ser',
@@ -36,14 +90,33 @@ class ExportTicket implements FromCollection
             'open_tickets.other_disease_ticket',
             'open_tickets.objective_ticket',
             'open_tickets.other_objective_ticket',
+            'open_tickets.img_1',
+            'open_tickets.img_2',
+            'open_tickets.img_3',
+            'close_tickets.c_img1',
+            'close_tickets.c_img2',
+            'close_tickets.c_img3',
+            'ask_close_tickets.detail as c_detail',
+            'add_tickets.add_img1',
+            'add_tickets.add_img2',
+            'add_tickets.add_img3',
+            'add_tickets.detail',
+            'users.pdpa',
+            'users.policy',
+            'ask_open_tickets.ark1',
+            'ask_open_tickets.ark2',
+            'ask_open_tickets.ark3',
+            'ask_open_tickets.ark4',
+            'ask_close_tickets.ark1 as c_ark1',
+            'ask_close_tickets.ark2 as c_ark2',
             )
             ->orderby('ticket_orders.created_at', 'desc')
             ->leftjoin('users', 'users.id',  'ticket_orders.user_id')
             ->leftjoin('open_tickets', 'open_tickets.id',  'ticket_orders.open_ticket')
-            ->with('open_tickets.img_open_tickets')
-            ->get()
-        );
-
-        return ticket_order::all();
+            ->leftjoin('close_tickets', 'close_tickets.id',  'ticket_orders.close_ticket')
+            ->leftjoin('ask_close_tickets', 'ask_close_tickets.ticket_orders_id',  'ticket_orders.close_ticket')
+            ->leftjoin('add_tickets', 'add_tickets.id',  'ticket_orders.add_ticket')
+            ->leftjoin('ask_open_tickets', 'ask_open_tickets.ticket_orders_id',  'ticket_orders.open_ticket')
+            ->get();
     }
 }

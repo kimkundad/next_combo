@@ -5,7 +5,9 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\User;
 use App\Models\ticket_order;
+use App\Models\open_ticket;
 use App\Exports\ExportTicket;
+use App\Models\img_open_ticket;
 use Maatwebsite\Excel\Facades\Excel;
 
 class DashboardController extends Controller
@@ -32,6 +34,7 @@ class DashboardController extends Controller
     {
         return Excel::download(new ExportTicket , 'ticket.xlsx');
     }
+
 
     public function sace_search(Request $request){
 

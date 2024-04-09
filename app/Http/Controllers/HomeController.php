@@ -235,6 +235,7 @@ class HomeController extends Controller
     $gallary = $request->file('img');
     //  dd(($gallary));
     $data1 = [];
+    $s = 1;
     if (count($gallary) > 0) {
       foreach ($request->file('img') as $image){
 
@@ -247,11 +248,28 @@ class HomeController extends Controller
           });
           $img->stream();
           Storage::disk('do_spaces')->put('next_combo/add_ticket/' . $image->hashName(), $img, 'public');
+
+          if($s == 1){
+            $objx = add_ticket::find($objs->id);
+            $objx->add_img1 = url('/images/next_combo/add_ticket/').'/'.$image->hashName();
+            $objx->save();
+          }
+          if($s == 2){
+            $objx = add_ticket::find($objs->id);
+            $objx->add_img2 = url('/images/next_combo/add_ticket/').'/'.$image->hashName();
+            $objx->save();
+          }
+          if($s == 3){
+            $objx = add_ticket::find($objs->id);
+            $objx->add_img3 = url('/images/next_combo/add_ticket/').'/'.$image->hashName();
+            $objx->save();
+          }
           
           $data1[] = [
             'img' => $image->hashName(),
-            'close_ticket_id' => $objs->id
+            'add_ticket_id' => $objs->id
           ];
+          $s++;
         }
       }
       img_add_ticket::insert($data1);
@@ -285,6 +303,7 @@ class HomeController extends Controller
     //  dd(($gallary));
 
     $data1 = [];
+    $s = 1;
     if (count($gallary) > 0) {
       foreach ($request->file('img') as $image){
 
@@ -297,11 +316,28 @@ class HomeController extends Controller
           });
           $img->stream();
           Storage::disk('do_spaces')->put('next_combo/close_ticket/' . $image->hashName(), $img, 'public');
+
+          if($s == 1){
+            $objx = close_ticket::find($objs->id);
+            $objx->c_img1 = url('/images/next_combo/close_ticket/').'/'.$image->hashName();
+            $objx->save();
+          }
+          if($s == 2){
+            $objx = close_ticket::find($objs->id);
+            $objx->c_img2 = url('/images/next_combo/close_ticket/').'/'.$image->hashName();
+            $objx->save();
+          }
+          if($s == 3){
+            $objx = close_ticket::find($objs->id);
+            $objx->c_img3 = url('/images/next_combo/close_ticket/').'/'.$image->hashName();
+            $objx->save();
+          }
           
           $data1[] = [
             'img' => $image->hashName(),
             'close_ticket_id' => $objs->id
           ];
+          $s++;
         }
       }
       img_close_ticket::insert($data1);
@@ -368,6 +404,7 @@ class HomeController extends Controller
     $gallary = $request->file('img');
     //  dd(($gallary));
     $data1 = [];
+    $s = 1;
     if (count($gallary) > 0) {
       foreach ($request->file('img') as $image){
 
@@ -381,11 +418,29 @@ class HomeController extends Controller
           $img->stream();
           Storage::disk('do_spaces')->put('next_combo/open_ticket/' . $image->hashName(), $img, 'public');
 
+                if($s == 1){
+                  $objx = open_ticket::find($objs->id);
+                  $objx->img_1 = url('/images/next_combo/open_ticket/').'/'.$image->hashName();
+                  $objx->save();
+                }
+                if($s == 2){
+                  $objx = open_ticket::find($objs->id);
+                  $objx->img_2 = url('/images/next_combo/open_ticket/').'/'.$image->hashName();
+                  $objx->save();
+                }
+                if($s == 3){
+                  $objx = open_ticket::find($objs->id);
+                  $objx->img_3 = url('/images/next_combo/open_ticket/').'/'.$image->hashName();
+                  $objx->save();
+                }
+                
+
           $data1[] = [
             'img' => $image->hashName(),
             'code_ticket' => $code_ticket,
             'open_ticket_id' => $objs->id
           ];
+          $s++;
         }
       }
       img_open_ticket::insert($data1);
