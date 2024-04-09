@@ -20,7 +20,7 @@ class DashboardController extends Controller
         $ticket_order_close = ticket_order::where('close_ticket', '!=', 0)->count();
         $ticket_order = ticket_order::count();
 
-        $objs = ticket_order::with('users','open_tickets', 'open_tickets.img_open_tickets', 'open_tickets.ask_open_tickets' ,'close_tickets', 'close_tickets.img_close_tickets', 'close_tickets.ask_close_tickets','add_tickets', 'add_tickets.img_add_tickets')->orderby('id', 'desc')->paginate(15);
+        $objs = ticket_order::with('users','open_tickets', 'open_tickets.img_open_tickets', 'open_tickets.ask_open_tickets' ,'close_tickets', 'close_tickets.img_close_tickets', 'close_tickets.ask_close_tickets','add_tickets', 'add_tickets.img_add_tickets')->orderby('id', 'desc')->paginate(20);
       //  dd($objs[1]->add_tickets->img_add_tickets);
         $objs->setPath('');
 
@@ -53,6 +53,7 @@ class DashboardController extends Controller
         ->where('code_ticket', 'like', "%$search%")
         ->orwhere('name_ticket', 'like', "%$search%")
         ->whereRelation('users', 'fname', 'like', "%$search%") 
+        ->whereRelation('users', 'lname', 'like', "%$search%")
         ->paginate(15);
         //dd($objs[1]->add_tickets->img_add_tickets);
         

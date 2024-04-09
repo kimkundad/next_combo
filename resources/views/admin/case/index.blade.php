@@ -179,7 +179,7 @@
                                             <td>
                                                 <div class="d-flex">
 
-                                                    <div class="symbol-group symbol-hover flex-nowrap">
+                                                    {{-- <div class="symbol-group symbol-hover flex-nowrap">
                                                         @if(isset($item->open_tickets->img_open_tickets))
                                                             @foreach ($item->open_tickets->img_open_tickets as $img)
                                                                 <div class="symbol symbol-35px symbol-circle" data-bs-toggle="tooltip" aria-label="Melody Macy" data-kt-initialized="1">
@@ -187,7 +187,7 @@
                                                                 </div>
                                                             @endforeach
                                                         @endif
-                                                    </div>
+                                                    </div> --}}
 
                                                     <div class="ml-15">
                                                         <a href="#" class="text-dark fw-bold text-hover-primary mb-1 fs-6">{{ $item->name_ticket }}</a>
