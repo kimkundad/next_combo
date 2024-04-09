@@ -186,7 +186,7 @@ class HomeController extends Controller
   public function case_list()
   {
 
-    $objs = ticket_order::where('user_id', '=', Auth::user()->id)->get();
+    $objs = ticket_order::where('user_id', '=', Auth::user()->id)->orderby('id', 'desc')->get();
 
     $data['ticket'] = $objs;
 
