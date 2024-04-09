@@ -141,6 +141,9 @@ Test
                                 <input type="text" class="form-control shadow-none" value="{{ $open->other_objective_ticket }}" readonly>
                             </div>
                             @endisset
+
+
+                            @isset($ask1->ark1)
                             <div class="box-height-20"></div>
                             <h2 class="text-md text-highlight fs-16">แบบประเมินหลังใช้งาน</h2>
                             
@@ -193,6 +196,8 @@ Test
                                 </select>
                             </div>
 
+                            @endisset
+
                         </div>
 
                     </div>
@@ -217,6 +222,9 @@ Test
                                 </div>
                             </div>
                             <div class="box-height-20"></div>
+
+
+                            @isset($ask2->ark1)
 
                             <h2 class="text-md text-highlight fs-16">แบบประเมินหลังใช้งาน</h2>
                             <div class="box-height-10"></div>
@@ -248,6 +256,9 @@ Test
                                 <label class="" style="font-size:15px">3. ข้อเสนอแนะเพิ่มเติม</label>
                                 <textarea id="event-desc" class="form-control" name="detail" rows="6" placeholder="รายละเอียด..." readonly>@isset($ask2->detail){{ $ask2->detail }}@endisset</textarea>
                             </div>
+
+                            @endisset
+
                     </div>
                     <div class="tab-pane fade" id="contact2" role="tabpanel" aria-labelledby="contact-tab">
                         <h2 class="text-md text-highlight fs-16">รายงานผลเพิ่มเติม</h2>
@@ -269,11 +280,13 @@ Test
                                     
                                 </div>
                             </div>
+                            @isset($add)
                             <div class="box-height-20"></div>
                             <div class="form-group">
                                 <label class="" style="font-size:15px">ข้อเสนอแนะเพิ่มเติม</label>
-                                <textarea id="event-desc" class="form-control" name="detail" rows="6" placeholder="รายละเอียด..." readonly>@isset($add){{ $add->detail }}@endisset</textarea>
+                                <textarea id="event-desc" class="form-control" name="detail" rows="6" placeholder="รายละเอียด..." readonly>{{ $add->detail }}</textarea>
                             </div>
+                            @endisset
                     </div>
                 </div>
             </div>
