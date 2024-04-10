@@ -254,7 +254,7 @@
         <div id="light">
         <a class="boxclose" id="boxclose" onclick="lightbox_close();"></a>
         <video id="VisaChipCardVideo" style="max-width: 356px;"  controls>
-            <source src="https://kimspace2.sgp1.cdn.digitaloceanspaces.com/next_combo/VDO_NexGard_Combo.mp4" style="min-width: 446px; max-width: 660px;" type="video/mp4">
+            <source src="https://kimspace2.sgp1.cdn.digitaloceanspaces.com/next_combo/2024_BI_VDO_NexGard_Combo.mp4" style="min-width: 446px; max-width: 660px;" type="video/mp4">
             <!--Browser does not support <video> tag -->
           </video>
         </div>
