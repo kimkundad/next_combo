@@ -63,7 +63,7 @@ Test
                         controls preload="auto"style="min-width: 446px; height:251px; max-width: 660px;" 
                         poster="{{ url('img/cover_video.jpg') }}"
                         >
-                    <source src="https://kimspace2.sgp1.cdn.digitaloceanspaces.com/next_combo/2024_BI_VDO_NexGard_Combo.mp4" type="video/mp4">
+                    <source src="https://kimspace2.sgp1.cdn.digitaloceanspaces.com/next_combo/V1_2024_BI_VDO_NexGard_Combo.mp4" type="video/mp4">
                     </video>
                 </div>
                 <div class="box-height-20"></div>
