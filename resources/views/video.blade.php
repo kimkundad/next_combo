@@ -61,7 +61,7 @@ Test
                       </video> --}}
                       <video id="myPlayer" class="video-js"
                         controls preload="auto"style="min-width: 446px; height:251px; max-width: 660px;" 
-                        poster="{{ url('img/cover_video.jpg') }}"
+                        poster="{{ url('img/cover_video_2.jpg') }}"
                         >
                     <source src="https://kimspace2.sgp1.cdn.digitaloceanspaces.com/next_combo/V1_2024_BI_VDO_NexGard_Combo.mp4" type="video/mp4">
                     </video>
