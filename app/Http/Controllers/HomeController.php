@@ -530,6 +530,23 @@ class HomeController extends Controller
       'representative' => 'required'
     ]);
 
+
+    if($request['representative'] == 'อื่นๆ (โปรดระบุ)'){
+
+      $objs = User::find(Auth::user()->id);
+      $objs->representative = $request['representative'];
+      $objs->representative2 = $request['representative2'];
+      $objs->save();
+
+    }else{
+
+      $objs = User::find(Auth::user()->id);
+      $objs->representative = $request['representative'];
+      $objs->representative2 = null;
+      $objs->save();
+
+    }
+
     if($request['ser'] == 'อื่นๆ (โปรดระบุ)'){
 
     $objs = User::find(Auth::user()->id);
@@ -543,8 +560,6 @@ class HomeController extends Controller
     $objs->clinic_type = $request['clinic_type'];
     $objs->province = $request['province'];
     $objs->address = $request['address'];
-    $objs->representative = $request['representative'];
-    $objs->representative2 = $request['representative2'];
     $objs->save();
 
     }else{
@@ -560,8 +575,6 @@ class HomeController extends Controller
     $objs->clinic_type = $request['clinic_type'];
     $objs->province = $request['province'];
     $objs->address = $request['address'];
-    $objs->representative = $request['representative'];
-    $objs->representative2 = $request['representative2'];
     $objs->save();
 
     }

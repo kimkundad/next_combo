@@ -26,10 +26,10 @@ Test
         <div id="content" >
             <div class="header_logo">
                 <div class="d-flex justify-content-center">
-                    
+
                         <img class="img-fluid logo_website_main" src="{{ url('img/logo_head.png') }}" />
-                    
-                        
+
+
                 </div>
             </div>
             <div class="p-18 border-bottom ">
@@ -60,7 +60,7 @@ Test
                         <!--Browser does not support <video> tag --> cover_video.jpg
                       </video> --}}
                       <video id="myPlayer" class="video-js"
-                        controls preload="auto"style="min-width: 446px; height:251px; max-width: 660px;" 
+                        controls preload="auto"style="min-width: 446px; height:251px; max-width: 660px;"
                         poster="{{ url('img/cover_video_2.jpg') }}"
                         >
                     <source src="https://kimspace2.sgp1.cdn.digitaloceanspaces.com/next_combo/V1_2024_BI_VDO_NexGard_Combo.mp4" type="video/mp4">
@@ -70,9 +70,12 @@ Test
                 <div>Time Played: <span id="timePlayed">0</span> วินาที</div>
                 <h2 class=" text-md text-green fs-20 fb-x">รับชมวิดีโอ NEXT COMBO</h2>
                 <p class=" mb-0 fs-16" style="margin-top: 2px;">เมื่อเข้าสู่ระบบครั้งแรก <br> หลังจากนั้นระบบจะนำท่านเข้าสู่การใช้งานระบบ</p>
+                <a href="{{ url('/case_list') }}" id="pass_video" class="btn btn-green btn-block mt-3 text-white hidden" >
+                    เริ่มต้นใช้งาน
+                </a>
             </div>
-            
-            
+
+
 
             <div class="box-height-20"></div>
             <div class="box-height-20"></div>
@@ -84,8 +87,8 @@ Test
             <div class="box-height-20"></div>
             <div class="box-height-20"></div>
 
-            
-            
+
+
         </div>
     </div>
 </div>
@@ -108,8 +111,15 @@ Test
     });
 
     function view_stack(){
-    
-        if(timer >= 180){ window.location.href = '{{ url('/case_list') }}'; }
+
+        if(timer == 28){
+            $("#pass_video").removeClass("hidden")
+          //  window.location.href = '{{ url('/case_list') }}';
+        }
+        if(timer >= 30){
+          //  $("#pass_video").removeClass("hidden")
+            window.location.href = '{{ url('/case_list') }}';
+        }
     }
 
       setInterval(view_stack, 1000);
