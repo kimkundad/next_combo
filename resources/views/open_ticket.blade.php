@@ -69,12 +69,7 @@ Test
 
             <form class="" id="form-id1" role="form" method="POST" action="{{ url('post_open_ticket') }}" enctype="multipart/form-data">
                 <div class="p-26">
-                @error('img')
-                    <div class="alert alert-warning" role="alert">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-alert-circle"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="8" x2="12" y2="12"></line><line x1="12" y1="16" x2="12" y2="16"></line></svg>
-                        <span class="mx-2">{{ $message }}</span>
-                    </div>
-                    @enderror
+
 
                     {{ csrf_field() }}
                     <h2 class="text-md text-highlight fs-18">ก่อนการใช้งานผลิตภัณฑ์</h2>
@@ -119,7 +114,7 @@ Test
                     @error('img')
                     <div class="alert alert-warning" role="alert">
                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-alert-circle"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="8" x2="12" y2="12"></line><line x1="12" y1="16" x2="12" y2="16"></line></svg>
-                        <span class="mx-2">กรุณาอัพโหลดรูปภาพ</span>
+                        <span class="mx-2">{{ $message }}</span>
                     </div>
                     @enderror
 
