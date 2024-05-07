@@ -52,7 +52,7 @@ Test
 
                 </div>
             </div>
-            
+
             <form class="" id="form-id1" role="form" method="POST" action="{{ url('post_close_ticket') }}" enctype="multipart/form-data">
                 <div class="p-26">
                     @csrf
@@ -61,7 +61,7 @@ Test
                     @error('img')
                     <div class="alert alert-warning" role="alert">
                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-alert-circle"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="8" x2="12" y2="12"></line><line x1="12" y1="16" x2="12" y2="16"></line></svg>
-                        <span class="mx-2">กรุณาอัพโหลดรูปภาพ</span>
+                        <span class="mx-2">{{ $message }}</span>
                     </div>
                     @enderror
                     <div class="d-flex">
@@ -79,7 +79,7 @@ Test
                                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-x mx-1"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
                             </span>
                         </div>
-                        
+
                         <div id="master_upload3" class="master_upload1 hidden">
                             <input type="file" name="img[]" id="file_upload_id3" style="display:none" onchange="preview3()" accept="image/png, image/gif, image/jpeg">
                             <img src="{{ url('img/upload_img.jpg') }}" id="icon_upload3" alt="upload_img" onclick="a_upload3()" style="height: 105px; width: 105px">
@@ -91,25 +91,25 @@ Test
                             <img src="{{ url('img/add_imgx.jpg') }}" id="clone_btn" onclick="clone_upload()" style="height: 105px; width: 105px">
                         </div>
                     </div>
-                
+
                     <div>
                         <p class="mb-0 text-danger fs-10px-red">
-                            อัพโหลดรูปภาพน้องแมวหลังใช้เพื่อเปรียบเทียบกับภาพก่อนใช้งาน 
+                            อัพโหลดรูปภาพน้องแมวหลังใช้เพื่อเปรียบเทียบกับภาพก่อนใช้งาน
                             ผลิตภัณฑ์ หรือหากไม่มีรอยโรคชัดเจน สามารถอัพโหลดรูปทั้งตัวของน้องแมวได้เลย (อัพโหลดได้สูงสุด 3 รูป)
                         </p>
-                       
+
                     </div>
                     <div class="box-height-10"></div>
-                    
+
                     <div class="mt-3">
                         <button id="btnSubmit" class="btn btn-green btn-block" >
                             บันทึกข้อมูล
                         </button>
                     </div>
-                    
+
             </div>
             </form>
-            
+
 
             <div class="box-height-20"></div>
             <div class="box-height-20"></div>
@@ -121,8 +121,8 @@ Test
             <div class="box-height-20"></div>
             <div class="box-height-20"></div>
 
-            
-            
+
+
         </div>
     </div>
 </div>
@@ -157,14 +157,14 @@ Test
 
 
 $(document).ready(function () {
-     $("#btnSubmit").on('click', function (event) {  
+     $("#btnSubmit").on('click', function (event) {
            event.preventDefault();
            var el = $(this);
            el.prop('disabled', true);
 
            var form = document.getElementById("form-id1");
            form.submit();
-           
+
            setTimeout(function(){el.prop('disabled', false); }, 3000);
      });
 });

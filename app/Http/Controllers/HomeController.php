@@ -50,7 +50,7 @@ class HomeController extends Controller
   }
 
   public function welcome(){
-    
+
     if (Auth::check()) {
       return Redirect::to('case_list');
     } else {
@@ -210,13 +210,13 @@ class HomeController extends Controller
         'up' => $user->point
       ]
     ]);
-    
+
   }
 
   public function post_add_ticket(Request $request){
 
     $this->validate($request, [
-      'img' => 'required'
+      'img' => 'required|mimes:png,jpg,jpeg',
     ]);
 
     $id = $request->ticket_orders_id;
@@ -264,7 +264,7 @@ class HomeController extends Controller
             $objx->add_img3 = url('/images/next_combo/add_ticket/').'/'.$image->hashName();
             $objx->save();
           }
-          
+
           $data1[] = [
             'img' => $image->hashName(),
             'add_ticket_id' => $objs->id
@@ -275,7 +275,7 @@ class HomeController extends Controller
       img_add_ticket::insert($data1);
     }
 
-    
+
 
     return redirect('servey_success/')->with('success', "Account successfully registered.");
 
@@ -286,7 +286,7 @@ class HomeController extends Controller
  //   dd($request->all());
 
     $this->validate($request, [
-      'img' => 'required',
+        'img' => 'required|mimes:png,jpg,jpeg',
     ]);
 
     $id = $request->ticket_orders_id;
@@ -332,7 +332,7 @@ class HomeController extends Controller
             $objx->c_img3 = url('/images/next_combo/close_ticket/').'/'.$image->hashName();
             $objx->save();
           }
-          
+
           $data1[] = [
             'img' => $image->hashName(),
             'close_ticket_id' => $objs->id
@@ -349,10 +349,10 @@ class HomeController extends Controller
 
   public function post_open_ticket(Request $request)
   {
-    
+
     $this->validate($request, [
       'name_ticket' => 'required',
-      'img' => 'required',
+      'img' => 'required|mimes:png,jpg,jpeg',
       'age_ticket' => 'required',
       'sex_ticket' => 'required',
       'breed_ticket' => 'required',
@@ -433,7 +433,7 @@ class HomeController extends Controller
                   $objx->img_3 = url('/images/next_combo/open_ticket/').'/'.$image->hashName();
                   $objx->save();
                 }
-                
+
 
           $data1[] = [
             'img' => $image->hashName(),
@@ -615,7 +615,7 @@ class HomeController extends Controller
     return redirect('/create_account2')->with('success', "Account successfully registered.");
   }
 
-  
+
 
   public function create_account(Request $request)
   {
