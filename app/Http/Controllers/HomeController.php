@@ -216,7 +216,7 @@ class HomeController extends Controller
   public function post_add_ticket(Request $request){
 
     $this->validate($request, [
-      'img' => 'required|mimes:png,jpg,jpeg',
+      'img' => 'required',
     ]);
 
     $id = $request->ticket_orders_id;
@@ -286,7 +286,7 @@ class HomeController extends Controller
  //   dd($request->all());
 
     $this->validate($request, [
-        'img' => 'required|mimes:png,jpg,jpeg',
+        'img' => 'required',
     ]);
 
     $id = $request->ticket_orders_id;
@@ -352,7 +352,7 @@ class HomeController extends Controller
 
     $this->validate($request, [
       'name_ticket' => 'required',
-      'img' => 'required|mimes:png,jpg,jpeg',
+      'img' => 'required',
       'age_ticket' => 'required',
       'sex_ticket' => 'required',
       'breed_ticket' => 'required',
