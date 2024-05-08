@@ -241,13 +241,34 @@ class HomeController extends Controller
 
         if (isset($image)) {
 
-          $img = Image::make($image->getRealPath());
-          $img->orientate();
-          $img->resize(800, 800, function ($constraint) {
+          $type_img = $image->getClientOriginalExtension();
+
+          if($type_img == 'jpeg' || $type_img == 'png' || $type_img == 'jpg' || $type_img == 'gif' || $type_img == 'JPEG' || $type_img == 'PNG' || $type_img == 'JPG' || $type_img == 'GIF' || $type_img == 'heic' || $type_img == 'heif' || $type_img == 'hevc' || $type_img == 'HEIF' || $type_img == 'HEVC' || $type_img == 'HEIC'){
+
+            if($type_img == 'jpeg' || $type_img == 'png' || $type_img == 'jpg' || $type_img == 'gif' || $type_img == 'JPEG' || $type_img == 'PNG' || $type_img == 'JPG' || $type_img == 'GIF'){
+
+                $img = Image::make($image->getRealPath());
+            $img->orientate();
+            $img->resize(800, 800, function ($constraint) {
             $constraint->aspectRatio();
-          });
-          $img->stream();
-          Storage::disk('do_spaces')->put('next_combo/add_ticket/' . $image->hashName(), $img, 'public');
+            });
+            $img->stream();
+            Storage::disk('do_spaces')->put('next_combo/add_ticket/' . $image->hashName(), $img, 'public');
+
+            }else{
+
+            $my_file = file_get_contents($image);
+            Storage::disk('do_spaces')->put('next_combo/add_ticket/' . $image->hashName(), $my_file, 'public');
+
+            }
+
+          }else{
+            return Redirect::back()->with('img', 'รูปภาพไม่ถูกต้อง');
+          }
+
+
+
+
 
           if($s == 1){
             $objx = add_ticket::find($objs->id);
@@ -309,13 +330,31 @@ class HomeController extends Controller
 
         if (isset($image)) {
 
-          $img = Image::make($image->getRealPath());
-          $img->orientate();
-          $img->resize(800, 800, function ($constraint) {
-            $constraint->aspectRatio();
-          });
-          $img->stream();
-          Storage::disk('do_spaces')->put('next_combo/close_ticket/' . $image->hashName(), $img, 'public');
+            $type_img = $image->getClientOriginalExtension();
+
+            if($type_img == 'jpeg' || $type_img == 'png' || $type_img == 'jpg' || $type_img == 'gif' || $type_img == 'JPEG' || $type_img == 'PNG' || $type_img == 'JPG' || $type_img == 'GIF' || $type_img == 'heic' || $type_img == 'heif' || $type_img == 'hevc' || $type_img == 'HEIF' || $type_img == 'HEVC' || $type_img == 'HEIC'){
+
+                if($type_img == 'jpeg' || $type_img == 'png' || $type_img == 'jpg' || $type_img == 'gif' || $type_img == 'JPEG' || $type_img == 'PNG' || $type_img == 'JPG' || $type_img == 'GIF'){
+
+                    $img = Image::make($image->getRealPath());
+                $img->orientate();
+                $img->resize(800, 800, function ($constraint) {
+                $constraint->aspectRatio();
+                });
+                $img->stream();
+                Storage::disk('do_spaces')->put('next_combo/close_ticket/' . $image->hashName(), $img, 'public');
+
+                }else{
+
+                $my_file = file_get_contents($image);
+                Storage::disk('do_spaces')->put('next_combo/close_ticket/' . $image->hashName(), $my_file, 'public');
+
+                }
+
+              }else{
+                return Redirect::back()->with('img', 'รูปภาพไม่ถูกต้อง');
+              }
+
 
           if($s == 1){
             $objx = close_ticket::find($objs->id);
@@ -410,13 +449,31 @@ class HomeController extends Controller
 
         if (isset($image)) {
 
-          $img = Image::make($image->getRealPath());
-          $img->orientate();
-          $img->resize(800, 800, function ($constraint) {
+            $type_img = $image->getClientOriginalExtension();
+          if($type_img == 'jpeg' || $type_img == 'png' || $type_img == 'jpg' || $type_img == 'gif' || $type_img == 'JPEG' || $type_img == 'PNG' || $type_img == 'JPG' || $type_img == 'GIF' || $type_img == 'heic' || $type_img == 'heif' || $type_img == 'hevc' || $type_img == 'HEIF' || $type_img == 'HEVC' || $type_img == 'HEIC'){
+
+            if($type_img == 'jpeg' || $type_img == 'png' || $type_img == 'jpg' || $type_img == 'gif' || $type_img == 'JPEG' || $type_img == 'PNG' || $type_img == 'JPG' || $type_img == 'GIF'){
+
+                $img = Image::make($image->getRealPath());
+            $img->orientate();
+            $img->resize(800, 800, function ($constraint) {
             $constraint->aspectRatio();
-          });
-          $img->stream();
-          Storage::disk('do_spaces')->put('next_combo/open_ticket/' . $image->hashName(), $img, 'public');
+            });
+            $img->stream();
+            Storage::disk('do_spaces')->put('next_combo/open_ticket/' . $image->hashName(), $img, 'public');
+
+            }else{
+
+            $my_file = file_get_contents($image);
+            Storage::disk('do_spaces')->put('next_combo/open_ticket/' . $image->hashName(), $my_file, 'public');
+
+            }
+
+
+
+          }else{
+            return Redirect::back()->with('img', 'รูปภาพไม่ถูกต้อง');
+          }
 
                 if($s == 1){
                   $objx = open_ticket::find($objs->id);

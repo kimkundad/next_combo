@@ -58,6 +58,12 @@ Test
                     @csrf
                     <h2 class="text-md text-highlight fs-18">หลังการใช้งานผลิตภัณฑ์</h2>
                     <input type="hidden" name="ticket_orders_id" value="{{ $id_ticket }}">
+                    @if ($message = Session::get('img'))
+                    <div class="alert alert-warning" role="alert">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-alert-circle"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="8" x2="12" y2="12"></line><line x1="12" y1="16" x2="12" y2="16"></line></svg>
+                        <span class="mx-2">รูปภาพของคุณไม่ถูกต้อง กรุณาใช้ jpeg,png,jpg,gif </span>
+                    </div>
+                    @endif
                     @error('img')
                     <div class="alert alert-warning" role="alert">
                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-alert-circle"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="8" x2="12" y2="12"></line><line x1="12" y1="16" x2="12" y2="16"></line></svg>

@@ -70,7 +70,7 @@ Test
                 </div>
                 <div class="tab-content mb-4">
                     <div class="tab-pane fade show active" id="home2" role="tabpanel" aria-labelledby="home-tab">
-                        
+
                         <div >
                             <h2 class="text-md text-highlight fs-18">ก่อนการใช้งานผลิตภัณฑ์</h2>
                             <div class="d-flex">
@@ -84,15 +84,15 @@ Test
                                                     <img src="{{ url('images/next_combo/open_ticket/'.$item->img) }}" id="icon_upload1"  style="height: 105px; width: 105px; border-radius: 5px;">
                                                 </a>
                                             </div>
-                                            
+
                                         @endforeach
-                                        
+
                                     @endisset
-                                    
+
                                 </div>
                             </div>
                             <div class="box-height-20"></div>
-                            
+
                             <h2 class="text-md text-highlight fs-16">ประวัติสัตว์เลี้ยง</h2>
                             <div class="form-group">
                                 <label class="text-muted">ชื่อสัตว์เลี้ยง</label>
@@ -118,7 +118,7 @@ Test
                                     <input type="text" class="form-control shadow-none" value="{{ $open->other_breed_ticket }}" readonly>
                                 </div>
                             @endisset
-                            
+
                             <div class="form-group">
                                 <label class="text-muted">โรคประจำตัว (เลือกได้หลายข้อ)</label>
                                 <input type="text" class="form-control shadow-none" value="{{ $open->disease_ticket }}" readonly>
@@ -146,7 +146,7 @@ Test
                             @isset($ask1->ark1)
                             <div class="box-height-20"></div>
                             <h2 class="text-md text-highlight fs-16">แบบประเมินหลังใช้งาน</h2>
-                            
+
                             <div class="form-group">
                                 <label class="" style="font-size:15px">1. กลิ่นของยาไม่เหม็นฉุน</label>
                                 <select class="star-rating" name="ark1">
@@ -171,7 +171,7 @@ Test
                                     <option value="5" @if( $ask1->ark2 == 5) selected='selected' @endif>Terrible</option>
                                 </select>
                             </div>
-        
+
                             <div class="form-group">
                                 <label class="" style="font-size:15px">3. มั่นใจในความปลอดภัย เช่น ใช้ได้ใน แมวแม่พันธุ์ ตั้งท้อง ให้นมลูก</label>
                                 <select class="star-rating" name="ark3">
@@ -183,7 +183,7 @@ Test
                                     <option value="5" @if( $ask1->ark3 == 5) selected='selected' @endif>Terrible</option>
                                 </select>
                             </div>
-        
+
                             <div class="form-group">
                                 <label class="" style="font-size:15px">4. ภาพรวมของโปรแกรม NEXT COMBO </label>
                                 <select class="star-rating" name="ark4">
@@ -214,11 +214,11 @@ Test
                                                     <img src="{{ url('images/next_combo/close_ticket/'.$item->img) }}" id="icon_upload1"  style="height: 105px; width: 105px; border-radius: 5px;">
                                                 </a>
                                             </div>
-                                            
+
                                         @endforeach
-                                        
+
                                     @endisset
-                                    
+
                                 </div>
                             </div>
                             <div class="box-height-20"></div>
@@ -239,7 +239,7 @@ Test
                                     <option value="5" @if( $ask2->ark1 == 5) selected='selected' @endif>Terrible</option>
                                 </select>
                             </div>
-        
+
                             <div class="form-group">
                                 <label class="" style="font-size:15px">2. ภาพรวมของโปรแกรม NEXT COMBO</label>
                                 <select class="star-rating" name="ark2">
@@ -251,7 +251,7 @@ Test
                                     <option value="5" @if( $ask2->ark2 == 5) selected='selected' @endif>Terrible</option>
                                 </select>
                             </div>
-        
+
                             <div class="form-group">
                                 <label class="" style="font-size:15px">3. ข้อเสนอแนะเพิ่มเติม</label>
                                 <textarea id="event-desc" class="form-control" name="detail" rows="6" placeholder="รายละเอียด..." readonly>@isset($ask2->detail){{ $ask2->detail }}@endisset</textarea>
@@ -273,11 +273,11 @@ Test
                                                     <img src="{{ url('images/next_combo/add_ticket/'.$item->img) }}" id="icon_upload1"  style="height: 105px; width: 105px; border-radius: 5px;">
                                                 </a>
                                             </div>
-                                            
+
                                         @endforeach
-                                        
+
                                     @endisset
-                                    
+
                                 </div>
                             </div>
                             @isset($add)
@@ -291,9 +291,9 @@ Test
                 </div>
             </div>
 
-            
-            
-            
+
+
+
 
             <div class="box-height-20"></div>
             <div class="box-height-20"></div>
@@ -305,8 +305,8 @@ Test
             <div class="box-height-20"></div>
             <div class="box-height-20"></div>
 
-            
-            
+
+
         </div>
     </div>
 </div>
@@ -323,13 +323,13 @@ Test
 $(document).ready(function(){
 $('.image-popup-vertical-fit').magnificPopup({
 	type: 'image',
-  mainClass: 'mfp-with-zoom', 
+  mainClass: 'mfp-with-zoom',
   gallery:{
 			enabled:true
 		},
 
   zoom: {
-    enabled: true, 
+    enabled: true,
 
     duration: 300, // duration of the effect, in milliseconds
     easing: 'ease-in-out', // CSS transition easing function
@@ -344,13 +344,13 @@ $('.image-popup-vertical-fit').magnificPopup({
 
 $('.image-popup-vertical-fit2').magnificPopup({
 	type: 'image',
-  mainClass: 'mfp-with-zoom', 
+  mainClass: 'mfp-with-zoom',
   gallery:{
 			enabled:true
 		},
 
   zoom: {
-    enabled: true, 
+    enabled: true,
 
     duration: 300, // duration of the effect, in milliseconds
     easing: 'ease-in-out', // CSS transition easing function
@@ -365,13 +365,13 @@ $('.image-popup-vertical-fit2').magnificPopup({
 
 $('.image-popup-vertical-fit3').magnificPopup({
 	type: 'image',
-  mainClass: 'mfp-with-zoom', 
+  mainClass: 'mfp-with-zoom',
   gallery:{
 			enabled:true
 		},
 
   zoom: {
-    enabled: true, 
+    enabled: true,
 
     duration: 300, // duration of the effect, in milliseconds
     easing: 'ease-in-out', // CSS transition easing function
@@ -394,7 +394,7 @@ $('.image-popup-vertical-fit3').magnificPopup({
 var starRatingControl = new StarRating('.star-rating',{
     maxStars: 5
 });
-    
+
 </script>
 
 
