@@ -180,7 +180,7 @@
                             @endisset
 
                             <br>
-                        <h2 class="text-md text-highlight fs-18 mt-3">เวลา : </h2>
+                        <h2 class="text-md text-highlight fs-18 mt-3">เวลา : {{ $objs->open_tickets->created_at }} </h2>
 
                     </div>
                     <div class="tab-pane fade" id="kt_tab_pane_2_{{ $objs->id }}" role="tabpanel">
@@ -233,7 +233,8 @@
                             </div>
 
 
-
+                            <br>
+                        <h2 class="text-md text-highlight fs-18 mt-3">เวลา : {{ $objs->close_tickets->created_at }} </h2>
 
                         </div>
                     </div>
@@ -256,6 +257,9 @@
                                 <label class="" style="font-size:15px">ข้อเสนอแนะเพิ่มเติม</label>
                                 <textarea id="event-desc" class="form-control" name="detail" rows="6" placeholder="รายละเอียด..." readonly>@isset($objs->add_tickets->detail){{ $objs->add_tickets->detail }}@endisset</textarea>
                             </div>
+
+                            <br>
+                            <h2 class="text-md text-highlight fs-18 mt-3">เวลา : {{ $objs->add_tickets->created_at }} </h2>
 
                         </div>
                     </div>
