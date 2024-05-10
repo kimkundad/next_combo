@@ -24,7 +24,7 @@ class DashboardController extends Controller
       //  dd($objs[1]->add_tickets->img_add_tickets);
         $objs->setPath('');
 
-       
+
 
         return view('admin.case.index', compact('count_user','count_user', 'ticket_order', 'ticket_order_close', 'objs'));
     }
@@ -32,12 +32,12 @@ class DashboardController extends Controller
     public function getData($id){
 
         $objs = ticket_order::with('users','open_tickets', 'open_tickets.img_open_tickets', 'open_tickets.ask_open_tickets' ,'close_tickets', 'close_tickets.img_close_tickets', 'close_tickets.ask_close_tickets','add_tickets', 'add_tickets.img_add_tickets')->where('id', $id)->orderby('id', 'desc')->first();
-
+        dd($objs);
         return view('admin.case.modal', compact('objs'));
     }
 
 
-    public function exportCSVFile() 
+    public function exportCSVFile()
     {
         return Excel::download(new ExportTicket , 'ticket.xlsx');
     }
@@ -59,11 +59,11 @@ class DashboardController extends Controller
         $objs = ticket_order::with('users','open_tickets', 'open_tickets.img_open_tickets', 'open_tickets.ask_open_tickets' ,'close_tickets', 'close_tickets.img_close_tickets', 'close_tickets.ask_close_tickets','add_tickets', 'add_tickets.img_add_tickets')
         ->where('code_ticket', 'like', "%$search%")
         ->orwhere('name_ticket', 'like', "%$search%")
-        ->whereRelation('users', 'fname', 'like', "%$search%") 
+        ->whereRelation('users', 'fname', 'like', "%$search%")
         ->whereRelation('users', 'lname', 'like', "%$search%")
         ->paginate(15);
         //dd($objs[1]->add_tickets->img_add_tickets);
-        
+
 
         if($search == null){
 
@@ -75,7 +75,7 @@ class DashboardController extends Controller
             $objs = ticket_order::with('users','open_tickets', 'open_tickets.img_open_tickets', 'open_tickets.ask_open_tickets' ,'close_tickets', 'close_tickets.img_close_tickets', 'close_tickets.ask_close_tickets','add_tickets', 'add_tickets.img_add_tickets')
             ->where('code_ticket', 'like', "%$search%")
             ->orwhere('name_ticket', 'like', "%$search%")
-            ->orwhereRelation('users', 'fname', 'like', "%$search%") 
+            ->orwhereRelation('users', 'fname', 'like', "%$search%")
             ->paginate(15);
 
         }
@@ -85,6 +85,6 @@ class DashboardController extends Controller
         return view('admin.case.search', compact('count_user','count_user', 'ticket_order', 'ticket_order_close', 'objs', 'search'));
 
     }
-    
+
 
 }
