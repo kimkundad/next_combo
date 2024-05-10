@@ -258,10 +258,10 @@
                                 <label class="" style="font-size:15px">ข้อเสนอแนะเพิ่มเติม</label>
                                 <textarea id="event-desc" class="form-control" name="detail" rows="6" placeholder="รายละเอียด..." readonly>@isset($objs->add_tickets->detail){{ $objs->add_tickets->detail }}@endisset</textarea>
                             </div>
-
+                            @isset($objs->add_tickets->created_at)
                             <br>
                             <h2 class="text-md text-highlight fs-18 mt-3">เวลา : {{ $objs->add_tickets->created_at }} </h2>
-
+                            @endisset
                         </div>
                     </div>
 
