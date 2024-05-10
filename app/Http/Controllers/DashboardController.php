@@ -32,7 +32,7 @@ class DashboardController extends Controller
     public function getData($id){
 
         $objs = ticket_order::with('users','open_tickets', 'open_tickets.img_open_tickets', 'open_tickets.ask_open_tickets' ,'close_tickets', 'close_tickets.img_close_tickets', 'close_tickets.ask_close_tickets','add_tickets', 'add_tickets.img_add_tickets')->where('id', $id)->orderby('id', 'desc')->first();
-        dd($objs);
+
         return view('admin.case.modal', compact('objs'));
     }
 
