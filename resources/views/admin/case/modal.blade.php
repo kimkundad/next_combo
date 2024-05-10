@@ -28,7 +28,7 @@
         .hidden{
             display: none
         }
-    
+
         .fs-18{
             font-size: 16px
         }
@@ -58,10 +58,10 @@
                         <a class="nav-link" data-bs-toggle="tab" href="#kt_tab_pane_3_{{ $objs->id }}">ผลเพิ่มเติม</a>
                     </li>
                 </ul>
-                
+
                 <div class="tab-content" id="myTabContent">
                     <div class="tab-pane fade show active" id="kt_tab_pane_{{ $objs->id }}" role="tabpanel">
-                        
+
                         <div class="d-flex justify-content-around" style="width: 100%">
 
                             @if(isset($objs->open_tickets->img_open_tickets))
@@ -129,7 +129,7 @@
                         <div class="box-height-10"></div>
 
                             @isset($objs->open_tickets->ask_open_tickets)
-                            <div class="form-group"> 
+                            <div class="form-group">
                                 <label class="" style="font-size:15px">1. กลิ่นของยาไม่เหม็นฉุน</label>
                                 <select class="star-rating" name="ark1">
                                     <option value="">Select a rating</option>
@@ -140,7 +140,7 @@
                                     <option value="1" @if( $objs->open_tickets->ask_open_tickets->ark1 == 1) selected='selected' @endif>Terrible</option>
                                 </select>
                             </div>
-                            
+
                             <div class="box-height-10"></div>
                             <div class="form-group">
                                 <label class="" style="font-size:15px">2. สะดวกแค่หยดไม่ต้องป้อนยา ถ่ายพยาธิ</label>
@@ -179,12 +179,15 @@
                             </div>
                             @endisset
 
+                            <br>
+                        <h2 class="text-md text-highlight fs-18 mt-3">เวลา : </h2>
+
                     </div>
                     <div class="tab-pane fade" id="kt_tab_pane_2_{{ $objs->id }}" role="tabpanel">
                         <div class="p-26">
-                            
-                           
-                     
+
+
+
                             <div class="d-flex justify-content-around" style="width: 100%">
 
                                 @if(isset($objs->close_tickets->img_close_tickets))
@@ -223,15 +226,15 @@
                                 </select>
                             </div>
                             @endisset
-        
+
                             <div class="form-group">
                                 <label class="" style="font-size:15px">3. ข้อเสนอแนะเพิ่มเติม</label>
                                 <textarea id="event-desc" class="form-control" name="detail" rows="6" placeholder="รายละเอียด..." readonly>@isset($objs->close_tickets->ask_close_tickets->detail){{ $objs->close_tickets->ask_close_tickets->detail }}@endisset</textarea>
                             </div>
-                            
-                        
-                            
-                            
+
+
+
+
                         </div>
                     </div>
 
@@ -265,15 +268,14 @@
             </div>
 
             @include('admin.layouts.inc-script')
-  
+
             <script src="{{ url('home/star/dist/star-rating.min.js') }}"></script>
             <script>
             var starRatingControl = new StarRating('.star-rating',{
                 maxStars: 5
             });
-                
+
             </script>
         </body>
         </html>
 
-      
