@@ -56,14 +56,14 @@ Test
             <div class="p-26 text-center">
                 <div class="d-flex justify-content-center">
                     {{-- <video id="VisaChipCardVideo" style="min-width: 446px; max-width: 660px;"  controls>
-                        <source src="https://kimspace2.sgp1.cdn.digitaloceanspaces.com/next_combo/VDO_NexGard_Combo.mp4" style="min-width: 446px; max-width: 660px;" type="video/mp4">
+                        <source src="https://kimspace2.sgp1.cdn.digitaloceanspaces.com/next_combo/v3Cut_Final_2024_BI_VDO_NexGard_Combo.mp4" style="min-width: 446px; max-width: 660px;" type="video/mp4">
                         <!--Browser does not support <video> tag --> cover_video.jpg
                       </video> --}}
                       <video id="myPlayer" class="video-js"
                         controls preload="auto"style="min-width: 446px; height:251px; max-width: 660px;"
                         poster="{{ url('img/cover_video_2.jpg') }}"
                         >
-                    <source src="https://kimspace2.sgp1.cdn.digitaloceanspaces.com/next_combo/V1_2024_BI_VDO_NexGard_Combo.mp4" type="video/mp4">
+                    <source src="https://kimspace2.sgp1.cdn.digitaloceanspaces.com/next_combo/v3Cut_Final_2024_BI_VDO_NexGard_Combo.mp4" type="video/mp4">
                     </video>
                 </div>
                 <div class="box-height-20"></div>
