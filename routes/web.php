@@ -56,10 +56,10 @@ Route::group(['middleware' => ['UserRole:superadmin|admin|user']], function() {
     Route::post('/post_close_ticket', [App\Http\Controllers\HomeController::class, 'post_close_ticket']);
     Route::post('/post_add_ticket', [App\Http\Controllers\HomeController::class, 'post_add_ticket']);
     Route::post('/post_change_newpass', [App\Http\Controllers\HomeController::class, 'post_change_newpass']);
-    
+
     Route::post('/post_servey_before', [App\Http\Controllers\HomeController::class, 'post_servey_before']);
     Route::post('/post_servey_after', [App\Http\Controllers\HomeController::class, 'post_servey_after']);
-    
+
     Route::get('/create_complete', function () {
         return view('create_complete');
     });
@@ -74,8 +74,8 @@ Route::group(['middleware' => ['UserRole:superadmin|admin|user']], function() {
 
     Route::post('/create_user_profile', [App\Http\Controllers\HomeController::class, 'create_user_profile']);
     Route::post('/create_user_profile2', [App\Http\Controllers\HomeController::class, 'create_user_profile2']);
-    
-    
+
+
     Route::get('/api/api_post_case', [App\Http\Controllers\HomeController::class, 'api_post_case']);
     Route::get('/create_account2', [App\Http\Controllers\HomeController::class, 'create_account2']);
 
@@ -88,17 +88,17 @@ Route::group(['middleware' => ['UserRole:superadmin|admin|user']], function() {
     Route::get('/open_ticket', function () {
         return view('open_ticket');
     });
-    
+
     Route::get('/detail_ticket/{id}', [App\Http\Controllers\HomeController::class, 'detail_ticket']);
-    
+
     Route::get('/close_ticket/{id}', [App\Http\Controllers\HomeController::class, 'close_ticket']);
-    
+
     Route::get('/add_ticket/{id}', [App\Http\Controllers\HomeController::class, 'add_ticket']);
 
     Route::get('/servey_after/{id}', [App\Http\Controllers\HomeController::class, 'servey_after']);
-    
+
     Route::get('/servey_before/{id}', [App\Http\Controllers\HomeController::class, 'servey_before']);
-    
+
     Route::get('/servey_success', function () {
         return view('success_1');
     });
@@ -113,9 +113,11 @@ Route::group(['middleware' => ['UserRole:superadmin|admin']], function() {
 
     Route::get('export/csv', [App\Http\Controllers\DashboardController::class, 'exportCSVFile'])->name('export.csv');
 
+    Route::get('export/userx', [App\Http\Controllers\DashboardController::class, 'userx'])->name('userx.csv');
+
     Route::get('/admin/case', [App\Http\Controllers\DashboardController::class, 'index']);
     Route::get('admin/sace_search/', [App\Http\Controllers\DashboardController::class, 'sace_search']);
-    
+
     Route::get('api/modal-data/{id}', [App\Http\Controllers\DashboardController::class, 'getData']);
 
     Route::resource('/admin/MyUser', MyUserController::class);
