@@ -87,7 +87,7 @@
                         <div class="input-group">
                             <span class="input-group-append">
                                 <button class="btn btn-white no-border btn-sm" type="button"
-                                style="    
+                                style="
                                 border-top: 1px solid #b4aeae !important;
                                 border-bottom: 1px solid #b4aeae !important;
                                 border-left: 1px solid #b4aeae !important;
@@ -114,7 +114,7 @@
                     </form>
                 </div>
                 <div class="text-center border-bottom p-20">
-                    
+
                     <a class="mb-0" id="icon-up-down">
                         <div class="d-flex justify-content-center">
                             <span>เรียงตามเวลาอัพเดท</span>
@@ -139,7 +139,7 @@
                                 </div>
                                 <div class="d-flex">
                                     <div>
-                                        <span class="fs-13"><svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-calendar"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg> 
+                                        <span class="fs-13"><svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-calendar"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
                                             14/09/2024
                                         </span>
                                     </div>
@@ -159,7 +159,7 @@
                                 </div>
                                 <div class="d-flex">
                                     <div>
-                                        <span class="fs-13"><svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-calendar"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg> 
+                                        <span class="fs-13"><svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-calendar"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
                                             14/09/2024
                                         </span>
                                     </div>
@@ -191,7 +191,7 @@
                                     </div>
                                     <div class="d-flex">
                                         <div>
-                                            <span class="fs-13"><svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-calendar"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg> 
+                                            <span class="fs-13"><svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-calendar"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
                                                 {{ date('d/m/Y', strtotime($item->created_at)) }}
                                             </span>
                                         </div>
@@ -208,7 +208,7 @@
                                                 </div>
 
                                                 @else
-                                                
+
                                                 <div style="margin-left: 10px">
                                                 <a href="{{ url('add_ticket/'.$item->id) }}">
                                                     <p class="fs-13 text-color-green mb-0 " style="font-size: 14px"> รายงานผลเพิ่มเติม</p>
@@ -233,14 +233,14 @@
                                 </div>
                             </div>
 
-                           
+
                             @endforeach
                         @endisset
-                       
+
 
                     </div>
                 </div>
-                
+
 
 
                 <div class="box-height-20"></div>
@@ -254,7 +254,7 @@
         <div id="light">
         <a class="boxclose" id="boxclose" onclick="lightbox_close();"></a>
         <video id="VisaChipCardVideo" style="max-width: 356px;"  controls>
-            <source src="https://kimspace2.sgp1.cdn.digitaloceanspaces.com/next_combo/V1_2024_BI_VDO_NexGard_Combo.mp4" style="min-width: 446px; max-width: 660px;" type="video/mp4">
+            <source src="https://kimspace2.sgp1.cdn.digitaloceanspaces.com/next_combo/v3Cut_Final_2024_BI_VDO_NexGard_Combo.mp4" style="min-width: 446px; max-width: 660px;" type="video/mp4">
             <!--Browser does not support <video> tag -->
           </video>
         </div>
@@ -300,7 +300,7 @@ $(document).on('click','#icon-up-down',function (event) {
                 success: function(data){
                   if(data.data.success){
 
-                    
+
 
                     if(data.data.up === 1){
 
@@ -340,13 +340,13 @@ $(document).on('click','#icon-up-down',function (event) {
                         });
 
                     }
-                    
+
 
                   }
                 }
             });
 
-    
+
 });
 </script>
 
