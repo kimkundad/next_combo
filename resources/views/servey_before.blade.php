@@ -55,7 +55,7 @@ Test
 
                 </div>
             </div>
-            
+
             <form class="" id="form-id1" role="form" method="POST" action="{{ url('post_servey_before') }}">
                 {{ csrf_field() }}
                 <div class="p-26">
@@ -93,7 +93,7 @@ Test
                     <h2 class="text-md text-highlight fs-18">แบบประเมินหลังใช้งาน</h2>
                     <div class="box-height-10"></div>
                     <div class="form-group">
-                        <label class="" style="font-size:15px">1. กลิ่นของยาไม่เหม็นฉุน</label>
+                        <label class="" style="font-size:15px">1. กลิ่นไม่เหม็นฉุน</label>
                         <select class="star-rating" name="ark1">
                             <option value="">Select a rating</option>
                             <option value="1">Excellent</option>
@@ -141,17 +141,17 @@ Test
                     </div>
 
 
-                    
-                    
+                    <p class="text-danger">การส่งเคสจะเสร็จสมบูรณ์ เมื่อท่านมีการติดตามการรักษาและปิดเคสเรียบร้อยแล้วเท่านั้น</p>
+
                     <div class="mt-3">
                         <button class="btn btn-green btn-block" id="btnSubmit" onclick="window.location.href='{{ url('servey_success') }}'">
                             ยืนยันข้อมูล
                         </button>
                     </div>
-                    
+
             </div>
             </form>
-            
+
 
             <div class="box-height-20"></div>
             <div class="box-height-20"></div>
@@ -163,8 +163,8 @@ Test
             <div class="box-height-20"></div>
             <div class="box-height-20"></div>
 
-            
-            
+
+
         </div>
     </div>
 </div>
@@ -179,14 +179,14 @@ Test
 <script>
 
 $(document).ready(function () {
-     $("#btnSubmit").on('click', function (event) {  
+     $("#btnSubmit").on('click', function (event) {
            event.preventDefault();
            var el = $(this);
            el.prop('disabled', true);
 
            var form = document.getElementById("form-id1");
            form.submit();
-           
+
            setTimeout(function(){el.prop('disabled', false); }, 3000);
      });
 });
@@ -194,7 +194,7 @@ $(document).ready(function () {
 var starRatingControl = new StarRating('.star-rating',{
     maxStars: 5
 });
-    
+
 </script>
 
 @stop('scripts')

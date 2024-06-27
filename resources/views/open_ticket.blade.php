@@ -103,7 +103,7 @@ Test
                     <div>
                         <p class="mb-0 text-danger fs-10px-red">
                             อัพโหลดรูปภาพน้องแมว ให้เห็นบริเวณที่มีรอยโรค/ปรสิต เช่น ภูมิแพ้น้ำ
-                            ลายหมัด ไรในหู ไรขี้เรื้อนแห้ง หรือหากไม่มีรอยโรคชัดเจน สามารถอัพโหลดรูปทั้งตัวของน้องแมวได้เลย (อัพโหลดได้สูงสุด 3 รูป)
+                            ลายหมัด ไรในหู ไรขี้เรื้อนแห้ง หรือหากไม่มีรอยโรคชัดเจน สามารถอัพโหลดรูปขณะกำลังใช้โปรแกรม Next COMBO ได้เลย (อัพโหลดได้สูงสุด 3 รูป)
                         </p>
                                 <a  class="image-popup-vertical-fit mb-0 ex-red" href="{{ url('img/photo.png') }}"  >
                                     คลิก เพื่อดูตัวอย่างรูปถ่าย
@@ -248,6 +248,9 @@ Test
                         <label class="text-muted">จุดประสงค์การใช้งาน กรณีเลือก อื่นๆ (โปรดระบุ)</label>
                         <input type="text" class="form-control shadow-none" name="other_objective_ticket" placeholder="โปรดระบุจุดประสงค์การใช้งาน">
                     </div>
+<div class="box-height-10"></div>
+                    <div class="box-height-10"></div>
+                    <p class="text-success" style="font-size:11px">ทีมงานจะมีการตรวจสอบรูปที่ท่านส่งมาอีกคร้ังการตัดสินของทีมงานถือเป็นที่สิ้นสุด</p>
                     <div class="mt-3">
                         <button id="btnSubmit" class="btn btn-green btn-block" >
                             บันทึกข้อมูล
