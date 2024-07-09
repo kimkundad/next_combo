@@ -141,7 +141,7 @@ Test
                     </div>
 
 
-                    <p class="text-danger text-center" style="font-size:15px">การส่งเคสจะเสร็จสมบูรณ์ เมื่อท่านมีการติดตามการรักษาและปิดเคสเรียบร้อยแล้วเท่านั้น</p>
+                    <p class="text-danger text-center" style="font-size:16px">การส่งเคสจะเสร็จสมบูรณ์ เมื่อท่านมีการติดตามการรักษาและปิดเคสเรียบร้อยแล้วเท่านั้น</p>
 
                     <div class="mt-3">
                         <button class="btn btn-green btn-block" id="btnSubmit" onclick="window.location.href='{{ url('servey_success') }}'">
