@@ -54,7 +54,7 @@ Test
 
                 </div>
             </div>
-            
+
 
                 <form class="" id="form-id1" role="form" method="POST" action="{{ url('post_servey_after') }}">
                     {{ csrf_field() }}
@@ -74,7 +74,7 @@ Test
                     </div>
                     @enderror
 
-                    
+
 
 
                     <input type="hidden" name="ticket_orders_id" value="{{ $id_ticket }}">
@@ -105,7 +105,7 @@ Test
                     </div>
 
                     <div class="form-group">
-                        <label class="" style="font-size:15px">3. ข้อเสนอแนะเพิ่มเติม</label>
+                        <label class="" style="font-size:15px">3. กรุณากรอกข้อเสนอแนะเพิ่มเติมเพื่อปิดเคส (จำเป็น)<span class="text-danger">*</span></label>
                         <textarea id="event-desc" class="form-control" name="detail" rows="6" placeholder="รายละเอียด..."></textarea>
                     </div>
 
@@ -118,17 +118,17 @@ Test
                             ของท่านให้ถูกต้องครบถ้วนก่อน<br>
                             การกดยืนยันการปิดเคส</h2>
                     </div>
-                    
-                    
+
+
                     <div class="mt-3">
                         <button id="btnSubmit" class="btn btn-green btn-block" >
                             บันทึกข้อมูล และยืนยันการปิดเคส
                         </button>
                     </div>
-                    
+
             </div>
             </form>
-            
+
 
             <div class="box-height-20"></div>
             <div class="box-height-20"></div>
@@ -140,8 +140,8 @@ Test
             <div class="box-height-20"></div>
             <div class="box-height-20"></div>
 
-            
-            
+
+
         </div>
     </div>
 </div>
@@ -156,14 +156,14 @@ Test
 <script>
 
 $(document).ready(function () {
-     $("#btnSubmit").on('click', function (event) {  
+     $("#btnSubmit").on('click', function (event) {
            event.preventDefault();
            var el = $(this);
            el.prop('disabled', true);
 
            var form = document.getElementById("form-id1");
            form.submit();
-           
+
            setTimeout(function(){el.prop('disabled', false); }, 3000);
      });
 });
@@ -171,7 +171,7 @@ $(document).ready(function () {
 var starRatingControl = new StarRating('.star-rating',{
     maxStars: 5
 });
-    
+
 </script>
 
 @stop('scripts')

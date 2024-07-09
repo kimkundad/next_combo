@@ -108,7 +108,7 @@ Test
                     <div class="box-height-10"></div>
                     <div class="box-height-10"></div>
                     <div class="box-height-10"></div>
-                    <p class="text-success" style="font-size:11px">ทีมงานจะมีการตรวจสอบรูปที่ท่านส่งมาอีกคร้ังการตัดสินของทีมงานถือเป็นที่สิ้นสุด</p>
+                    <p class="text-success" style="font-size:14px">ทีมงานจะมีการตรวจสอบรูปที่ท่านส่งมาอีกคร้ังการตัดสินของทีมงานถือเป็นที่สิ้นสุด</p>
                     <div class="mt-3">
                         <button id="btnSubmit" class="btn btn-green btn-block" >
                             บันทึกข้อมูล
