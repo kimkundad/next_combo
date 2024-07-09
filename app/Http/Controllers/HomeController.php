@@ -152,7 +152,8 @@ class HomeController extends Controller
 
     $this->validate($request, [
       'ark1' => 'required',
-      'ark2' => 'required'
+      'ark2' => 'required',
+      'detail' => 'required'
   ]);
     $objs = new ask_close_ticket();
     $objs->user_id = Auth::user()->id;
