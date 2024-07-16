@@ -112,7 +112,7 @@ Test
                     </div>
 
                     <div class="form-group">
-                        <label class="" style="font-size:15px">3. กรุณากรอกข้อเสนอแนะเพิ่มเติมเพื่อปิดเคส (จำเป็น)<span class="text-danger">*</span></label>
+                        <label class="" style="font-size:15px">3. กรุณากรอกคำอธิบายเพิ่มเติมเพื่อปิดเคส (จำเป็น)<span class="text-danger">*</span></label>
                         <textarea id="event-desc" class="form-control" name="detail" rows="6" placeholder="รายละเอียด..."></textarea>
                     </div>
 
