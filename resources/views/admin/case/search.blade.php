@@ -53,8 +53,8 @@
             <div id="kt_app_content" class="app-content flex-column-fluid">
                 <!--begin::Content container-->
                 <div id="kt_app_content_container" class="app-container container-xxl">
-                    
-                 
+
+
                     <div class="card">
                         <div class="card-body">
                             <div class="d-flex">
@@ -96,7 +96,7 @@
                                 <!--begin::Search-->
                                 <form action="{{url('admin/sace_search')}}" method="GET" enctype="multipart/form-data">
                                 <div class="d-flex align-items-center position-relative my-1 mt-3">
-                                    
+
                                         {{ csrf_field() }}
                                         <!--begin::Svg Icon | path: icons/duotune/general/gen021.svg-->
                                         <span class="svg-icon svg-icon-1 position-absolute ms-4 mr-3">
@@ -108,7 +108,7 @@
                                         <!--end::Svg Icon-->
                                         <input type="text" id="search_name" name="search" value="{{$search}}" class="form-control form-control-solid w-400px ps-14" placeholder="ค้นหารายชื่อ รหัสใบเคส" />
                                         <button type="submit" class="btn btn-primary filter ml-3">ค้นหา</button>
-                                    
+
                                 </div>
                             </form>
                                 <!--end::Search-->
@@ -141,7 +141,7 @@
                                                 @else
                                                 <span class="badge badge-light-success fs-7 fw-bold">Close</span>
                                                 @endif
-                                                
+
                                                 <span class="text-muted fw-semibold text-muted d-block fs-7 mt-2">{{ $item->created_at }}</span>
                                             </td>
                                             <td class="text-center">
@@ -170,13 +170,13 @@
                                                     </div>
 
                                                 </div>
-                                                
+
                                             </td>
                                             <td>
                                                 <a href="#" class="text-dark fw-bold text-hover-primary mb-1 fs-6">{{ $item->users->fname }} {{ $item->users->lname }}</a>
                                                 <span class="text-muted fw-semibold d-block fs-7">ชื่อคลีนิก {{ $item->users->address }}</span>
                                             </td>
-                                            
+
                                             <td class="text-end">
                                                 <a href="#" data-bs-toggle="modal" data-bs-target="#kt_modal_{{ $item->id }}" class="btn btn-secondary btn-sm me-2 mb-2">ดูข้อมูล</a>
                                             </td>
@@ -187,14 +187,14 @@
                                                 <div class="modal-content">
                                                     <div class="modal-header">
                                                         <h3 class="modal-title text-success">ข้อมูลของ {{ $item->code_ticket }}</h3>
-                                        
+
                                                         <!--begin::Close-->
                                                         <div class="btn btn-icon btn-sm btn-active-light-primary ms-2" data-bs-dismiss="modal" aria-label="Close">
                                                             <i class="ki-duotone ki-cross fs-1"><span class="path1"></span><span class="path2"></span></i>
                                                         </div>
                                                         <!--end::Close-->
                                                     </div>
-                                        
+
                                                     <div class="modal-body">
                                                         <ul class="nav nav-tabs nav-line-tabs mb-5 fs-6">
                                                             <li class="nav-item">
@@ -207,10 +207,10 @@
                                                                 <a class="nav-link" data-bs-toggle="tab" href="#kt_tab_pane_3_{{ $item->id }}">ผลเพิ่มเติม</a>
                                                             </li>
                                                         </ul>
-                                                        
+
                                                         <div class="tab-content" id="myTabContent">
                                                             <div class="tab-pane fade show active" id="kt_tab_pane_{{ $item->id }}" role="tabpanel">
-                                                                
+
                                                                 <div class="d-flex justify-content-around" style="width: 100%">
 
                                                                     @if(isset($item->open_tickets->img_open_tickets))
@@ -278,7 +278,7 @@
                                                                 <div class="box-height-10"></div>
 
                                                                     @isset($item->open_tickets->ask_open_tickets)
-                                                                    <div class="form-group"> 
+                                                                    <div class="form-group">
                                                                         <label class="" style="font-size:15px">1. กลิ่นของยาไม่เหม็นฉุน</label>
                                                                         <select class="star-rating" name="ark1">
                                                                             <option value="">Select a rating</option>
@@ -289,7 +289,7 @@
                                                                             <option value="1" @if( $item->open_tickets->ask_open_tickets->ark1 == 1) selected='selected' @endif>Terrible</option>
                                                                         </select>
                                                                     </div>
-                                                                    
+
                                                                     <div class="box-height-10"></div>
                                                                     <div class="form-group">
                                                                         <label class="" style="font-size:15px">2. สะดวกแค่หยดไม่ต้องป้อนยา ถ่ายพยาธิ</label>
@@ -327,13 +327,13 @@
                                                                         </select>
                                                                     </div>
                                                                     @endisset
-                                
+
                                                             </div>
                                                             <div class="tab-pane fade" id="kt_tab_pane_2_{{ $item->id }}" role="tabpanel">
                                                                 <div class="p-26">
-                                                                    
-                                                                   
-                                                             
+
+
+
                                                                     <div class="d-flex justify-content-around" style="width: 100%">
 
                                                                         @if(isset($item->close_tickets->img_close_tickets))
@@ -341,7 +341,7 @@
                                                                                 <div class="mr-15"><img src="{{ url('images/next_combo/close_ticket/'.$img->img) }}" class="img-fluid card-rounded" alt="cat"></div>
                                                                             @endforeach
                                                                         @endif
-    
+
                                                                     </div>
                                                                     <br>
                                                                     <h2 class="text-md text-highlight fs-16">แบบประเมินหลังใช้งาน</h2>
@@ -372,15 +372,15 @@
                                                                         </select>
                                                                     </div>
                                                                     @endisset
-                                                
+
                                                                     <div class="form-group">
                                                                         <label class="" style="font-size:15px">3. ข้อเสนอแนะเพิ่มเติม</label>
                                                                         <textarea id="event-desc" class="form-control" name="detail" rows="6" placeholder="รายละเอียด..." readonly>@isset($item->close_tickets->ask_close_tickets->detail){{ $item->close_tickets->ask_close_tickets->detail }}@endisset</textarea>
                                                                     </div>
-                                                                    
-                                                                
-                                                                    
-                                                                    
+
+
+
+
                                                                 </div>
                                                             </div>
 
@@ -394,7 +394,7 @@
                                                                                 <div class="mr-15"><img src="{{ url('images/next_combo/add_ticket/'.$img->img) }}" class="img-fluid card-rounded" alt="cat"></div>
                                                                             @endforeach
                                                                         @endif
-    
+
                                                                     </div>
                                                                     <br>
                                                                     <div class="box-height-10"></div>
@@ -408,7 +408,7 @@
 
                                                         </div>
                                                     </div>
-                                        
+
                                                     <div class="modal-footer justify-content-center">
                                                         <button type="button" class="btn btn-light" data-bs-dismiss="modal">ปิดหน้าต่าง</button>
                                                     </div>
@@ -425,9 +425,9 @@
                             </div>
                         </div>
                     </div>
-                    
 
-                    
+
+
                 </div>
                 <!--end::Content container-->
             </div>
@@ -436,9 +436,9 @@
         <!--end::Content wrapper-->
 
 
-        
-        
-        
+
+
+
     </div>
 
 @endsection
@@ -455,7 +455,7 @@
 var starRatingControl = new StarRating('.star-rating',{
     maxStars: 5
 });
-    
+
 </script>
 
 @stop('scripts')
