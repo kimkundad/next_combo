@@ -420,7 +420,7 @@
 
                                     </tbody>
                                 </table>
-                                @include('admin.pagination.default', ['paginator' => $objs])
+                                @include('admin.pagination.search', ['paginator' => $objs])
 
                             </div>
                         </div>
