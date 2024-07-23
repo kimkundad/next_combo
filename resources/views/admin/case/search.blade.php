@@ -420,7 +420,31 @@
 
                                     </tbody>
                                 </table>
-                                @include('admin.pagination.search', ['paginator' => $objs])
+                                {{-- @include('admin.pagination.search', ['paginator' => $objs]) --}}
+
+
+                                <ul class="pagination">
+                                    <!-- Previous Button -->
+                                    <li class="page-item previous {{ ($objs->currentPage() == 1) ? ' disabled' : '' }}">
+                                        <a href="{{ $objs->url(1) . '&_token='.$_token.'&search='.$search.'' }}" class="page-link">
+                                            <i class="previous"></i>
+                                        </a>
+                                    </li>
+
+                                    <!-- Page Numbers -->
+                                    @for ($i = 1; $i <= $objs->lastPage(); $i++)
+                                        <li class="page-item {{ ($objs->currentPage() == $i) ? ' active' : '' }}">
+                                            <a href="{{ $objs->url($i) . '&_token='.$_token.'&search='.$search.'' }}" class="page-link">{{ $i }}</a>
+                                        </li>
+                                    @endfor
+
+                                    <!-- Next Button -->
+                                    <li class="page-item next {{ ($objs->currentPage() == $objs->lastPage()) ? ' disabled' : '' }}">
+                                        <a href="{{ $objs->url($objs->currentPage() + 1) . '&_token='.$_token.'&search='.$search.'' }}" class="page-link">
+                                            <i class="next"></i>
+                                        </a>
+                                    </li>
+                                </ul>
 
                             </div>
                         </div>

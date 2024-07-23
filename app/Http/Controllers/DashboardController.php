@@ -57,6 +57,7 @@ class DashboardController extends Controller
 
 
         $search = $request->get('search');
+        $_token = $request->get('_token');
 
         $count_user = User::where('shop_id', '!=', 0)->count();
         $ticket_order_close = ticket_order::where('close_ticket', '!=', 0)->count();
@@ -88,7 +89,7 @@ class DashboardController extends Controller
 
         $objs->setPath('');
 
-        return view('admin.case.search', compact('count_user','count_user', 'ticket_order', 'ticket_order_close', 'objs', 'search'));
+        return view('admin.case.search', compact('count_user','count_user', 'ticket_order', 'ticket_order_close', 'objs', 'search', '_token'));
 
     }
 
